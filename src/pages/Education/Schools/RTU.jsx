@@ -4,6 +4,21 @@ import styled from "styled-components";
 import logoRTU from "../../../assets/Schools/RTU/logoRTU.png";
 
 import logoESN from "../../../assets/Schools/RTU/logoESN.png"
+import logoRIGA from "../../../assets/Schools/RTU/logoRIGA.png"
+import logoPROGRAMING from "../../../assets/Schools/RTU/logoPROGRAMING.jpg"
+
+
+
+import logoUML from "../../../assets/Schools/UTC/logoUML.png";
+import logoPYTHON from "../../../assets/Schools/UTC/logoPYTHON.png";
+import logoCplusplus from "../../../assets/Schools/RTU/logoC++.png"
+import logoORANGE from "../../../assets/Schools/RTU/logoORANGE.png"
+import logoPYGAME from "../../../assets/Schools/RTU/logoPYGAME.png"
+import logoWORDPRESS from "../../../assets/Schools/RTU/logoWORDPRESS.png"
+
+
+
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay} from "swiper";
 import "swiper/css";
@@ -13,11 +28,14 @@ import "swiper/css/autoplay";
 const DescriptionContainer = styled.div`
   z-index: 1;
   padding: 20px;
-  width: 90%;
+  width: fit-content;
   border-radius: 50px;
+  margin-left: 50px ;
+  margin-right: 80px;
   background: rgba(238, 238, 238, 0.19);
   display: flex;
   flex-direction: column;
+  animation: 3s infinite alternate floating;
 
   @keyframes floating {
     to {
@@ -97,7 +115,7 @@ const StackList = styled.div`
 `;
 
 const StackBox = styled.div`
-  background: white;
+  background: ${props => props.color};
   border-radius: 10px;
   height: 60px;
   margin-bottom: 10px;
@@ -106,6 +124,12 @@ const StackBox = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
+
+  &:hover {
+    scale: 0.9
+  }
+  
 `;
 
 const KeyWords = styled.div`
@@ -222,8 +246,9 @@ const AssociationListContainer = styled.div`
 const AssociationList = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   height: 60px;
+  gap: 50px;
   //background: rgba(250, 54, 217, 0.42);
 `;
 
@@ -262,18 +287,19 @@ function RTUDescription() {
 
 export default function RtuComponent() {
 
-
     const stackBoxImages = [
-        [logoESN, "#ffffff", "https://info.erasmusplus.fr/"],
-        [logoRTU, "#ffffff", "https://info.erasmusplus.fr/"],
-        [logoESN, "#ffffff", "https://info.erasmusplus.fr/"],
-        [logoRTU, "#ffffff", "https://info.erasmusplus.fr/"],
-        [logoESN, "#ffffff", "https://info.erasmusplus.fr/"],
-        [logoRTU, "#ffffff", "https://info.erasmusplus.fr/"],
+        ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["UML", logoUML, "transparent", "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
+        ["C++", logoCplusplus, "transparent", "https://en.wikipedia.org/wiki/C%2B%2B"],
+        ["WORDPRESS", logoWORDPRESS, "transparent", "https://en.wikipedia.org/wiki/WordPress.com"],
+        ["PYGAME", logoPYGAME, "transparent", "https://www.pygame.org/news"],
+        ["ORANGE", logoORANGE, "transparent", "https://orangedatamining.com/"],
     ];
 
     const associationBoxImages = [
         [logoESN, "#ffffff", "https://info.erasmusplus.fr/"],
+        [logoPROGRAMING, "#ffffff", "https://github.com/Victordmss"],
+        [logoRIGA, "#ffffff", "https://www.riga.lv/lv?utm_source=https%3A%2F%2Fwww.google.com%2F"],
     ];
 
     return <DescriptionContainer>
@@ -295,17 +321,15 @@ export default function RtuComponent() {
                                 disableOnInteraction: false
                             }}
                         >
-                            {stackBoxImages.map((url, index) => (
-                                <SwiperSlide>
-                                    <StackBox key={index} url={url}/>
+                            {stackBoxImages.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <a key={index} href={item[3]} target="_blank" rel="noreferrer"><StackBox key={index} url={item[1]} color={item[2]}/></a>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     </StackList>
                 </StackListContainer>
-                <center>
-                    <Line/>
-                </center>
+                <Line/>
                 <KeyWords>
                     <Word> <a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Software engineering</a> </Word>
                     <Word> <a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">OOP</a> </Word>

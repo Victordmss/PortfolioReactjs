@@ -24,16 +24,17 @@ import {Autoplay} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-
-
 const DescriptionContainer = styled.div`
   z-index: 1;
   padding: 20px;
-  width: 90%;
+  width: fit-content;
+  margin-left: 50px ;
+  margin-right: 80px;
   border-radius: 50px;
   background: rgba(238, 238, 238, 0.19);
   display: flex;
   flex-direction: column;
+  animation: 3s infinite alternate floating;
 
   @keyframes floating {
     to {
@@ -125,7 +126,6 @@ const StackList = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: 10px;
-  height: 60px;
   //background: rgba(250, 54, 217, 0.42);
 `;
 
@@ -137,6 +137,11 @@ const StackBox = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
+
+  &:hover {
+    scale: 0.9
+  }
 `;
 
 const KeyWords = styled.div`
@@ -306,14 +311,14 @@ function UTCDescription() {
 export default function UtcComponent(animation) {
 
     const stackBoxImages = [
-        ["C", logoC],
-        ["Python", logoPYTHON],
-        ["SQL", logoSQL],
-        ["VHDL", logoVHDL],
-        ["PostreSQL", logoPOSTGRESQL],
-        ["Linux", logoLINUX],
-        ["R", logoR],
-        ["UML", logoUML],
+        ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
+        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
+        ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
+        ["PostreSQL", logoPOSTGRESQL, "https://en.wikipedia.org/wiki/PostgreSQL"],
+        ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
+        ["R", logoR, "https://en.wikipedia.org/wiki/R_(programming_language)"],
+        ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
     ];
 
     const associationBoxImages = [
@@ -347,21 +352,19 @@ export default function UtcComponent(animation) {
                             }}
                         >
                             {stackBoxImages.map((item, index) => (
-                                <SwiperSlide>
-                                    <StackBox key={index} url={item[1]}/>
+                                <SwiperSlide key={index}>
+                                    <a key={index} href={item[2]} target="_blank" rel="noreferrer"><StackBox key={index} url={item[1]}/></a>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     </StackList>
                 </StackListContainer>
-                <center>
-                    <Line/>
-                </center>
+                <Line/>
                 <KeyWords>
-                    <Word><a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank">Data Structures</a></Word>
-                    <Word><a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank">Computer Architecture</a></Word>
-                    <Word><a href={"https://stph.scenari-community.org/bdd/0/co/bdd.html"} target="_blank">Database</a></Word>
-                    <Word><a href={"https://en.wikipedia.org/wiki/VHDL"} target="_blank">FPGA</a></Word>
+                    <Word><a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Data Structures</a></Word>
+                    <Word><a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">Computer Architecture</a></Word>
+                    <Word><a href={"https://stph.scenari-community.org/bdd/0/co/bdd.html"} target="_blank" rel="noreferrer">Database</a></Word>
+                    <Word><a href={"https://en.wikipedia.org/wiki/VHDL"} target="_blank" rel="noreferrer">FPGA</a></Word>
                 </KeyWords>
             </Presentation>
         </FirstRow>
@@ -371,7 +374,7 @@ export default function UtcComponent(animation) {
                 <VolunteeringTitle><SemiLine/><b>Volunteering Experiences</b><SemiLine/></VolunteeringTitle>
                 <AssociationList>
                     {associationBoxImages.map((data, index) => (
-                        <a key={index} href={data[2]} target="_blank"><AssociationBox key={index} url={data[0]} color={data[1]}/></a>
+                        <a key={index} href={data[2]} target="_blank" rel="noreferrer"><AssociationBox key={index} url={data[0]} color={data[1]}/></a>
                     ))}
                 </AssociationList>
             </AssociationListContainer>

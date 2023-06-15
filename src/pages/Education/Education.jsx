@@ -8,7 +8,7 @@ import {StyledContainer, StyledGradientLine, StyledCircle} from "../../App.js"
 import Hat from "./GraduationHat";
 import UtcComponent from "./Schools/UTC"
 import rtuComponent from "./Schools/RTU";
-import lfcComponent from "./Schools/LFC";
+import LfcComponent from "./Schools/LFC";
 
 const Section = styled.div`
   height: 100vh;
@@ -33,10 +33,11 @@ const Middle = styled.div`
 `;
 
 const Right = styled.div`
+  //background: #db2b39;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 3;
+  width: 50%;
   height: 100%;
 `;
 
@@ -88,6 +89,8 @@ const MapContainer = styled.div`
 `;
 
 const CanvasContainer = styled.div`
+  align-self: center;
+  //background: aqua;
   height: 70%;
   width: 70%;
   animation: ${(props) => (props.animation && "GetIn") || "GetOut"} 1s ease-in;
@@ -148,7 +151,7 @@ function Education() {
                     (
                         description==="LFC"
                         &&
-                        lfcComponent()
+                        LfcComponent()
                     )
                     ||
                     (

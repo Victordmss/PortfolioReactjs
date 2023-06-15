@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "../styles/NavBar.css";
+import "./NavBar.css";
 import styled from "styled-components";
-import avatar from "../assets/avatar.png";
+import avatar from "../../assets/avatar.png";
 
 const Bar = styled.div`
   scroll-snap-align: center

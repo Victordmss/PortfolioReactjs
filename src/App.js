@@ -1,7 +1,7 @@
 import "./App.css"
 import React from "react";
 import styled from "styled-components"
-import NavBar from "./pages/NavBar";
+import NavBar from "./pages/NavBar/NavBar";
 import About from "./pages/About/About";
 import Education from "./pages/Education/Education";
 import Projects from "./pages/Projects/Projects";
