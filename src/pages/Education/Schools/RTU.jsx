@@ -23,53 +23,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
-
-
-const DescriptionContainer = styled.div`
-  z-index: 1;
-  padding: 20px;
-  width: fit-content;
-  border-radius: 50px;
-  margin-left: 50px ;
-  margin-right: 80px;
-  background: rgba(238, 238, 238, 0.19);
-  display: flex;
-  flex-direction: column;
-  animation: 3s infinite alternate floating;
-
-  @keyframes floating {
-    to {
-      transform: translateY(5px);
-    }
-  }
-`;
-
-const SchoolTitle = styled.div`
-  text-align: center;
-  font-size: 25px;
-  height: fit-content;
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-`;
-
-const Line = styled.div`
-  margin-bottom: 10px;
-  align-self: center;
-  height: 3px;
-  width: 90%;
-  background: #225451;
-`;
-
-const FirstRow = styled.div`
-  flex: 0.7;
-  align-self: center;
-  //background: rgba(239, 236, 236, 0.37);
-  display: flex;
-  flex-direction: row;
-  margin-block: 8px;
-  justify-content: space-evenly;
-`;
+import {
+    AssociationListContainer,
+    DateLink,
+    DateTitle,
+    DateTitleRow,
+    DescriptionContainer, FirstRow, KeyWords, Line, Presentation,
+    RightArrow,
+    SchoolDescription, SchoolTitle, SecondRow, SemiLine,
+    TextDescription, VolunteeringTitle
+} from "./SchoolLayout";
 
 const Logo = styled.div`
   background-image: url(${logoRTU});
@@ -81,18 +44,6 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-`;
-
-const Presentation = styled.div`
-  align-self: center;
-  width: 265px;
-  height: 215px;
-  border-radius: 30px;
-  background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 15px;
 `;
 
 const StackListContainer = styled.div`
@@ -132,14 +83,6 @@ const StackBox = styled.div`
   
 `;
 
-const KeyWords = styled.div`
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const Word = styled.div`
   cursor:pointer;
   text-align: center;
@@ -153,94 +96,6 @@ const Word = styled.div`
   a {
     text-decoration: none;
   }
-`;
-
-const SecondRow = styled.div`
-  height: 100%;
-  margin-top: 10px;
-  //border-radius: 20px;
-  //background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const SchoolDescription = styled.div`
-  //background: rgba(173, 101, 13, 0.42);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  text-align: justify;
-  border-radius: 20px;
-  padding: 20px;
-  background: rgba(239, 236, 236, 0.24);
-`;
-
-const DateTitle = styled.div`
-  font-size: 15px;
-  border-radius: 15px;
-  width: fit-content;
-  padding: 7px;
-  background: linear-gradient(90deg, rgba(32, 100, 95, 0.56) 20%, rgba(42, 133, 127, 0.54) 92%);
-`;
-
-const DateTitleRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: max-content;
-  margin-bottom: 10px;
-`;
-
-const DateLink = styled.div`
-  align-self: center;
-  width: ${(props) => props.size}px;
-  height: 3px;
-  background: linear-gradient(140deg, rgba(42, 133, 127, 0.54) 20%, rgba(32, 100, 95, ${(props) => props.fadeValue}) 92%);
-`;
-
-const RightArrow = styled.div`
-  align-self: center;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid rgba(42, 133, 127, 0.11);
-`;
-
-const TextDescription = styled.div`
-  font-size: 13px;
-  margin-bottom: 15px;
-`;
-
-const VolunteeringTitle = styled.div`
-  font-size: 15px;
-  width: 100%;
-  padding: 7px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  justify-content: center;
-`;
-
-const SemiLine = styled.div`
-  height: 2px;
-  width: 30%;
-  background: #225451;
-`;
-
-const AssociationListContainer = styled.div`
-  width: 100%;
-  height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-top: 10px;
-  border-radius: 20px;
-  background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  
 `;
 
 const AssociationList = styled.div`
@@ -271,11 +126,15 @@ const AssociationBox = styled.div`
 function RTUDescription() {
     return (<SchoolDescription>
         <DateTitleRow>
-            <DateTitle><b>January 2023</b></DateTitle>
-            <DateLink size={60} fadeValue={0.81}/>
-            <DateTitle><b>June 2023</b></DateTitle>
-            <DateLink size={25} fadeValue={0.12}/>
-            <RightArrow/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(32, 100, 95, 0.56) 20%, rgba(42, 133, 127, 0.54) 92%)">
+                <b>January 2023</b>
+            </DateTitle>
+            <DateLink size={60} gradient="linear-gradient(140deg, rgba(42, 133, 127, 0.54) 20%, rgba(32, 100, 95, 0.81) 92%)"/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(32, 100, 95, 0.56) 20%, rgba(42, 133, 127, 0.54) 92%)">
+                <b>June 2023</b>
+            </DateTitle>
+            <DateLink size={25} gradient="linear-gradient(140deg, rgba(42, 133, 127, 0.54) 20%, rgba(32, 100, 95, 0.12) 92%)"/>
+            <RightArrow color="rgba(42, 133, 127, 0.11)"/>
         </DateTitleRow>
         <TextDescription>
             My semester in Riga was made possible thanks to the Erasmus+ programme with Riga University of Technology.
@@ -285,7 +144,7 @@ function RTUDescription() {
     </SchoolDescription>);
 }
 
-export default function RtuComponent() {
+export default function RtuComponent(animation) {
 
     const stackBoxImages = [
         ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],
@@ -302,9 +161,9 @@ export default function RtuComponent() {
         [logoRIGA, "#ffffff", "https://www.riga.lv/lv?utm_source=https%3A%2F%2Fwww.google.com%2F"],
     ];
 
-    return <DescriptionContainer>
+    return <DescriptionContainer animation={animation}>
         <SchoolTitle><b>Technical University of Riga</b></SchoolTitle>
-        <Line/>
+        <Line color="#225451"/>
         <FirstRow>
             <Logo/>
             <Presentation>
@@ -329,7 +188,7 @@ export default function RtuComponent() {
                         </Swiper>
                     </StackList>
                 </StackListContainer>
-                <Line/>
+                <Line color="#225451"/>
                 <KeyWords>
                     <Word> <a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Software engineering</a> </Word>
                     <Word> <a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">OOP</a> </Word>
@@ -341,7 +200,7 @@ export default function RtuComponent() {
         <SecondRow>
             <RTUDescription/>
             <AssociationListContainer>
-                <VolunteeringTitle><SemiLine/><b>Experiences</b><SemiLine/></VolunteeringTitle>
+                <VolunteeringTitle><SemiLine color="#225451"/><b>Experiences</b><SemiLine color="#225451"/></VolunteeringTitle>
                 <AssociationList>
                         {associationBoxImages.map((data, index) => (
                             <a key={index} href={data[2]} target="_blank" rel="noreferrer"><AssociationBox key={index} url={data[0]} color={data[1]}/></a>

@@ -34,11 +34,29 @@ const DescriptionContainer = styled.div`
   background: rgba(238, 238, 238, 0.19);
   display: flex;
   flex-direction: column;
-  animation: 3s infinite alternate floating;
+  animation: 3s infinite alternate floating, ${(props) => (props.animation ? "getIn" : "getOut")} 1s ease-in;
 
   @keyframes floating {
     to {
       transform: translateY(5px);
+    }
+  }
+
+  @keyframes getIn {
+    from {
+        opacity: 0;
+      }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes getOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 `;
@@ -329,7 +347,7 @@ export default function UtcComponent(animation) {
         [logoUCC, "rgba(121,102,155,0.68)", "https://assos.utc.fr/ucc/"]
     ];
 
-    return <DescriptionContainer animation={animation} /*borderColor={"#F7CC11"}*/>
+    return <DescriptionContainer animation={animation}>
         <SchoolTitle><b>University of Technology of Compiegne</b></SchoolTitle>
         <Line/>
         <FirstRow>

@@ -93,7 +93,25 @@ const CanvasContainer = styled.div`
   //background: aqua;
   height: 70%;
   width: 70%;
-  animation: ${(props) => (props.animation && "GetIn") || "GetOut"} 1s ease-in;
+  animation: ${(props) => (props.animation && "getIn") || "getOut"} 0.5s ease-in;
+
+  @keyframes getIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes getOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `;
 
 function Education() {
@@ -105,14 +123,18 @@ function Education() {
     const handleMarkerClick = (event, new_description) => {
         if (new_description === description) {
             setIsDescriptionOpen(!isDescriptionOpen)
-            setDescription("");
-            setIsModelOpen(true)
-        }
-        else {
+            setTimeout(() => {
+                setDescription("");
+                setIsModelOpen(true)
+            }, 490);}
+    else {
+            console.log(isModelOpen, isDescriptionOpen, description);
             setIsModelOpen(false)
-            setIsDescriptionOpen(true)
-            setDescription(new_description);
-        }
+            setIsDescriptionOpen(false)
+            setTimeout(() => {
+                setDescription(new_description);
+                setIsDescriptionOpen(true);
+            }, 490);}
     };
 
     return (
@@ -139,19 +161,19 @@ function Education() {
                     (
                         description==="UTC"
                         &&
-                        UtcComponent()
+                        UtcComponent(isDescriptionOpen)
                     )
                     ||
                     (
                         description==="RTU"
                         &&
-                        rtuComponent()
+                        rtuComponent(isDescriptionOpen)
                     )
                     ||
                     (
                         description==="LFC"
                         &&
-                        LfcComponent()
+                        LfcComponent(isDescriptionOpen)
                     )
                     ||
                     (

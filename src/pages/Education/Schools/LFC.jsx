@@ -8,55 +8,16 @@ import Diplome from "../../../assets/Schools/LFC/Diplome_BAC.pdf"
 
 import "swiper/css";
 import "swiper/css/autoplay";
-
-
-const DescriptionContainer = styled.div`
-  z-index: 1;
-  padding: 20px;
-  width: fit-content;
-  border-radius: 50px;
-  margin-left: 50px ;
-  margin-right: 80px;
-  background: rgba(238, 238, 238, 0.19);
-  display: flex;
-  flex-direction: column;
-  animation: 3s infinite alternate floating;
-
-  @keyframes floating {
-    to {
-      transform: translateY(5px);
-    }
-  }
-`;
-
-const SchoolTitle = styled.div`
-  text-align: center;
-  font-size: 25px;
-  height: fit-content;
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-`;
-
-const Line = styled.div`
-  margin-bottom: 10px;
-  align-self: center;
-  height: 3px;
-  width: 90%;
-  background: #4C9B3F;
-`;
-
-const FirstRow = styled.div`
-  flex: 0.7;
-  align-self: center;
-  //background: rgba(239, 236, 236, 0.37);
-  display: flex;
-  flex-direction: row;
-  margin-block: 8px;
-  width: 100%;
-  justify-content: space-evenly;
-  //background: #db2b39;
-`;
+import {
+    AssociationListContainer,
+    DateLink,
+    DateTitle,
+    DateTitleRow,
+    DescriptionContainer, FirstRow, KeyWords, Line, Presentation,
+    RightArrow,
+    SchoolDescription, SchoolTitle, SecondRow, SemiLine,
+    TextDescription, VolunteeringTitle
+} from "./SchoolLayout";
 
 const Logo = styled.div`
   background: white;
@@ -70,18 +31,6 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-`;
-
-const Presentation = styled.div`
-  align-self: center;
-  width: 265px;
-  height: 215px;
-  border-radius: 30px;
-  background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 15px;
 `;
 
 const DegreeRow = styled.div`
@@ -120,112 +69,17 @@ const DegreeBox = styled.div`
   
 `;
 
-const KeyWords = styled.div`
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const Word = styled.div`
   cursor: default;
   text-align: center;
   width: max-content;
 `;
 
-const SecondRow = styled.div`
-  height: 100%;
-  margin-top: 10px;
-  //border-radius: 20px;
-  //background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const SchoolDescription = styled.div`
-  //background: rgba(173, 101, 13, 0.42);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  text-align: justify;
-  border-radius: 20px;
-  padding: 20px;
-  background: rgba(239, 236, 236, 0.24);
-`;
-
-const DateTitle = styled.div`
-  font-size: 15px;
-  border-radius: 15px;
-  width: fit-content;
-  padding: 7px;
-  background: linear-gradient(90deg, rgba(23, 114, 10, 0.6) 20%, rgba(74, 136, 53, 0.66) 92%);
-`;
-
-const DateTitleRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: max-content;
-  margin-bottom: 10px;
-`;
-
-const DateLink = styled.div`
-  align-self: center;
-  width: ${(props) => props.size}px;
-  height: 3px;
-  background: linear-gradient(140deg, rgba(74, 136, 53, 0.66) 20%, rgba(23, 114, 10, ${(props) => props.fadeValue}) 92%);
-`;
-
-const RightArrow = styled.div`
-  align-self: center;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid rgba(23, 114, 10, 0.11);
-`;
-
-const TextDescription = styled.div`
-  font-size: 13px;
-  margin-bottom: 15px;
-`;
-
-const VolunteeringTitle = styled.div`
-  font-size: 15px;
-  width: 100%;
-  padding: 7px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  justify-content: center;
-`;
-
-const SemiLine = styled.div`
-  height: 2px;
-  width: 30%;
-  background: #4C9B3F;
-`;
-
-const AssociationListContainer = styled.div`
-  width: 100%;
-  height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-top: 10px;
-  border-radius: 20px;
-  background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  
-`;
-
 const ExperienceRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: -5px;
   height: 60px;
   gap: 10px;
   padding-inline: 20px;
@@ -249,22 +103,25 @@ const RCMElogo = styled.div`
   }
 `;
 
-
 const RCMEDescription = styled.div`
   align-self: center;
   text-align: justify;
   flex:7;
-  font-size:12px  
+  font-size:14px  
 `;
 
 function LFCDescription() {
     return (<SchoolDescription>
         <DateTitleRow>
-            <DateTitle><b>2017</b></DateTitle>
-            <DateLink size={60} fadeValue={0.81}/>
-            <DateTitle><b>2020</b></DateTitle>
-            <DateLink size={25} fadeValue={0.12}/>
-            <RightArrow/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(23, 114, 10, 0.6) 20%, rgba(74, 136, 53, 0.66) 92%)">
+                <b>2017</b>
+            </DateTitle>
+            <DateLink size={60} gradient="linear-gradient(140deg, rgba(74, 136, 53, 0.66) 20%, rgba(23, 114, 10, 0.81) 92%)"/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(23, 114, 10, 0.6) 20%, rgba(74, 136, 53, 0.66) 92%)">
+                <b>2020</b>
+            </DateTitle>
+            <DateLink size={25} gradient="linear-gradient(140deg, rgba(74, 136, 53, 0.66) 20%, rgba(23, 114, 10, 0.12) 92%)"/>
+            <RightArrow color="rgba(23, 114, 10, 0.11)"/>
         </DateTitleRow>
         <TextDescription>
             High school is an important time for any young person who wants to study engineering.
@@ -273,17 +130,17 @@ function LFCDescription() {
     </SchoolDescription>);
 }
 
-export default function LfcComponent() {
-    return <DescriptionContainer>
+export default function LfcComponent(animation) {
+    return <DescriptionContainer animation={animation}>
         <SchoolTitle><b>Fustel de Coulanges High School</b></SchoolTitle>
-        <Line/>
+        <Line color="#4C9B3F"/>
         <FirstRow>
             <Logo/>
             <Presentation>
                 <DegreeRow>
                     <a href={Diplome} target="_blank" rel="noreferrer"><DegreeBox/></a>
                 </DegreeRow>
-                <Line/>
+                <Line color="#4C9B3F"/>
                 <KeyWords>
                     <Word>Mathematics speciality</Word>
                     <Word>Scientific curriculum</Word>
@@ -295,7 +152,7 @@ export default function LfcComponent() {
         <SecondRow>
             <LFCDescription/>
             <AssociationListContainer>
-                <VolunteeringTitle><SemiLine/><b>Experiences</b><SemiLine/></VolunteeringTitle>
+                <VolunteeringTitle><SemiLine color="#4C9B3F"/><b>Experiences</b><SemiLine color="#4C9B3F"/></VolunteeringTitle>
                 <ExperienceRow>
                     <a href={"https://www.rcmessonne.com/"} target="_blank" rel="noreferrer"><RCMElogo/></a>
                    <RCMEDescription>
