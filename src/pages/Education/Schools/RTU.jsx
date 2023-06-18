@@ -7,8 +7,6 @@ import logoESN from "../../../assets/Schools/RTU/logoESN.png"
 import logoRIGA from "../../../assets/Schools/RTU/logoRIGA.png"
 import logoPROGRAMING from "../../../assets/Schools/RTU/logoPROGRAMING.jpg"
 
-
-
 import logoUML from "../../../assets/Schools/UTC/logoUML.png";
 import logoPYTHON from "../../../assets/Schools/UTC/logoPYTHON.png";
 import logoCplusplus from "../../../assets/Schools/RTU/logoC++.png"
@@ -16,22 +14,21 @@ import logoORANGE from "../../../assets/Schools/RTU/logoORANGE.png"
 import logoPYGAME from "../../../assets/Schools/RTU/logoPYGAME.png"
 import logoWORDPRESS from "../../../assets/Schools/RTU/logoWORDPRESS.png"
 
-
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 import {
+    AssociationBox,
+    AssociationList,
     AssociationListContainer,
     DateLink,
     DateTitle,
     DateTitleRow,
     DescriptionContainer, FirstRow, KeyWords, Line, Presentation,
     RightArrow,
-    SchoolDescription, SchoolTitle, SecondRow, SemiLine,
-    TextDescription, VolunteeringTitle
+    SchoolDescription, SchoolTitle, SecondRow, SemiLine, StackBox, StackList, StackListContainer,
+    TextDescription, VolunteeringTitle, Word
 } from "./SchoolLayout";
 
 const Logo = styled.div`
@@ -44,83 +41,6 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-`;
-
-const StackListContainer = styled.div`
-  margin-block: 5px;
-  height: 90px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const StackList = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px;
-  height: 60px;
-  align-items: center;
-  //background: rgba(250, 54, 217, 0.42);
-`;
-
-const StackBox = styled.div`
-  background: ${props => props.color};
-  border-radius: 10px;
-  height: 60px;
-  margin-bottom: 10px;
-  width: 60px;
-  background-image: url(${props => (props.url)});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-
-  &:hover {
-    scale: 0.9
-  }
-  
-`;
-
-const Word = styled.div`
-  cursor:pointer;
-  text-align: center;
-  width: max-content;
-
-  &:hover {
-      letter-spacing: 3px;
-      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  a {
-    text-decoration: none;
-  }
-`;
-
-const AssociationList = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 60px;
-  gap: 50px;
-  //background: rgba(250, 54, 217, 0.42);
-`;
-
-const AssociationBox = styled.div`
-  border-radius: 10px;
-  height: 60px;
-  width: 60px;
-  background: ${(props) => props.color};
-  background-image: url(${props => (props.url)});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-
-  &:hover {
-    scale: 1.1;
-  }
 `;
 
 function RTUDescription() {
@@ -182,7 +102,8 @@ export default function RtuComponent(animation) {
                         >
                             {stackBoxImages.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <a key={index} href={item[3]} target="_blank" rel="noreferrer"><StackBox key={index} url={item[1]} color={item[2]}/></a>
+                                    <a key={index} href={item[3]} target="_blank" rel="noreferrer">
+                                        <StackBox key={index} url={item[1]} color={item[2]}/></a>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -203,7 +124,8 @@ export default function RtuComponent(animation) {
                 <VolunteeringTitle><SemiLine color="#225451"/><b>Experiences</b><SemiLine color="#225451"/></VolunteeringTitle>
                 <AssociationList>
                         {associationBoxImages.map((data, index) => (
-                            <a key={index} href={data[2]} target="_blank" rel="noreferrer"><AssociationBox key={index} url={data[0]} color={data[1]}/></a>
+                            <a key={index} href={data[2]} target="_blank" rel="noreferrer">
+                                <AssociationBox key={index} url={data[0]} color={data[1]}/></a>
                         ))}
                 </AssociationList>
             </AssociationListContainer>

@@ -66,7 +66,6 @@ const DegreeBox = styled.div`
       transform: translateY(3px);
     }
   }
-  
 `;
 
 const Word = styled.div`

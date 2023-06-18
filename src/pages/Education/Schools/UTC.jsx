@@ -24,69 +24,18 @@ import {Autoplay} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-const DescriptionContainer = styled.div`
-  z-index: 1;
-  padding: 20px;
-  width: fit-content;
-  margin-left: 50px ;
-  margin-right: 80px;
-  border-radius: 50px;
-  background: rgba(238, 238, 238, 0.19);
-  display: flex;
-  flex-direction: column;
-  animation: 3s infinite alternate floating, ${(props) => (props.animation ? "getIn" : "getOut")} 1s ease-in;
-
-  @keyframes floating {
-    to {
-      transform: translateY(5px);
-    }
-  }
-
-  @keyframes getIn {
-    from {
-        opacity: 0;
-      }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes getOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-`;
-
-const SchoolTitle = styled.div`
-  text-align: center;
-  font-size: 25px;
-  height: fit-content;
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-`;
-
-const Line = styled.div`
-  margin-bottom: 15px;
-  align-self: center;
-  height: 1px;
-  width: 90%;
-  background: #F7CC11;
-`;
-
-const FirstRow = styled.div`
-  flex: 0.7;
-  align-self: center;
-  //background: rgba(239, 236, 236, 0.37);
-  display: flex;
-  gap: 10px;
-  flex-direction: row;
-  justify-content: space-evenly;
-`;
+import {
+    AssociationBox,
+    AssociationList,
+    AssociationListContainer,
+    DateLink,
+    DateTitle,
+    DateTitleRow,
+    DescriptionContainer, FirstRow, KeyWords, Line, Presentation,
+    RightArrow,
+    SchoolDescription, SchoolTitle, SecondRow, SemiLine, StackBox, StackList, StackListContainer,
+    TextDescription, VolunteeringTitle, Word
+} from "./SchoolLayout";
 
 const Logo = styled.div`
   display: flex;
@@ -121,192 +70,19 @@ const SecondRowLogo = styled.div`
   background-position: center;
 `;
 
-const Presentation = styled.div`
-  align-self: center;
-  width: 250px;
-  height: 215px;
-  border-radius: 30px;
-  background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 15px;
-`;
-
-const StackListContainer = styled.div`
-  margin-top: 5px;
-  height: 90px;
-  width: 100%;
-`;
-
-const StackList = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 10px;
-  //background: rgba(250, 54, 217, 0.42);
-`;
-
-const StackBox = styled.div`
-  border-radius: 10px;
-  height: 60px;
-  width: 60px;
-  background-image: url(${props => (props.url)});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-
-  &:hover {
-    scale: 0.9
-  }
-`;
-
-const KeyWords = styled.div`
-  height: 100px;
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Word = styled.div`
-  cursor:pointer;
-  text-align: center;
-  width: max-content;
-
-  &:hover {
-      letter-spacing: 3px;
-      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  a {
-    text-decoration: none;
-  }
-`;
-
-const SecondRow = styled.div`
-  height: 100%;
-  margin-top: 10px;
-  //border-radius: 20px;
-  //background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const SchoolDescription = styled.div`
-  //background: rgba(173, 101, 13, 0.42);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  text-align: justify;
-  border-radius: 20px;
-  padding: 20px;
-  background: rgba(239, 236, 236, 0.24);
-`;
-
-const DateTitle = styled.div`
-  font-size: 15px;
-  border-radius: 15px;
-  width: fit-content;
-  padding: 7px;
-  background: linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);
-`;
-
-const DateTitleRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: max-content;
-  margin-bottom: 10px;
-`;
-
-const DateLink = styled.div`
-  align-self: center;
-  width: ${(props) => props.size}px;
-  height: 3px;
-  background: linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, ${(props) => props.fadeValue}) 92%);
-`;
-
-const RightArrow = styled.div`
-  align-self: center;
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid rgba(255, 208, 0, 0.11);
-`;
-
-const TextDescription = styled.div`
-  font-size: 13px;
-  margin-bottom: 15px;
-`;
-
-const VolunteeringTitle = styled.div`
-  font-size: 15px;
-  width: 100%;
-  padding: 7px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-  justify-content: center;
-`;
-
-const SemiLine = styled.div`
-  height: 1px;
-  width: 30%;
-  background: #F7CC11;
-`;
-
-const AssociationListContainer = styled.div`
-  width: 100%;
-  height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-top: 10px;
-  border-radius: 20px;
-  background: rgba(239, 236, 236, 0.24);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  
-`;
-
-const AssociationList = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 60px;
-  //background: rgba(250, 54, 217, 0.42);
-`;
-
-const AssociationBox = styled.div`
-  border-radius: 10px;
-  height: 60px;
-  width: 60px;
-  background: ${(props) => props.color};
-  background-image: url(${props => (props.url)});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-
-  &:hover {
-    scale: 1.1;
-  }
-`;
-
 function UTCDescription() {
 
     return (<SchoolDescription>
         <DateTitleRow>
-            <DateTitle><b>2020</b></DateTitle>
-            <DateLink size={60} fadeValue={0.81}/>
-            <DateTitle><b>2022</b></DateTitle>
-            <DateLink size={25} fadeValue={0.12}/>
-            <RightArrow/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+                <b>2020</b>
+            </DateTitle>
+            <DateLink size={60} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.81) 92%);"/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+                <b>2022</b>
+            </DateTitle>
+            <DateLink size={25} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
+            <RightArrow color="rgba(255, 208, 0, 0.11)"/>
         </DateTitleRow>
         <TextDescription>
             Preparatory school for engineering studies.
@@ -314,9 +90,11 @@ function UTCDescription() {
             engineers.
         </TextDescription>
         <DateTitleRow>
-            <DateTitle><b>2022 </b> </DateTitle>
-            <DateLink size={30} fadeValue={0.12}/>
-            <RightArrow/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+                <b>2022 </b>
+            </DateTitle>
+            <DateLink size={30} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
+            <RightArrow color="rgba(255, 208, 0, 0.11)"/>
         </DateTitleRow>
         <TextDescription>
             Engineering course specialising in computer science.
@@ -349,7 +127,7 @@ export default function UtcComponent(animation) {
 
     return <DescriptionContainer animation={animation}>
         <SchoolTitle><b>University of Technology of Compiegne</b></SchoolTitle>
-        <Line/>
+        <Line color='#F7CC11'/>
         <FirstRow>
             <Logo>
                 <FirstRowLogo/>
@@ -371,13 +149,14 @@ export default function UtcComponent(animation) {
                         >
                             {stackBoxImages.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <a key={index} href={item[2]} target="_blank" rel="noreferrer"><StackBox key={index} url={item[1]}/></a>
+                                    <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+                                        <StackBox key={index} url={item[1]}/></a>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     </StackList>
                 </StackListContainer>
-                <Line/>
+                <Line color="#F7CC11"/>
                 <KeyWords>
                     <Word><a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Data Structures</a></Word>
                     <Word><a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">Computer Architecture</a></Word>
@@ -389,10 +168,11 @@ export default function UtcComponent(animation) {
         <SecondRow>
             <UTCDescription/>
             <AssociationListContainer>
-                <VolunteeringTitle><SemiLine/><b>Volunteering Experiences</b><SemiLine/></VolunteeringTitle>
+                <VolunteeringTitle><SemiLine color="#F7CC11"/><b>Volunteering Experiences</b><SemiLine color="#F7CC11"/></VolunteeringTitle>
                 <AssociationList>
                     {associationBoxImages.map((data, index) => (
-                        <a key={index} href={data[2]} target="_blank" rel="noreferrer"><AssociationBox key={index} url={data[0]} color={data[1]}/></a>
+                        <a key={index} href={data[2]} target="_blank" rel="noreferrer">
+                            <AssociationBox key={index} url={data[0]} color={data[1]}/></a>
                     ))}
                 </AssociationList>
             </AssociationListContainer>

@@ -64,7 +64,6 @@ export const FirstRow = styled.div`
   justify-content: space-evenly;
 `;
 
-
 export const KeyWords = styled.div`
   height: 100px;
   display: flex;
@@ -171,4 +170,73 @@ export const Presentation = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 15px;
+`;
+
+export const StackListContainer = styled.div`
+  margin-top: 5px;
+  height: 90px;
+  width: 100%;
+`;
+
+export const StackList = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  //background: rgba(250, 54, 217, 0.42);
+`;
+
+export const StackBox = styled.div`
+  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  background-image: url(${props => (props.url)});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &:hover {
+    scale: 0.9
+  }
+`;
+
+export const Word = styled.div`
+  cursor:pointer;
+  text-align: center;
+  width: max-content;
+
+  &:hover {
+      letter-spacing: 3px;
+      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  a {
+    text-decoration: none;
+  }
+`;
+
+export const AssociationList = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  height: 60px;
+  //background: rgba(250, 54, 217, 0.42);
+`;
+
+export const AssociationBox = styled.div`
+  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  background: ${(props) => props.color};
+  background-image: url(${props => (props.url)});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.1;
+  }
 `;
