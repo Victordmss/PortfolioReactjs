@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import styled from "styled-components";
 import OthelloImage from "../../../src/assets/othello2.png";
 import data from "../Education/Projects.json";
+import {Autoplay} from "swiper";
+import {Swiper, SwiperSlide} from "swiper/react";
 
 const Section = styled.div`
   height: 100vh;
@@ -17,17 +19,10 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  padding-left: 4.7%;
-  padding-right: 4.7%;
-  padding-bottom: 4.7%;
-  justify-content: center;
-`;
-
 const ProjectBox = styled.div`
+  margin-inline: 7%;
+  margin-block: 3%;
+  margin-bottom: 6%;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -71,15 +66,6 @@ const BoxContent = styled.div`
   flex: 1; 
   display: flex;
   flex-direction: row;
-
-  animation: ${props => (props.animation[0] && "switchNext") || (props.animation[1] && "switchBack")} linear 2s;
-
-  @keyframes switchNext {
-    to {transform: translateX(-1500px);}
-    }
-    @keyframes switchBack {
-      to {transform: translateX(1500px);}
-    }
 `;
 
 const FirstColumn = styled.div`
@@ -118,12 +104,12 @@ const Item = styled.div`
   align-self: center;
   border: 2px solid rgba(56, 19, 122);
   border-radius: 25px;
-  width: 500px;
+  width: 450px;
   background-image: url(${OthelloImage});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 300px;
+  height: 270px;
 `;
 
 const SecondColumn = styled.div`
@@ -169,89 +155,56 @@ const Line = styled.div`
 `;
 
 function Projects() {
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [AutoSwapActivated, setAutoSwapActivated] = useState(true);
-    const [switchNextElement, setSwitchNextElement] = useState(false);
-    const [switchPrevElement, setSwitchPrevElement] = useState(false);
-
-    useEffect(() => {
-        if (AutoSwapActivated) {
-            const timer = setInterval(() => {
-                setSwitchNextElement(true)
-                setTimeout(() => {
-                    setCurrentIndex((currentIndex+1) % data.length)
-                    setSwitchNextElement(false)
-                }, 2000)}, 7000);
-
-            return () => {
-                clearInterval(timer);
-            };
-        }
-    }, [AutoSwapActivated, currentIndex]);
-
-    const nextProject = () => {
-        setSwitchNextElement(true)
-        setTimeout(() => {
-            setCurrentIndex((currentIndex+1) % data.length)
-            setSwitchNextElement(false)
-        }, 2000)
-    };
-
-    const previousProject = () => {
-        setSwitchPrevElement(true)
-        setTimeout(() => {
-            if (currentIndex===0) {
-                setCurrentIndex(1)
-            }
-            else {
-                setCurrentIndex(currentIndex - 1);
-            }
-            setSwitchPrevElement(false)
-        }, 2000)
-
-    };
-
-    const project = data[currentIndex];
-
     return (
         <Section id="Projects">
             <Title>
                 Projects
             </Title>
-            <Container>
-                <ProjectBox
-                    onMouseEnter={() => setAutoSwapActivated(false)}
-                    onMouseLeave={() => setAutoSwapActivated(true)}>
-                    <LeftBorderBox onClick={previousProject}/>
-                    <BoxContent animation={[switchPrevElement, switchNextElement]}>
-                            <FirstColumn>
-                                <ProjectTitle><b>{project.name}</b></ProjectTitle>
-                                <BriefDescription>
-                                    {project.briefDescription}
-                                </BriefDescription>
-                                <Item/>
-                            </FirstColumn>
-                            <Line/>
-                            <SecondColumn>
-                                <Description>
-                                    {project.description.map((sentence, index) => (
-                                        <p key={index}>{sentence} <br/> <br/> </p>
-                                    ))}
-                                </Description>
-                                <StackList>
-                                    <text><b><i>STACK USED : </i></b></text>
-                                    <Row>
-                                        <StackBox/>
-                                        <StackBox/>
-                                        <StackBox/>
-                                    </Row>
-                                </StackList>
-                            </SecondColumn>
-                        </BoxContent>
-                    <RightBorderBox  onClick={nextProject}/>
+                <ProjectBox>
+                    <LeftBorderBox/>
+                    <Swiper
+                        modules={[Autoplay]}
+                        slidesPerView={1}
+                        spaceBetween={100}
+                        loop={true}
+                        autoplay={{
+                            delay: 8000,
+                            pauseOnMouseEnter: true,
+                            disableOnInteraction: false
+                        }}
+                    >
+                        {data.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <BoxContent>
+                                    <FirstColumn>
+                                        <ProjectTitle><b>{item.name}</b></ProjectTitle>
+                                        <BriefDescription>
+                                            {item.briefDescription}
+                                        </BriefDescription>
+                                        <Item/>
+                                    </FirstColumn>
+                                    <Line/>
+                                    <SecondColumn>
+                                        <Description>
+                                            {item.description.map((sentence, index) => (
+                                                <p key={index}>{sentence} <br/> <br/> </p>
+                                            ))}
+                                        </Description>
+                                        <StackList>
+                                            <text><b><i>STACK USED : </i></b></text>
+                                            <Row>
+                                                <StackBox/>
+                                                <StackBox/>
+                                                <StackBox/>
+                                            </Row>
+                                        </StackList>
+                                    </SecondColumn>
+                                </BoxContent>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <RightBorderBox/>
                 </ProjectBox>
-            </Container>
         </Section>
     )
 }
