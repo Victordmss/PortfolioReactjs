@@ -43,6 +43,7 @@ const CanvasContainer = styled.div`
   justify-content: center;
   animation: animate 2s infinite alternate;
   height: 50%;
+  margin-top: 8%;
   margin-left: 10%;
   margin-right: 10%;
   @keyframes animate {
@@ -65,7 +66,7 @@ const Button = styled.button`
   font-size: 20px;
   transition: background-color 0.3s ease;
   animation: ${(props) => props.animation && "appearing"} 1s;
-  
+
   @keyframes appearing {
     from {
       opacity: 0;
@@ -77,11 +78,11 @@ const Button = styled.button`
 `;
 
 const Title = styled.h1`
-  font-size: 74px;
+  font-size: 70px;
 `;
 
 const Subtitle = styled.h2`
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 `;
 
 const Desc = styled.div`
@@ -178,7 +179,7 @@ function Home() {
                 </StyledContainer>
             </Left>
             <Middle>
-                <Title>Victor Demessance</Title>
+                <Title>Victor DEMESSANCE</Title>
                 <Subtitle>Innovative computer science student</Subtitle>
                 {(descriptionShowed && <Desc animation={robotClicked}>
                     I'm a future French engineer interested in computer science, but also in any kind of knowledge. My favorite pastime is learning and understanding how things work. From the smallest insect 🪲 to the largest galaxy 🔭, everything can be understood and absorbed. On this page, I want to share one of my passions, computer science.
