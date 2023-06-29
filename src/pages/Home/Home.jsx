@@ -8,7 +8,7 @@ import {StyledCircle, StyledContainer, StyledGradientLine} from "../../App";
 
 
 const Section = styled.div`
-  height: 100vh;
+  height: 80vh;
   scroll-snap-align: center;
   display: flex;
   justify-content: space-evenly;
@@ -42,7 +42,7 @@ const CanvasContainer = styled.div`
   display: flex;
   justify-content: center;
   animation: animate 2s infinite alternate;
-  height: 50%;
+  height: 60%;
   margin-top: 8%;
   margin-left: 10%;
   margin-right: 10%;
