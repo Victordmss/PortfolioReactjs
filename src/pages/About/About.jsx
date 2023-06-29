@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components";
+import {VictoryPie} from 'victory';
 
 const Section = styled.div`
   height: 100vh;
@@ -28,17 +29,17 @@ const FirstRow = styled.div`
   align-items: center;
 `
 
-const PourcentageCell = styled.div`
-  background: transparent;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 18px solid rgba(108, 13, 25, 0.59);
+const PercentageCell = styled.div`
+  //background: red;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 30px;  
 `
 
 const SecondRow = styled.div`
   align-self: center;
   background: rgba(116, 106, 136, 0.45);
+  margin-top: 20px;
   margin-inline: 20px;
   display: flex;
   flex-direction: row;
@@ -63,14 +64,83 @@ const Border = styled.div`
   border-radius: 20px;
 `
 
+const PercentageText = styled.div`
+  padding-top: 5px;
+  font-size: 22px;
+  text-align: center;
+`;
+
+const PercentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: 3s infinite alternate floating;
+
+  @keyframes floating {
+    to {
+      transform: translateY(5px);
+    }
+  }
+
+  &:hover {
+    scale: 1.1;
+  }
+`;
+
+const TextPercent = styled.div`
+  font-size: 30px;
+`;
+
+function percentCircle(percent) {
+    return (<PercentContainer>
+        <VictoryPie
+            colorScale={["transparent", "rgba(66,5,119,0.65)"]}
+            cornerRadius={({ datum }) => datum.y * 5}
+            innerRadius={180}
+            data={[
+                {y: 100 - percent},
+                {y:percent}
+            ]}
+            style={{ labels: { fill: "transparent"} }}/>
+        <div
+            style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                textAlign: 'center',
+                width: '100%',
+            }}
+        >
+            <TextPercent><b>{percent}%</b></TextPercent>
+        </div>
+    </PercentContainer>)
+}
+
 function About() {
     return (
         <Section id="About">
             <AboutContainer>
                 <FirstRow>
-                    <PourcentageCell/>
-                    <PourcentageCell/>
-                    <PourcentageCell/>
+                    <PercentageCell>
+                        {percentCircle(80)}
+                        <PercentageText>
+                            Programming
+                        </PercentageText>
+                    </PercentageCell>
+                    <PercentageCell>
+                        {percentCircle(95)}
+                        <PercentageText>
+                            Proactivity
+                        </PercentageText>
+                    </PercentageCell>
+                    <PercentageCell>
+                        {percentCircle(60)}
+                        <PercentageText>
+                            Project Management
+                        </PercentageText>
+                    </PercentageCell>
                 </FirstRow>
                 <SecondRow>
                     <SkillCell/>

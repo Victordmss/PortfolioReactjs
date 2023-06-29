@@ -23,14 +23,12 @@ const ProjectBox = styled.div`
   margin-inline: 7%;
   margin-block: 3%;
   margin-bottom: 6%;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background: rgba(46, 2, 93, 0.59);
-  border-left: 4px solid #4b1a75;
-  border-right: 4px solid #4b1a75;
+  background: rgba(238, 238, 238, 0.19);
   border-radius: 40px;
-  flex: 1;
   overflow: hidden;
   animation: floating 3s infinite ease alternate;
   
@@ -41,29 +39,8 @@ const ProjectBox = styled.div`
   }
 `;
 
-const LeftBorderBox = styled.div`
-  background: transparent;
-  flex: 0.05;
-  cursor: pointer;
-
-  &:hover{
-    background: linear-gradient(to left, rgba(75, 26, 117, 0), #4b1a75);;
-  }
-`;
-
-const RightBorderBox = styled.div`
-  background: transparent;
-  flex: 0.05;
-  cursor: pointer;
-  
-  &:hover{
-    background: linear-gradient(to right, rgba(75, 26, 117, 0), #4b1a75);;
-  }
-`;
-
 const BoxContent = styled.div`
   //background: chocolate;
-  flex: 1; 
   display: flex;
   flex-direction: row;
 `;
@@ -90,20 +67,19 @@ const BriefDescription = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: 16px;
+  padding: 15px;
+  background: rgba(239, 236, 236, 0.24);
+  border-radius: 25px;
+  font-size: 14px;
   //background: darkmagenta;
-  height: 450px;
-  padding-top: 30px;
-  margin: 5px;
+  height: 80%;
+  width: 100%;
   text-align: justify;
 `;
 
 const Item = styled.div`
-  background: rgba(56, 19, 122, 0.25);
   margin-top: 50px;
   align-self: center;
-  border: 2px solid rgba(56, 19, 122);
-  border-radius: 25px;
   width: 450px;
   background-image: url(${OthelloImage});
   background-size: contain;
@@ -113,23 +89,21 @@ const Item = styled.div`
 `;
 
 const SecondColumn = styled.div`
-  //background: blueviolet;
+  //background: red;
   margin: 10px;
   flex: 0.65; 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `;
 
 const StackList = styled.div`
-  margin-top: 20px;
-  background: rgba(56, 19, 122, 0.25);
-  border: 2px solid rgba(56, 19, 122);
+  background: rgba(239, 236, 236, 0.24);
   border-radius: 25px;
   padding: 10px;
   align-self: center;
-  width: 95%;
-  height: 100px;
+  width: 100%;
+  height: fit-content;
 `;
 
 const Row = styled.div`
@@ -141,7 +115,6 @@ const Row = styled.div`
 
 const StackBox = styled.div`
   background: rgba(154, 129, 227, 0.42);
-  border: 2px solid rgba(56, 19, 122);
   border-radius: 10px;
   height: 60px;
   width: 60px;
@@ -161,7 +134,6 @@ function Projects() {
                 Projects
             </Title>
                 <ProjectBox>
-                    <LeftBorderBox/>
                     <Swiper
                         modules={[Autoplay]}
                         slidesPerView={1}
@@ -191,7 +163,6 @@ function Projects() {
                                             ))}
                                         </Description>
                                         <StackList>
-                                            <text><b><i>STACK USED : </i></b></text>
                                             <Row>
                                                 <StackBox/>
                                                 <StackBox/>
@@ -203,7 +174,6 @@ function Projects() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <RightBorderBox/>
                 </ProjectBox>
         </Section>
     )
