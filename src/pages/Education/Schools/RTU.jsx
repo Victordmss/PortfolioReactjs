@@ -13,6 +13,13 @@ import logoCplusplus from "../../../assets/Schools/RTU/logoC++.png"
 import logoORANGE from "../../../assets/Schools/RTU/logoORANGE.png"
 import logoPYGAME from "../../../assets/Schools/RTU/logoPYGAME.png"
 import logoWORDPRESS from "../../../assets/Schools/RTU/logoWORDPRESS.png"
+import logoSQL from "../../../assets/Schools/UTC/logoSQL.png";
+import logoC from "../../../assets/Schools/UTC/logoC.png";
+import logoVHDL from "../../../assets/Schools/UTC/logoVHDL.jpg";
+import logoPOSTGRESQL from "../../../assets/Schools/UTC/logoPOSTGRESQL.png";
+import logoLINUX from "../../../assets/Schools/UTC/logoLINUX.png";
+import logoR from "../../../assets/Schools/UTC/logoR.png";
+
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay} from "swiper";

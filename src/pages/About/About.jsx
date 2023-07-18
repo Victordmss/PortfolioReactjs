@@ -1,6 +1,22 @@
 import React from "react"
 import styled from "styled-components";
 import {VictoryPie} from 'victory';
+import ProgressBar from "react-percent-bar";
+
+
+import logoUML from "../../assets/Schools/UTC/logoUML.png";
+import logoPYTHON from "../../assets/Schools/UTC/logoPYTHON.png";
+import logoCplusplus from "../../assets/Schools/RTU/logoC++.png"
+import logoORANGE from "../../assets/Schools/RTU/logoORANGE.png"
+import logoPYGAME from "../../assets/Schools/RTU/logoPYGAME.png"
+import logoWORDPRESS from "../../assets/Schools/RTU/logoWORDPRESS.png"
+import logoC from "../../assets/Schools/UTC/logoC.png";
+import logoSQL from "../../assets/Schools/UTC/logoSQL.png";
+import logoVHDL from "../../assets/Schools/UTC/logoVHDL.jpg";
+import logoPOSTGRESQL from "../../assets/Schools/UTC/logoPOSTGRESQL.png";
+import logoLINUX from "../../assets/Schools/UTC/logoLINUX.png";
+import logoR from "../../assets/Schools/UTC/logoR.png";
+
 
 const Section = styled.div`
   height: 100vh;
@@ -45,7 +61,7 @@ const SecondRow = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: 5px;
-  width: 1300px;
+  width: 1200px;
   height: 45%;
   align-items: center;
   border-radius: 50px;
@@ -53,9 +69,23 @@ const SecondRow = styled.div`
 
 const SkillCell = styled.div`
   //background: rgba(44, 110, 22, 0.53);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
   width: 400px;
   height: 90%;
 `
+
+const Skillsgrid = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95%;
+  height: 80%;
+`
+
 
 const Border = styled.div`
   background: rgba(255, 254, 254, 0.34);
@@ -68,6 +98,34 @@ const PercentageText = styled.div`
   padding-top: 5px;
   font-size: 22px;
   text-align: center;
+`;
+
+const SkillTitleContainer = styled.div`
+  width: 200px;
+  background: linear-gradient(70deg, rgba(66, 5, 119, 0.73), rgba(89, 25, 143, 0.49));
+  border: 2px inset rgba(108, 37, 169, 0.73);
+  padding: 10px;
+  margin-bottom: 15px ;
+  font-size: 22px;
+  text-align: center;
+  height: max-content;
+  border-radius: 15px;
+`;
+
+ const StackBox = styled.div`
+  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  background-image: url(${props => (props.url)});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  margin: 10px;
+
+  &:hover {
+    scale: 0.9
+  }
 `;
 
 const PercentContainer = styled.div`
@@ -84,7 +142,7 @@ const PercentContainer = styled.div`
   }
 
   &:hover {
-    scale: 1.1;
+    scale: 1.03;
   }
 `;
 
@@ -111,6 +169,7 @@ function percentCircle(percent) {
                 transform: 'translate(-50%, -50%)',
                 textAlign: 'center',
                 width: '100%',
+                cursor : 'default'
             }}
         >
             <TextPercent><b>{percent}%</b></TextPercent>
@@ -119,6 +178,22 @@ function percentCircle(percent) {
 }
 
 function About() {
+
+    const skillsImages = [
+        ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["UML", logoUML, "transparent", "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
+        ["C++", logoCplusplus, "transparent", "https://en.wikipedia.org/wiki/C%2B%2B"],
+        ["WORDPRESS", logoWORDPRESS, "transparent", "https://en.wikipedia.org/wiki/WordPress.com"],
+        ["PYGAME", logoPYGAME, "transparent", "https://www.pygame.org/news"],
+        ["ORANGE", logoORANGE, "transparent", "https://orangedatamining.com/"],
+        ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
+        ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
+        ["PostreSQL", logoPOSTGRESQL, "https://en.wikipedia.org/wiki/PostgreSQL"],
+        ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
+        ["R", logoR, "https://en.wikipedia.org/wiki/R_(programming_language)"],
+        ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
+    ];
+
     return (
         <Section id="About">
             <AboutContainer>
@@ -143,11 +218,60 @@ function About() {
                     </PercentageCell>
                 </FirstRow>
                 <SecondRow>
-                    <SkillCell/>
+                    <SkillCell>
+                        <SkillTitleContainer>
+                            Skills
+                        </SkillTitleContainer>
+                        <Skillsgrid>
+                        {skillsImages.map((item, index) => (
+                            <a key={index} href={item[3]} target="_blank" rel="noreferrer">
+                                    <StackBox key={index} url={item[1]}/></a>))}
+                        </Skillsgrid>
+                    </SkillCell>
                     <Border/>
-                    <SkillCell/>
+                    <SkillCell>
+                        <SkillTitleContainer>
+                            Languages
+                        </SkillTitleContainer>
+                        French native
+                        <ProgressBar
+
+                            percent={100}
+                            fillColor={"rgba(42,3,75,0.73)"}
+                            width="200px"
+                            height="20px"
+                        />
+                        <br/>
+                        English B2
+                        <ProgressBar
+                            percent={80}
+                            fillColor={"rgba(78,24,126,0.73)"}
+                            width="200px"
+                            height="20px"
+                        />
+                        <br/>
+                        Spanish B1
+                        <ProgressBar
+                            percent={60}
+                            fillColor={"rgba(130,57,194,0.73)"}
+                            width="200px"
+                            height="20px"
+                        />
+                        <br/>
+                        Latvian A1
+                        <ProgressBar
+                            percent={20}
+                            fillColor={"rgba(149,99,194,0.73)"}
+                            width="200px"
+                            height="20px"
+                        />
+                    </SkillCell>
                     <Border/>
-                    <SkillCell/>
+                    <SkillCell>
+                        <SkillTitleContainer>
+                            Other
+                        </SkillTitleContainer>
+                    </SkillCell>
                 </SecondRow>
             </AboutContainer>
         </Section>

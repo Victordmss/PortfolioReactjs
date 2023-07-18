@@ -5,7 +5,7 @@ import styled from "styled-components";
 import avatar from "../../assets/avatar.png";
 
 const Bar = styled.div`
-  scroll-snap-align: center;
+  scroll-snap-align: center;  
   
 ;`
 

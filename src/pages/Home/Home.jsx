@@ -88,8 +88,9 @@ const Subtitle = styled.h2`
 const Desc = styled.div`
   text-align: justify;
   overflow: hidden;
+  font-size: 14px;
   height: 40%;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.13em;
   animation: ${(props) => props.animation? "typing" : "erasing"} 4s steps(40) normal both;
 
   @keyframes typing {
