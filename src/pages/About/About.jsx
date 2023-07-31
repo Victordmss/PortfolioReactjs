@@ -16,7 +16,8 @@ import logoVHDL from "../../assets/logos/logoVHDL.jpg";
 import logoPOSTGRESQL from "../../assets/logos/logoPOSTGRESQL.png";
 import logoLINUX from "../../assets/logos/logoLINUX.png";
 import logoGithub from "../../assets/logos/logoGITHUB.png";
-
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay} from "swiper";
 
 const Section = styled.div`
   height: 100vh;
@@ -65,6 +66,13 @@ const SecondRow = styled.div`
   height: 45%;
   align-items: center;
   border-radius: 50px;
+  animation: 3s infinite alternate floating;
+
+  @keyframes floating {
+    to {
+      transform: translateY(5px);
+    }
+  }
 `
 
 const SkillCell = styled.div`
@@ -109,6 +117,13 @@ const SkillTitleContainer = styled.div`
   text-align: center;
   height: max-content;
   border-radius: 15px;
+  animation: 2s scaling infinite alternate ;
+
+  @keyframes scaling {
+    to {
+      transform: scale(1.05);
+    }
+  }
 `;
 
  const StackBox = styled.div`
@@ -148,6 +163,30 @@ const PercentContainer = styled.div`
 const TextPercent = styled.div`
   font-size: 30px;
 `;
+
+const HobbiesContainer = styled.div`
+  font-size: 30px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 40px;
+`;
+
+const HobbieTitle = styled.div`
+  font-size: 35px;
+  padding-bottom: 30px;
+`;
+
+const HobbieDesc = styled.div`
+  padding-inline: 15px;
+  font-size: 15px;
+`;
+
+
+
 
 function percentCircle(percent) {
     return (<PercentContainer>
@@ -192,6 +231,14 @@ function About() {
         ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
         ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
     ];
+
+    const Hobbies = [
+        ["Rugby", 'A healthy mind in a healthy body'],
+        ["Poetry", "Science describes nature, poetry paints and embellishes it"],
+        ["Driver Licence", '"B" permit. Personal car'],
+        ["Biology", "Even the smallest of gardens offers mankind the most beautiful of spectacles"],
+        ["Video Games", "Every vocation is born of a hobby"]
+    ]
 
     return (
         <Section id="About">
@@ -241,7 +288,7 @@ function About() {
                             height="20px"
                         />
                         <br/>
-                        English B2
+                        English
                         <ProgressBar
                             percent={80}
                             fillColor={"rgba(78,24,126,0.73)"}
@@ -249,7 +296,7 @@ function About() {
                             height="20px"
                         />
                         <br/>
-                        Spanish B1
+                        Spanish
                         <ProgressBar
                             percent={60}
                             fillColor={"rgba(130,57,194,0.73)"}
@@ -257,7 +304,7 @@ function About() {
                             height="20px"
                         />
                         <br/>
-                        Latvian A1
+                        Latvian
                         <ProgressBar
                             percent={20}
                             fillColor={"rgba(149,99,194,0.73)"}
@@ -270,6 +317,31 @@ function About() {
                         <SkillTitleContainer>
                             Other
                         </SkillTitleContainer>
+                        <HobbiesContainer>
+                            <Swiper
+                                modules={[Autoplay]}
+                                slidesPerView={1}
+                                spaceBetween={10}
+                                loop={true}
+                                autoplay={{
+                                    delay: 5000,
+                                    pauseOnMouseEnter: true,
+                                }}
+                            >
+                                {Hobbies.map((item, index) => (
+                                    <SwiperSlide key={index}>
+                                        <HobbieTitle>
+                                            {item[0]}
+                                        </HobbieTitle>
+                                        <HobbieDesc>
+                                            <i>
+                                            {item[1]}
+                                            </i>
+                                        </HobbieDesc>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </HobbiesContainer>
                     </SkillCell>
                 </SecondRow>
             </AboutContainer>

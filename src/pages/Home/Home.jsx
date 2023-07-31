@@ -174,7 +174,7 @@ function Home() {
             <Left>
                 <StyledContainer>
                     <StyledCircle />
-                    <StyledGradientLine size = {(!lineSize && 150) || 500}
+                    <StyledGradientLine size = {(!lineSize && 170) || 500}
                                         animation = {(robotClicked && 'growUp') || 'growDown'}
                     />
                 </StyledContainer>

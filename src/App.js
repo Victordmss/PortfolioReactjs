@@ -38,7 +38,7 @@ export const StyledGradientLine = styled.div`
   }
   @keyframes growDown {
     to {
-      height: 150px;
+      height: 170px;
     }
   }
 `;
