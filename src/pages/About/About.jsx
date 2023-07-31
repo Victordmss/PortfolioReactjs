@@ -4,18 +4,18 @@ import {VictoryPie} from 'victory';
 import ProgressBar from "react-percent-bar";
 
 
-import logoUML from "../../assets/Schools/UTC/logoUML.png";
-import logoPYTHON from "../../assets/Schools/UTC/logoPYTHON.png";
-import logoCplusplus from "../../assets/Schools/RTU/logoC++.png"
-import logoORANGE from "../../assets/Schools/RTU/logoORANGE.png"
-import logoPYGAME from "../../assets/Schools/RTU/logoPYGAME.png"
-import logoWORDPRESS from "../../assets/Schools/RTU/logoWORDPRESS.png"
-import logoC from "../../assets/Schools/UTC/logoC.png";
-import logoSQL from "../../assets/Schools/UTC/logoSQL.png";
-import logoVHDL from "../../assets/Schools/UTC/logoVHDL.jpg";
-import logoPOSTGRESQL from "../../assets/Schools/UTC/logoPOSTGRESQL.png";
-import logoLINUX from "../../assets/Schools/UTC/logoLINUX.png";
-import logoR from "../../assets/Schools/UTC/logoR.png";
+import logoUML from "../../assets/logos/logoUML.png";
+import logoPYTHON from "../../assets/logos/logoPYTHON.png";
+import logoCplusplus from "../../assets/logos/logoC++.png"
+import logoFLUTTER from "../../assets/logos/logoFlutter.png"
+import logoPYGAME from "../../assets/logos/logoPYGAME.png"
+import logoREACT from "../../assets/logos/logoREACT.png"
+import logoC from "../../assets/logos/logoC.png";
+import logoSQL from "../../assets/logos/logoSQL.png";
+import logoVHDL from "../../assets/logos/logoVHDL.jpg";
+import logoPOSTGRESQL from "../../assets/logos/logoPOSTGRESQL.png";
+import logoLINUX from "../../assets/logos/logoLINUX.png";
+import logoGithub from "../../assets/logos/logoGITHUB.png";
 
 
 const Section = styled.div`
@@ -86,7 +86,6 @@ const Skillsgrid = styled.div`
   height: 80%;
 `
 
-
 const Border = styled.div`
   background: rgba(255, 254, 254, 0.34);
   width: 4px;
@@ -124,7 +123,7 @@ const SkillTitleContainer = styled.div`
   margin: 10px;
 
   &:hover {
-    scale: 0.9
+    scale: 0.95
   }
 `;
 
@@ -183,15 +182,15 @@ function About() {
         ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],
         ["UML", logoUML, "transparent", "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
         ["C++", logoCplusplus, "transparent", "https://en.wikipedia.org/wiki/C%2B%2B"],
-        ["WORDPRESS", logoWORDPRESS, "transparent", "https://en.wikipedia.org/wiki/WordPress.com"],
         ["PYGAME", logoPYGAME, "transparent", "https://www.pygame.org/news"],
-        ["ORANGE", logoORANGE, "transparent", "https://orangedatamining.com/"],
         ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
+        ["Flutter", logoFLUTTER, "https://flutter.dev/"],
         ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
-        ["PostreSQL", logoPOSTGRESQL, "https://en.wikipedia.org/wiki/PostgreSQL"],
+        ["PostreSQL", logoPOSTGRESQL, "https://www.postgresql.org/"],
         ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
-        ["R", logoR, "https://en.wikipedia.org/wiki/R_(programming_language)"],
+        ["Github", logoGithub, "https://github.com/Victordmss"],
         ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
+        ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
     ];
 
     return (

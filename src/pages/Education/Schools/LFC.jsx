@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import logoLFC from "../../../assets/Schools/LFC/logoLFC.jpg";
+import logoLFC from "../../../assets/logos/logoLFC.jpg";
 import logoDEGREE from "../../../assets/Schools/LFC/logoDIPLOME.png";
 import logoRCME from "../../../assets/Schools/LFC/logoRCME.png";
 import Diplome from "../../../assets/Schools/LFC/Diplome_BAC.pdf"

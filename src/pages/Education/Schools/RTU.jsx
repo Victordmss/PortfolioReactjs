@@ -5,20 +5,14 @@ import logoRTU from "../../../assets/Schools/RTU/logoRTU.png";
 
 import logoESN from "../../../assets/Schools/RTU/logoESN.png"
 import logoRIGA from "../../../assets/Schools/RTU/logoRIGA.png"
-import logoPROGRAMING from "../../../assets/Schools/RTU/logoPROGRAMING.jpg"
+import logoPROGRAMING from "../../../assets/logos/logoPROGRAMING.jpg"
 
-import logoUML from "../../../assets/Schools/UTC/logoUML.png";
-import logoPYTHON from "../../../assets/Schools/UTC/logoPYTHON.png";
-import logoCplusplus from "../../../assets/Schools/RTU/logoC++.png"
-import logoORANGE from "../../../assets/Schools/RTU/logoORANGE.png"
-import logoPYGAME from "../../../assets/Schools/RTU/logoPYGAME.png"
-import logoWORDPRESS from "../../../assets/Schools/RTU/logoWORDPRESS.png"
-import logoSQL from "../../../assets/Schools/UTC/logoSQL.png";
-import logoC from "../../../assets/Schools/UTC/logoC.png";
-import logoVHDL from "../../../assets/Schools/UTC/logoVHDL.jpg";
-import logoPOSTGRESQL from "../../../assets/Schools/UTC/logoPOSTGRESQL.png";
-import logoLINUX from "../../../assets/Schools/UTC/logoLINUX.png";
-import logoR from "../../../assets/Schools/UTC/logoR.png";
+import logoUML from "../../../assets/logos/logoUML.png";
+import logoPYTHON from "../../../assets/logos/logoPYTHON.png";
+import logoCplusplus from "../../../assets/logos/logoC++.png"
+import logoORANGE from "../../../assets/logos/logoORANGE.png"
+import logoPYGAME from "../../../assets/logos/logoPYGAME.png"
+import logoWORDPRESS from "../../../assets/logos/logoWORDPRESS.png"
 
 
 import { Swiper, SwiperSlide } from "swiper/react";

@@ -4,19 +4,19 @@ import styled from "styled-components";
 import logo1 from "../../../assets/Schools/UTC/logoUTC1.png";
 import logo2 from "../../../assets/Schools/UTC/logoUTC2.png";
 
-import logoSQL from "../../../assets/Schools/UTC/logoSQL.png";
-import logoC from "../../../assets/Schools/UTC/logoC.png";
-import logoPYTHON from "../../../assets/Schools/UTC/logoPYTHON.png";
-import logoVHDL from "../../../assets/Schools/UTC/logoVHDL.jpg";
-import logoPOSTGRESQL from "../../../assets/Schools/UTC/logoPOSTGRESQL.png";
-import logoLINUX from "../../../assets/Schools/UTC/logoLINUX.png";
-import logoR from "../../../assets/Schools/UTC/logoR.png";
-import logoUML from "../../../assets/Schools/UTC/logoUML.png";
+import logoSQL from "../../../assets/logos/logoSQL.png";
+import logoC from "../../../assets/logos/logoC.png";
+import logoPYTHON from "../../../assets/logos/logoPYTHON.png";
+import logoVHDL from "../../../assets/logos/logoVHDL.jpg";
+import logoPOSTGRESQL from "../../../assets/logos/logoPOSTGRESQL.png";
+import logoLINUX from "../../../assets/logos/logoLINUX.png";
+import logoR from "../../../assets/logos/logoR.png";
+import logoUML from "../../../assets/logos/logoUML.png";
 
 import logoCANDIDE from "../../../assets/Schools/UTC/logoCANDIDE.jpg";
 import logoEPI from "../../../assets/Schools/UTC/logoEPI.jpg";
 import logoFABLAB from "../../../assets/Schools/UTC/logoFABLAB.png";
-import logoINTEGFEV from "../../../assets/Schools/UTC/logoINTEGFEV.png";
+import logoINTEGFEV from "../../../assets/logos/logoINTEGFEV.png";
 import logoUCC from "../../../assets/Schools/UTC/logoUCC.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
