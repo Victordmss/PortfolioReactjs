@@ -271,7 +271,8 @@ function About() {
                         <Skillsgrid>
                         {skillsImages.map((item, index) => (
                             <a key={index} href={item[3]} target="_blank" rel="noreferrer">
-                                    <StackBox key={index} url={item[1]}/></a>))}
+                                <StackBox key={index} url={item[1]} />
+                            </a>))}
                         </Skillsgrid>
                     </SkillCell>
                     <Border/>
