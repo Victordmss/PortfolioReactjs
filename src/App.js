@@ -4,8 +4,7 @@ import styled from "styled-components"
 import NavBar from "./pages/NavBar/NavBar";
 import About from "./pages/About/About";
 import Education from "./pages/Education/Education";
-import Projects from "./pages/Projects/Projects";
-import Credits from "./pages/Credits";
+import Projects from "./pages/Projects/Projects.jsx";
 import Home from "./pages/Home/Home";
 
 
@@ -70,7 +69,6 @@ function App() {
         <About/>
         <Education/>
         <Projects/>
-        <Credits/>
     </Container>
   );
 }

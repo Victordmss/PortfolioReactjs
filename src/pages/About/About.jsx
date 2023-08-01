@@ -4,18 +4,18 @@ import {VictoryPie} from 'victory';
 import ProgressBar from "react-percent-bar";
 
 
-import logoUML from "../../assets/logos/logoUML.png";
-import logoPYTHON from "../../assets/logos/logoPYTHON.png";
-import logoCplusplus from "../../assets/logos/logoC++.png"
-import logoFLUTTER from "../../assets/logos/logoFlutter.png"
-import logoPYGAME from "../../assets/logos/logoPYGAME.png"
-import logoREACT from "../../assets/logos/logoREACT.png"
-import logoC from "../../assets/logos/logoC.png";
-import logoSQL from "../../assets/logos/logoSQL.png";
-import logoVHDL from "../../assets/logos/logoVHDL.jpg";
-import logoPOSTGRESQL from "../../assets/logos/logoPOSTGRESQL.png";
-import logoLINUX from "../../assets/logos/logoLINUX.png";
-import logoGithub from "../../assets/logos/logoGITHUB.png";
+import logoUML from "../../assets/Logos/logoUML.png";
+import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
+import logoCplusplus from "../../assets/Logos/logoC++.png"
+import logoFLUTTER from "../../assets/Logos/logoFlutter.png"
+import logoPYGAME from "../../assets/Logos/logoPYGAME.png"
+import logoREACT from "../../assets/Logos/logoREACT.png"
+import logoC from "../../assets/Logos/logoC.png";
+import logoSQL from "../../assets/Logos/logoSQL.png";
+import logoVHDL from "../../assets/Logos/logoVHDL.jpg";
+import logoPOSTGRESQL from "../../assets/Logos/logoPOSTGRESQL.png";
+import logoLINUX from "../../assets/Logos/logoLINUX.png";
+import logoGithub from "../../assets/Logos/logoGITHUB.png";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay} from "swiper";
 
