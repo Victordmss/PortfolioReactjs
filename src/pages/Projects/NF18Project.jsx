@@ -26,9 +26,9 @@ const ProjectTitle = styled.div`
   font-size: 70px;
   height: fit-content;
   background: linear-gradient(to right,
-  hsl(116, 91%, 18%) 0,
-  hsla(122, 20%, 61%, 0.85) 15%,
-  hsl(116, 91%, 18%) 25%);
+  hsl(223, 91%, 30%) 0,
+  hsla(238, 20%, 61%, 0.85) 15%,
+  hsl(223, 91%, 30%) 25%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s infinite linear;

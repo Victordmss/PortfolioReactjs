@@ -2,9 +2,9 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay} from "swiper";
 import React from "react";
 import styled from "styled-components";
-import Othello1 from "../../assets/ProjectsCanvas/othello1.png";
-import Othello2 from "../../assets/ProjectsCanvas/othello2.png";
-import Othello3 from "../../assets/ProjectsCanvas/othello3.png";
+import Portfolio1 from "../../assets/ProjectsCanvas/Portfolio1.png";
+import Portfolio2 from "../../assets/ProjectsCanvas/Portfolio2.png";
+import Portfolio3 from "../../assets/ProjectsCanvas/Portfolio3.png";
 import logoREACT from "../../assets/Logos/logoREACT.png";
 import logoGithub from "../../assets/Logos/logoGITHUB.png";
 import logoRSM from "../../assets/Logos/logoRSM.jpg"
@@ -29,16 +29,17 @@ const ProjectTitle = styled.div`
   font-size: 74px;
   height: fit-content;
   background: linear-gradient(to right,
-  rgba(71, 3, 91, 0.62) 0,
+  rgba(116, 10, 147, 0.62) 0,
   hsla(285, 20%, 61%, 0.85) 15%,
-  rgba(71, 3, 91, 0.62) 25%);
+  rgba(116, 10, 147, 0.62) 25%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s infinite linear;
 
+
   @keyframes shine {
     from {
-      background-position: -100px;
+      background-position: -50px;
     }
     to {
       background-position: 450px;
@@ -54,42 +55,11 @@ const ProjectTitle = styled.div`
   }
 `;
 
-const Line = styled.div`
-  margin-bottom: 10px;
-  align-self: center;
-  height: 3px;
-  width: 90%;
-  background: rgba(71, 3, 91, 0.62);
-`;
-
-const BriefDescription = styled.div`
-  font-size: 17px;
-  //background: darkmagenta;
-  text-align: justify;
-  height: fit-content;
-  margin: 5px;
-`;
-
-const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: rgba(239, 236, 236, 0.24);
-  border-radius: 25px;
-  font-size: 15px;
-  //background: darkmagenta;
-  height: fit-content;
-  width: 100%;
-  text-align: justify;
-  padding-block: 30px;
-  padding: 15px;
-`;
-
 const KeyWords = styled.div`
   height: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -109,13 +79,46 @@ const Word = styled.div`
   }
 `;
 
+
+
+const Line = styled.div`
+  margin-bottom: 10px;
+  align-self: center;
+  height: 3px;
+  width: 90%;
+  background: rgba(71, 3, 91, 0.62);
+`;
+
+const BriefDescription = styled.div`
+  font-size: 17px;
+  //background: darkmagenta;
+  text-align: justify;
+  height: fit-content;
+  margin: 5px;
+ `;
+
+const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(239, 236, 236, 0.24);
+  border-radius: 25px;
+  font-size: 15px;
+  //background: darkmagenta;
+  height: fit-content;
+  width: 100%;
+  text-align: justify;
+  padding-block: 30px;
+  padding: 15px;
+`;
+
 const MediaContainer = styled.div`
   //background: #db2b39;
   margin-top: 20px;
   align-self: center;
-  width: 450px;
+  width: 477px;
   height: fit-content;
-  background: rgba(239, 236, 236, 0.71);
+  background: rgba(71, 3, 91, 0.62);
   border: rgba(71, 3, 91, 0.62) 2px solid;
   border-radius: 20px;
   overflow: hidden;
@@ -178,9 +181,9 @@ const VerticalLine = styled.div`
 
 export function PortfolioProject() {
     const Canvas = [
-        Othello1,
-        Othello2,
-        Othello3,
+        Portfolio1,
+        Portfolio2,
+        Portfolio3,
     ]
 
     const Stack = [
@@ -195,7 +198,7 @@ export function PortfolioProject() {
             <FirstColumn>
                 <ProjectTitle><a href={"https://github.com/Victordmss/PortfolioReactjs"} target="_blank" rel="noreferrer"><b>Web Portfolio</b></a></ProjectTitle>
                 <BriefDescription>
-                    Development of Othello game on python with implementation of an intelligent bot based on a heuristic minimax algorithm
+                    <i>Creating a portfolio website in React.js</i>
                 </BriefDescription>
                 <MediaContainer>
                     <Swiper

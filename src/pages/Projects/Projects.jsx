@@ -50,9 +50,9 @@ function Projects() {
 
     const data = [
         {component : <OthelloProject/>},
+        {component : <PortfolioProject/>},
         {component : <DaDProject/>},
         {component : <CookeatProject/>},
-        {component : <PortfolioProject/>},
         {component : <EDUTCProject/>},
         {component : <NF18Project/>},
         {component : <DAFourProject/>},

@@ -5,7 +5,9 @@ import styled from "styled-components";
 import Othello1 from "../../assets/ProjectsCanvas/othello1.png";
 import Othello2 from "../../assets/ProjectsCanvas/othello2.png";
 import Othello3 from "../../assets/ProjectsCanvas/othello3.png";
-
+import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
+import logoPYGAME from "../../assets/Logos/logoPYGAME.png";
+import logoGithub from "../../assets/Logos/logoGITHUB.png";
 
 const BoxContent = styled.div`
   //background: chocolate;
@@ -49,16 +51,6 @@ const BriefDescription = styled.div`
   text-align: justify;
   height: fit-content;
   margin: 5px;
-}
-
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: hsl(0, 0%, 80%);
-  }
-  to {
-    border-right-color: transparent;
-  }
-}
 `;
 
 const Description = styled.div`
@@ -68,12 +60,12 @@ const Description = styled.div`
   background: rgba(239, 236, 236, 0.24);
   border-radius: 25px;
   font-size: 14px;
-  //background: darkmagenta;
   height: fit-content;
   width: 100%;
   text-align: justify;
-  padding-block: 30px;
-  padding: 15px;
+  padding-inline: 15px;
+  padding-bottom: 15px ;
+  margin-bottom: 15px;
 `;
 
 const MediaContainer = styled.div`
@@ -102,7 +94,7 @@ const SecondColumn = styled.div`
   flex: 0.65;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const StackList = styled.div`
@@ -116,30 +108,75 @@ const StackList = styled.div`
 
 const Row = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 40px;
   flex-direction: row;
 `;
 
 const StackBox = styled.div`
-  background: rgba(154, 129, 227, 0.42);
+  background-image: url(${props => (props.url)});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;;
   border-radius: 10px;
   height: 60px;
   width: 60px;
 `;
 
-const Line = styled.div`
+const VerticalLine = styled.div`
   align-self: center;
   width: 2px;
   height: 90%;
   background: rgba(56, 19, 122);
 `;
 
+const Line = styled.div`
+  margin-bottom: 20px;
+  align-self: center;
+  height: 3px;
+  width: 90%;
+  background: rgba(13, 94, 8, 0.62);
+`;
+
+const KeyWords = styled.div`
+  margin-top: 5px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const Word = styled.div`
+  cursor:pointer;
+  text-align: center;
+  width: max-content;
+  font-size: 20px;
+
+  &:hover {
+      letter-spacing: 3px;
+      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  a {
+    text-decoration: none;
+  }
+`;
+
+
 export function OthelloProject() {
     const Canvas = [
         Othello1,
         Othello2,
         Othello3,
+    ]
+
+    const Stack = [
+        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["Pygame", logoPYGAME, "https://www.pygame.org/news"],
+        ["Github", logoGithub, "https://github.com/Victordmss"],
+
     ]
 
     return (
@@ -167,20 +204,32 @@ export function OthelloProject() {
                     </Swiper>
                 </MediaContainer>
             </FirstColumn>
-            <Line/>
+            <VerticalLine/>
             <SecondColumn>
                 <Description>
-                    The user can choose his colour for the whole game. The black color always starts. The other colour will be played by an implemented AI (easy level by default). <br/><br/>
-                    The user can see all his available moves with the small grey circles. He just has to click on a valid position on the board to make a move. After that, the AI will play with a little delay and it will be his turn again.<br/><br/>
-                    On the left part of the screen, there is some information like the color of the user, the score or the possibility to change the difficulty and reset the game. <br/><br/>
-                    When the game ends, the screen changes to show who won the game. However, it stays possible for the user to review the game in order to understand or to check something. After that, the reset button allows to play a new game. <br/><br/><br/>
-                    The AI process is based on the minimax algorithms with an heuristic function that can evaluate a specific grid (thanks to the number of flipped pieces, the score, the position of the move in the matrix...).
+                    <KeyWords>
+                        <Word>
+                            Game development
+                        </Word>
+                        <Word>
+                            Game design
+                        </Word>
+                        <Word>
+                            AI implementation
+                        </Word>
+                    </KeyWords>
+                    <br/>
+                    <Line/>
+                    User can see all his available moves and has to click on the board to make a move. After that, AI will play.<br/><br/>
+                    When the game ends, it stays possible to review the game in order to understand or to check something. After that, the reset button allows to play a new game. <br/><br/><br/>
+                    AI process is based on the minimax algorithms with an heuristic function.
                 </Description>
                 <StackList>
                     <Row>
-                        <StackBox/>
-                        <StackBox/>
-                        <StackBox/>
+                        {Stack.map((item, index) => (
+                            <a key={index} href={item[3]} target="_blank" rel="noreferrer">
+                                <StackBox key={index} url={item[1]} />
+                            </a>))}
                     </Row>
                 </StackList>
             </SecondColumn>
