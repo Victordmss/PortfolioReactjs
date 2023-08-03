@@ -39,10 +39,10 @@ const ProjectTitle = styled.div`
 
   @keyframes shine {
     from {
-      background-position: -50px;
+      background-position: 0;
     }
     to {
-      background-position: 450px;
+      background-position: 550px;
     }
   }
 
@@ -78,8 +78,6 @@ const Word = styled.div`
     text-decoration: none;
   }
 `;
-
-
 
 const Line = styled.div`
   margin-bottom: 10px;

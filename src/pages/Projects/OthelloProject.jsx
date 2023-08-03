@@ -132,6 +132,7 @@ const VerticalLine = styled.div`
 `;
 
 const Line = styled.div`
+  margin-top: -10px;
   margin-bottom: 20px;
   align-self: center;
   height: 3px;
@@ -140,8 +141,8 @@ const Line = styled.div`
 `;
 
 const KeyWords = styled.div`
-  margin-top: 5px;
-  height: 140px;
+  padding-top: 10px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -184,7 +185,9 @@ export function OthelloProject() {
             <FirstColumn>
                 <ProjectTitle><b>Othello</b></ProjectTitle>
                 <BriefDescription>
-                    Development of Othello game on python with implementation of an intelligent bot based on a heuristic minimax algorithm
+                    <i>
+                        Development of Othello game on python with implementation of an intelligent bot based on a heuristic minimax algorithm
+                    </i>
                 </BriefDescription>
                 <MediaContainer>
                     <Swiper
