@@ -14,6 +14,7 @@ const BoxContent = styled.div`
   //background: chocolate;
   display: flex;
   flex-direction: row;
+  height: 100%;
 `;
 
 const FirstColumn = styled.div`
@@ -170,13 +171,6 @@ const StackBox = styled.div`
   }
 `;
 
-const VerticalLine = styled.div`
-  align-self: center;
-  width: 2px;
-  height: 90%;
-  background: rgba(56, 19, 122);
-`;
-
 export function PortfolioProject() {
     const Canvas = [
         Portfolio1,
@@ -216,7 +210,6 @@ export function PortfolioProject() {
                     </Swiper>
                 </MediaContainer>
             </FirstColumn>
-            <VerticalLine/>
             <SecondColumn>
                 <Description>
                     <KeyWords>

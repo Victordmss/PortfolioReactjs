@@ -11,6 +11,7 @@ const BoxContent = styled.div`
   //background: chocolate;
   display: flex;
   flex-direction: row;
+  height: 100%;
 `;
 
 const FirstColumn = styled.div`
@@ -74,7 +75,7 @@ const MediaContainer = styled.div`
   margin-top: 20px;
   align-self: center;
   width: 450px;
-  height: fit-content;
+  height: 245px;
   background: hsl(192, 65%, 65%);
   border: hsl(192, 65%, 65%) 2px solid;
   border-radius: 20px;
@@ -87,7 +88,7 @@ const SecondColumn = styled.div`
   flex: 0.65;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 const StackList = styled.div`
@@ -153,13 +154,6 @@ const StackBox = styled.div`
   }
 `;
 
-const VerticalLine = styled.div`
-  align-self: center;
-  width: 2px;
-  height: 90%;
-  background: rgba(56, 19, 122);
-`;
-
 export function DaDProject() {
 
     const Stack = [
@@ -179,12 +173,11 @@ export function DaDProject() {
                     </i>
                 </BriefDescription>
                 <MediaContainer>
-                    <video width="460" height="265" autoPlay muted>
+                    <video width="460" height="265" autoPlay loop muted>
                         <source src={DaDPreview} type="video/mp4"/>
                     </video>
                 </MediaContainer>
             </FirstColumn>
-            <VerticalLine/>
             <SecondColumn>
                 <Description>
                     <KeyWords>
@@ -202,7 +195,8 @@ export function DaDProject() {
                     <Line/>
                     <br/>
                     The aim of this project is to develop a platformer that allows users to create their own levels. <br/><br/>
-                    This project was created with the help of Clear code. Thanks to him ! <br/><br/>
+                    This project had no specific goal, only to develop a video game design program with instinctive, functional drag&drop. <br/><br/>
+                    This project was created with the help of Clear code. <br/>
                 </Description>
                 <StackList>
                     <Row>

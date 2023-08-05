@@ -38,6 +38,7 @@ const ProjectBox = styled.div`
   border-radius: 40px;
   overflow: hidden;
   animation: floating 3s infinite ease alternate;
+  height: fit-content;
 
   @keyframes floating {
     to {

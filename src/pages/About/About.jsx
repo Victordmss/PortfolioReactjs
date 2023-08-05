@@ -8,7 +8,7 @@ import logoUML from "../../assets/Logos/logoUML.png";
 import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
 import logoCplusplus from "../../assets/Logos/logoC++.png"
 import logoFLUTTER from "../../assets/Logos/logoFlutter.png"
-import logoPYGAME from "../../assets/Logos/logoPYGAME.png"
+import logoFIREBASE from "../../assets/Logos/logoFirebase.png"
 import logoREACT from "../../assets/Logos/logoREACT.png"
 import logoC from "../../assets/Logos/logoC.png";
 import logoSQL from "../../assets/Logos/logoSQL.png";
@@ -221,7 +221,7 @@ function About() {
         ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],
         ["UML", logoUML, "transparent", "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
         ["C++", logoCplusplus, "transparent", "https://en.wikipedia.org/wiki/C%2B%2B"],
-        ["PYGAME", logoPYGAME, "transparent", "https://www.pygame.org/news"],
+        ["FIREBASE", logoFIREBASE, "transparent", "https://firebase.google.com/"],
         ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
         ["Flutter", logoFLUTTER, "https://flutter.dev/"],
         ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],

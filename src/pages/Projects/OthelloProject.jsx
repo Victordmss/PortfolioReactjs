@@ -124,13 +124,6 @@ const StackBox = styled.div`
   width: 60px;
 `;
 
-const VerticalLine = styled.div`
-  align-self: center;
-  width: 2px;
-  height: 90%;
-  background: rgba(56, 19, 122);
-`;
-
 const Line = styled.div`
   margin-top: -10px;
   margin-bottom: 20px;
@@ -207,7 +200,6 @@ export function OthelloProject() {
                     </Swiper>
                 </MediaContainer>
             </FirstColumn>
-            <VerticalLine/>
             <SecondColumn>
                 <Description>
                     <KeyWords>
