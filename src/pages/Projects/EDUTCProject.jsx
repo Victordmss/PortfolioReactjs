@@ -22,23 +22,25 @@ const FirstColumn = styled.div`
 `;
 
 const ProjectTitle = styled.div`
-  padding-right: 100px;
   font-size: 74px;
   height: fit-content;
+  width: 400px;
   background: linear-gradient(to right,
-  hsl(116, 91%, 18%) 0,
-  hsla(122, 20%, 61%, 0.85) 15%,
-  hsl(116, 91%, 18%) 25%);
+  hsl(0, 100%, 50%),
+  hsl(60, 100%, 50%),
+  hsl(120, 60%, 52%),
+  hsl(240, 100%, 50%),
+  hsl(360, 100%, 50%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s infinite linear;
 
   @keyframes shine {
     from {
-      background-position: -100px;
+      background-position: 0;
     }
     to {
-      background-position: 300px;
+      background-position: 400px;
     }
   }
 `;
@@ -135,7 +137,9 @@ export function EDUTCProject() {
     return (
         <BoxContent>
             <FirstColumn>
-                <ProjectTitle><b>EDUTC</b></ProjectTitle>
+                <ProjectTitle><b>
+                   EDUTC
+                </b></ProjectTitle>
                 <BriefDescription>
                     Development of Othello game on python with implementation of an intelligent bot based on a heuristic minimax algorithm
                 </BriefDescription>

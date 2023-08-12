@@ -140,8 +140,8 @@ const StackBox = styled.div`
 `;
 
 const Line = styled.div`
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   align-self: center;
   height: 3px;
   width: 90%;
@@ -212,8 +212,8 @@ export function CookeatProject() {
                         </Word>
                     </KeyWords>
                     <Line/>
-                    The user can choose his colour for the whole game. The black color always starts. The other colour will be played by an implemented AI (easy level by default). <br/><br/>
-                    On the left part of the screen, there is some information like the color of the user, the score or the possibility to change the difficulty and reset the game. <br/><br/>
+                    The idea of the project is to create a recipe management application with the possibility to customize an own account. <br/><br/>
+                    User can create recipes, add ingredients and click on the Cookeat Button to receive a random recipe for a specific dish
                 </Description>
             </FirstColumn>
             <SecondColumn>
