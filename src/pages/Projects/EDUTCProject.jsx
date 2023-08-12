@@ -1,10 +1,9 @@
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper";
 import React from "react";
 import styled from "styled-components";
-import Othello1 from "../../assets/ProjectsCanvas/othello1.png";
-import Othello2 from "../../assets/ProjectsCanvas/othello2.png";
-import Othello3 from "../../assets/ProjectsCanvas/othello3.png";
+import EDUTC from "../../assets/ProjectsCanvas/EDUTC.png";
+import logoGithub from "../../assets/Logos/logoGITHUB.png";
+import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
+import logoPILLOW from "../../assets/Logos/logoPILLOW.png";
 
 
 const BoxContent = styled.div`
@@ -69,19 +68,20 @@ const Description = styled.div`
 `;
 
 const MediaContainer = styled.div`
-  //background: #db2b39;
   margin-top: 20px;
   align-self: center;
-  width: 450px;
+  width: 340px;
   height: fit-content;
   background: rgba(239, 236, 236, 0.71);
-  border: hsl(116, 91%, 18%) 2px solid;
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
+
+  border: 2px solid transparent;
 `;
 
 const Item = styled.div`
-  background-image: url(${(props) => props.url});
+  background-image: url(${EDUTC});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -108,30 +108,76 @@ const StackList = styled.div`
 
 const Row = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 40px;
   flex-direction: row;
 `;
 
 const StackBox = styled.div`
-  background: rgba(154, 129, 227, 0.42);
   border-radius: 10px;
   height: 60px;
   width: 60px;
+  background-image: url(${props => (props.url)});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.1
+  }
 `;
 
-const Line = styled.div`
+const VerticalLine = styled.div`
   align-self: center;
   width: 2px;
   height: 90%;
   background: rgba(56, 19, 122);
 `;
 
+const Line = styled.div`
+  margin-bottom: 15px;
+  margin-top: 15px;
+  align-self: center;
+  height: 3px;
+  width: 90%;
+  background: linear-gradient(to right,
+  hsl(0, 100%, 50%),
+  hsl(60, 100%, 50%),
+  hsl(120, 60%, 52%),
+  hsl(240, 100%, 50%));
+`;
+
+const KeyWords = styled.div`
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Word = styled.div`
+  cursor:pointer;
+  text-align: center;
+  width: max-content;
+  font-size: 20px;
+
+  &:hover {
+      letter-spacing: 3px;
+      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  a {
+    text-decoration: none;
+  }
+`;
+
 export function EDUTCProject() {
-    const Canvas = [
-        Othello1,
-        Othello2,
-        Othello3,
+
+    const Stack = [
+        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["Github", logoGithub, "https://github.com/Victordmss"],
+        ["Pygame", logoPILLOW, "https://pypi.org/project/Pillow/"],
     ]
 
     return (
@@ -144,37 +190,36 @@ export function EDUTCProject() {
                     Development of Othello game on python with implementation of an intelligent bot based on a heuristic minimax algorithm
                 </BriefDescription>
                 <MediaContainer>
-                    <Swiper
-                        modules={[Autoplay]}
-                        loop={true}
-                        autoplay={{
-                            delay: 2500,
-                            pauseOnMouseEnter: true,
-                            disableOnInteraction: false
-                        }}
-                    >
-                        {Canvas.map((item, index) => (
-                            <SwiperSlide key={index}>
-                                <Item url={item}/>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    <Item/>
                 </MediaContainer>
             </FirstColumn>
-            <Line/>
+            <VerticalLine/>
             <SecondColumn>
                 <Description>
-                    The user can choose his colour for the whole game. The black color always starts. The other colour will be played by an implemented AI (easy level by default). <br/><br/>
-                    The user can see all his available moves with the small grey circles. He just has to click on a valid position on the board to make a move. After that, the AI will play with a little delay and it will be his turn again.<br/><br/>
-                    On the left part of the screen, there is some information like the color of the user, the score or the possibility to change the difficulty and reset the game. <br/><br/>
-                    When the game ends, the screen changes to show who won the game. However, it stays possible for the user to review the game in order to understand or to check something. After that, the reset button allows to play a new game. <br/><br/><br/>
-                    The AI process is based on the minimax algorithms with an heuristic function that can evaluate a specific grid (thanks to the number of flipped pieces, the score, the position of the move in the matrix...).
+                    <KeyWords>
+                        <Word>
+                            Software development
+                        </Word>
+                        <Word>
+                            Level design
+                        </Word>
+                        <Word>
+                            Responsiveness and Adaptability
+                        </Word>
+                    </KeyWords>
+                    <Line/>
+                    The idea of the project is to process the emails that my university sends us to inform us of our schedule. <br/><br/>
+                    There is already a website that allows us to do that : Emploi d'UT temps. However, when we receive the email, the website is often down because of the numbers of people.
+                    <br/><br/>
+                    Consequently I decided to create a python script that will be able to transform this email into a schedule that can be viewed in png format.
+                    <br/>
                 </Description>
                 <StackList>
                     <Row>
-                        <StackBox/>
-                        <StackBox/>
-                        <StackBox/>
+                        {Stack.map((item, index) => (
+                            <a key={index} href={item[3]} target="_blank" rel="noreferrer">
+                                <StackBox key={index} url={item[1]} />
+                            </a>))}
                     </Row>
                 </StackList>
             </SecondColumn>

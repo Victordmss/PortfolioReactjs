@@ -5,7 +5,6 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {OthelloProject} from "./OthelloProject";
 import {DaDProject} from "./DaDProject";
 import {PortfolioProject} from "./PortfolioProject";
-import {NF18Project} from "./NF18Project";
 import {EDUTCProject} from "./EDUTCProject";
 import {DAFourProject} from "./DAFourProject";
 import {CookeatProject} from "./CookeatProject";
@@ -55,7 +54,6 @@ function Projects() {
         {component : <DaDProject/>},
         {component : <CookeatProject/>},
         {component : <EDUTCProject/>},
-        {component : <NF18Project/>},
         {component : <DAFourProject/>},
 
     ];
