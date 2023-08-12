@@ -10,7 +10,6 @@ import {
 const markers = [
     {name: "UTC", coordinates: [2.8263171, 49.4179497], color: "#F7CC11" , size : 2, description : ["Université de technologie de Compiègne"]},
     {name: "RTU", coordinates: [24.1051846, 56.9493977], color: "#225451" , size : 2, description : ["Université technologique de Riga"]},
-    {name: "LFC", coordinates: [2.2766735, 48.730158], color: "#2E501C", size : 1, description : ["Lycée fustel de coulanges"]},
 ];
 
 const Map = ({setState}) => {

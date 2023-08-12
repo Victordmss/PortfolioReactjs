@@ -25,11 +25,9 @@ const ProjectTitle = styled.div`
   height: fit-content;
   width: 400px;
   background: linear-gradient(to right,
-  hsl(0, 100%, 50%),
-  hsl(60, 100%, 50%),
-  hsl(120, 60%, 52%),
-  hsl(240, 100%, 50%),
-  hsl(360, 100%, 50%));
+  hsla(260, 12%, 47%, 0.45),
+  hsl(0, 4%, 91%),
+  hsla(260, 12%, 47%, 0.45));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s infinite linear;
@@ -141,11 +139,7 @@ const Line = styled.div`
   align-self: center;
   height: 3px;
   width: 90%;
-  background: linear-gradient(to right,
-  hsl(0, 100%, 50%),
-  hsl(60, 100%, 50%),
-  hsl(120, 60%, 52%),
-  hsl(240, 100%, 50%));
+  background: hsla(0, 100%, 100%, 0.34);
 `;
 
 const KeyWords = styled.div`

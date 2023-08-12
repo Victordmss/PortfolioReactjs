@@ -8,7 +8,6 @@ import {StyledContainer, StyledGradientLine, StyledCircle} from "../../App.js"
 import Hat from "./GraduationHat";
 import UtcComponent from "./Schools/UTC"
 import rtuComponent from "./Schools/RTU";
-import LfcComponent from "./Schools/LFC";
 
 const Section = styled.div`
   height: 100vh;
@@ -150,7 +149,7 @@ function Education() {
                     Education
                 </Title>
                 <Button>
-                    Click on the map to learn more about my studies
+                    Click on the markers to learn more about my studies
                 </Button>
                 <MapContainer animation = {description}>
                     <Map setState={handleMarkerClick}/>
@@ -168,12 +167,6 @@ function Education() {
                         description==="RTU"
                         &&
                         rtuComponent(isDescriptionOpen)
-                    )
-                    ||
-                    (
-                        description==="LFC"
-                        &&
-                        LfcComponent(isDescriptionOpen)
                     )
                     ||
                     (

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components";
-import {Autoplay} from "swiper";
+import {Navigation} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {OthelloProject} from "./OthelloProject";
 import {DaDProject} from "./DaDProject";
@@ -65,15 +65,10 @@ function Projects() {
             </Title>
             <ProjectBox>
                 <Swiper
-                    modules={[Autoplay]}
+                    modules={[Navigation]}
                     slidesPerView={1}
-                    spaceBetween={100}
                     loop={true}
-                    autoplay={{
-                        delay: 8000,
-                        pauseOnMouseEnter: true,
-                        disableOnInteraction: false
-                    }}
+                    navigation={true}
                 >
                     {data.map((item, index) => (
                         <SwiperSlide key={index}>
