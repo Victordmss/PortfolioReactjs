@@ -2,7 +2,9 @@ import React from "react"
 import styled from "styled-components";
 import {VictoryPie} from 'victory';
 import ProgressBar from "react-percent-bar";
-
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay, Navigation} from "swiper";
+import 'swiper/css/bundle';
 
 import logoUML from "../../assets/Logos/logoUML.png";
 import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
@@ -16,8 +18,7 @@ import logoVHDL from "../../assets/Logos/logoVHDL.jpg";
 import logoPOSTGRESQL from "../../assets/Logos/logoPOSTGRESQL.png";
 import logoLINUX from "../../assets/Logos/logoLINUX.png";
 import logoGithub from "../../assets/Logos/logoGITHUB.png";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper";
+
 
 const Section = styled.div`
   height: 100vh;
@@ -167,7 +168,7 @@ const TextPercent = styled.div`
 const HobbiesContainer = styled.div`
   font-size: 30px;
   height: 100%;
-  width: 100%;
+  width: 85%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,6 +182,7 @@ const HobbieTitle = styled.div`
 `;
 
 const HobbieDesc = styled.div`
+  align-self: center;
   padding-inline: 15px;
   font-size: 15px;
 `;
@@ -240,8 +242,29 @@ function About() {
         ["Video Games", "Every vocation is born of a hobby"]
     ]
 
+    const customSwiperStyles = `
+      .swiper-button-next{
+        color: rgba(255, 254, 254, 0.34);
+        padding-left: 45px;
+        transform: scale(0.6);
+        &:hover {
+          transform: scale(0.7);}
+        }
+        
+      .swiper-button-prev {
+        color: rgba(255, 254, 254, 0.34);
+        padding-right: 45px;
+        transform: scale(0.6);
+
+        &:hover {
+          transform: scale(0.7);
+        }
+      }
+`;
+
     return (
         <Section id="About">
+            <style>{customSwiperStyles}</style>
             <AboutContainer>
                 <FirstRow>
                     <PercentageCell>
@@ -320,13 +343,15 @@ function About() {
                         </SkillTitleContainer>
                         <HobbiesContainer>
                             <Swiper
-                                modules={[Autoplay]}
+                                modules={[Navigation, Autoplay]}
+                                navigation={true}
                                 slidesPerView={1}
                                 spaceBetween={10}
                                 loop={true}
                                 autoplay={{
-                                    delay: 5000,
+                                    disableOnInteraction: false,
                                     pauseOnMouseEnter: true,
+                                    delay: 4000,
                                 }}
                             >
                                 {Hobbies.map((item, index) => (

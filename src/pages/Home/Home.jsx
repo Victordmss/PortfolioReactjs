@@ -151,6 +151,7 @@ function Home() {
     const [descriptionShowed, setDescriptionShowed] = useState(false)
     const [buttonShowed, setButtonShowed] = useState(false)
     const [lineSize, setLineSize] = useState(false)
+
     const handleRobotClicked = () => {
         if (robotClicked) {
             setRobotClicked(false)

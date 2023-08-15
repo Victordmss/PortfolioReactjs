@@ -20,7 +20,7 @@ import logoINTEGFEV from "../../../assets/Logos/logoINTEGFEV.png";
 import logoUCC from "../../../assets/Schools/UTC/logoUCC.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Autoplay} from "swiper";
+import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 
@@ -125,7 +125,25 @@ export default function UtcComponent(animation) {
         [logoUCC, "rgba(121,102,155,0.68)", "https://assos.utc.fr/ucc/"]
     ];
 
+    const customSwiperStyles = `
+    
+        .myCustomSwiper {
+            height: 85px;
+        }
+   
+        .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px; 
+          cursor: pointer;
+        }
+        
+        .swiper-pagination-bullet-active {
+          background-color: #F7CC11; 
+        }
+`;
+
     return <DescriptionContainer animation={animation}>
+        <style>{customSwiperStyles}</style>
         <SchoolTitle><b>University of Technology of Compiegne</b></SchoolTitle>
         <Line color='#F7CC11'/>
         <FirstRow>
@@ -137,7 +155,8 @@ export default function UtcComponent(animation) {
                 <StackListContainer>
                     <StackList>
                         <Swiper
-                            modules={[Autoplay]}
+                            className={"myCustomSwiper"}
+                            modules={[Autoplay, Pagination]}
                             slidesPerView={3}
                             spaceBetween={20}
                             loop={true}
@@ -145,6 +164,10 @@ export default function UtcComponent(animation) {
                                 delay: 2000,
                                 pauseOnMouseEnter: true,
                                 disableOnInteraction: false
+                            }}
+                            pagination={{
+                                clickable: true,
+                                dynamicBullets: true,
                             }}
                         >
                             {stackBoxImages.map((item, index) => (

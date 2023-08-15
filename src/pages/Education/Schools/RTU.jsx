@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import 'swiper/css/bundle';
 
 import logoRTU from "../../../assets/Schools/RTU/logoRTU.png";
 
@@ -16,7 +17,7 @@ import logoWORDPRESS from "../../../assets/Logos/logoWORDPRESS.png"
 
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Autoplay} from "swiper";
+import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
 import {
@@ -82,7 +83,25 @@ export default function RtuComponent(animation) {
         [logoRIGA, "#ffffff", "https://www.riga.lv/lv?utm_source=https%3A%2F%2Fwww.google.com%2F"],
     ];
 
+    const customSwiperStyles = `
+    
+        .myCustomSwiper {
+            height: 85px;
+        }
+           
+        .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px; 
+          cursor: pointer;
+        }
+        
+        .swiper-pagination-bullet-active {
+          background-color: #225451; 
+        }
+`;
+
     return <DescriptionContainer animation={animation}>
+        <style>{customSwiperStyles}</style>
         <SchoolTitle><b>Technical University of Riga</b></SchoolTitle>
         <Line color="#225451"/>
         <FirstRow>
@@ -91,7 +110,8 @@ export default function RtuComponent(animation) {
                 <StackListContainer>
                     <StackList>
                         <Swiper
-                            modules={[Autoplay]}
+                            className="myCustomSwiper"
+                            modules={[Autoplay, Pagination]}
                             slidesPerView={3}
                             spaceBetween={25}
                             loop={true}
@@ -99,6 +119,10 @@ export default function RtuComponent(animation) {
                                 delay: 2000,
                                 pauseOnMouseEnter: true,
                                 disableOnInteraction: false
+                            }}
+                            pagination={{
+                                clickable: true,
+                                dynamicBullets: true,
                             }}
                         >
                             {stackBoxImages.map((item, index) => (

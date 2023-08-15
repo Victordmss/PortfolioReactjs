@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components";
-import {Navigation} from "swiper";
+import {Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {OthelloProject} from "./OthelloProject";
 import {DaDProject} from "./DaDProject";
@@ -8,6 +8,8 @@ import {PortfolioProject} from "./PortfolioProject";
 import {EDUTCProject} from "./EDUTCProject";
 import {DAFourProject} from "./DAFourProject";
 import {CookeatProject} from "./CookeatProject";
+import 'swiper/css/bundle';
+
 
 
 const Section = styled.div`
@@ -58,17 +60,31 @@ function Projects() {
 
     ];
 
+    const customSwiperStyles = `
+      .myCustomSwiper {
+        height: 480px;
+      }
+        
+      .swiper-pagination-bullet-active {
+        background-color: rgba(238, 238, 238, 0.19); 
+      }
+`;
+
     return (
         <Section id="Projects">
+            <style>{customSwiperStyles}</style>
             <Title>
                 Projects
             </Title>
             <ProjectBox>
                 <Swiper
-                    modules={[Navigation]}
+                    className={"myCustomSwiper"}
+                    modules={[Pagination]}
                     slidesPerView={1}
                     loop={true}
-                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                    }}
                 >
                     {data.map((item, index) => (
                         <SwiperSlide key={index}>
