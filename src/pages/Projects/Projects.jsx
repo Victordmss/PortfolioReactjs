@@ -51,23 +51,34 @@ const ProjectBox = styled.div`
 function Projects() {
 
     const data = [
-        {component : <OthelloProject/>},
-        {component : <PortfolioProject/>},
-        {component : <DaDProject/>},
-        {component : <CookeatProject/>},
-        {component : <EDUTCProject/>},
-        {component : <DAFourProject/>},
-
+        { component: <OthelloProject />, color: "hsl(116, 91%, 18%)" },
+        { component: <PortfolioProject />, color: "rgba(116, 10, 147, 0.62)" },
+        { component: <DaDProject />, color: "hsl(192, 65%, 65%)" },
+        { component: <CookeatProject />, color: "hsl(334, 86%, 25%)" },
+        { component: <EDUTCProject />, color: "rgb(238,238,238)" },
+        { component: <DAFourProject />, color: "hsl(52, 100%, 50%)" },
     ];
 
     const customSwiperStyles = `
       .myCustomSwiper {
         height: 480px;
       }
+      
+      .swiper-pagination-bullet {
+        background-color: rgba(239, 236, 236, 0.71);
+      }
         
       .swiper-pagination-bullet-active {
         background-color: rgba(238, 238, 238, 0.19); 
       }
+      
+        ${data
+        .map((item, index) => `
+            .swiper-pagination-bullet-active:nth-child(${index + 1}) {
+                background-color: ${item.color};
+            }
+        `)
+        .join("")}
 `;
 
     return (
