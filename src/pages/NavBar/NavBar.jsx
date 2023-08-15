@@ -33,7 +33,7 @@ function NavBar() {
     return (
             <Section>
                 <Container>
-                    <Avatar url={avatar}/>
+                    <span className="darkmode-ignore"><Avatar url={avatar}/></span>
                     <nav ref={navRef}>
                         <a href="/#Home">Home</a>
                         <a href="/#About">About</a>

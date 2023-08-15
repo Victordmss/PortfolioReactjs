@@ -20,12 +20,16 @@ const Section = styled.div`
   justify-content: center;
 `;
 
-const Title = styled.h1`
+const TitleRow = styled.h1`
+  //background: #db2b39;
   padding-top: 30px;
   font-size: 74px;
   padding-bottom: 10px;
-  text-align: center;
+  height: 120px;
+  margin-left: 100px;
+  text-align: start;
 `;
+
 
 const ProjectBox = styled.div`
   margin-inline: 7%;
@@ -35,7 +39,7 @@ const ProjectBox = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background: rgba(238, 238, 238, 0.19);
+  background: rgba(180, 180, 180, 0.28);
   border-radius: 40px;
   overflow: hidden;
   animation: floating 3s infinite ease alternate;
@@ -84,9 +88,9 @@ function Projects() {
     return (
         <Section id="Projects">
             <style>{customSwiperStyles}</style>
-            <Title>
+            <TitleRow>
                 Projects
-            </Title>
+            </TitleRow>
             <ProjectBox>
                 <Swiper
                     className={"myCustomSwiper"}
