@@ -8,7 +8,7 @@ import {StyledCircle, StyledContainer, StyledGradientLine} from "../../App";
 
 
 const Section = styled.div`
-  height: 80vh;
+  height: 100vh;
   scroll-snap-align: center;
   display: flex;
   justify-content: space-evenly;
@@ -42,8 +42,9 @@ const CanvasContainer = styled.div`
   display: flex;
   justify-content: center;
   animation: animate 2s infinite alternate;
-  height: 60%;
-  margin-top: 8%;
+  height: 400px;
+  width: 500px;
+  margin-top: 15%;
   margin-left: 10%;
   margin-right: 10%;
   @keyframes animate {
@@ -152,7 +153,7 @@ function Home() {
     const [buttonShowed, setButtonShowed] = useState(false)
     const [lineSize, setLineSize] = useState(false)
 
-    const handleRobotClicked = () => {
+    /*const handleRobotClicked = () => {
         if (robotClicked) {
             setRobotClicked(false)
             setTimeout(() => {
@@ -168,14 +169,24 @@ function Home() {
             setDescriptionShowed(true)
             setRobotClicked(true)
         }
+    }*/
+
+    const handleRobotClicked = () => {
+        setTimeout(() => {
+            setLineSize(true)
+        }, 3500)
+        setButtonShowed(false)
+        setDescriptionShowed(true)
+        setRobotClicked(true)
     }
+
 
     return (
         <Section id="Home">
             <Left>
                 <StyledContainer>
                     <StyledCircle />
-                    <StyledGradientLine size = {(!lineSize && 170) || 500}
+                    <StyledGradientLine size = {(!lineSize && 170) || 450}
                                         animation = {(robotClicked && 'growUp') || 'growDown'}
                     />
                 </StyledContainer>
@@ -184,10 +195,11 @@ function Home() {
                 <Title>Victor DEMESSANCE</Title>
                 <Subtitle>Innovative computer science student</Subtitle>
                 {(descriptionShowed && <Desc animation={robotClicked}>
-                    I'm a future French engineer interested in computer science, but also in any kind of knowledge. My favorite pastime is learning and understanding how things work. From the smallest insect 🪲 to the largest galaxy 🔭, everything can be understood and absorbed. On this page, I want to share one of my passions, computer science.
-                    Small projects to experiment, or bigger ones to learn. I post everything that I think is interesting to share, both to help and to present my skills.
+                    I'm a future French engineer interested in computer science, but also in any kind of knowledge. My favorite pastime is learning and understanding how things work. From the smallest insect 🪲 to the largest galaxy 🔭, everything can be understood and absorbed. <br/><br/>
+                    On this website, I want to present one of my passions, computer science.
+                    As a way to present myself and to discover a new knowledge, I decided to create this portfolio in React.js from scratch. <br/><br/>
 
-                    At the time I write this, I am still a young engineering student with a new look on the world. However, I hope that one day this directory will show the knowledge I have acquired in the field where everything is possible and which I want to make my job:
+                    At the time I write this, I am still a young engineering student with a new look on the world. However, I hope that one day this website will show the knowledge I have acquired in the field where everything is possible and which I want to make my job:
 
                     Computer science ! 💻
                 </Desc>) || <Button animation={buttonShowed}><text>Click on the robot to learn more about me ! </text></Button>}

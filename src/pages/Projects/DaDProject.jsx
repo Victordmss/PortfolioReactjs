@@ -116,7 +116,7 @@ const KeyWords = styled.div`
 `;
 
 const Word = styled.div`
-  cursor:pointer;
+  cursor:default;
   text-align: center;
   width: max-content;
   font-size: 20px;
@@ -201,7 +201,7 @@ export function DaDProject() {
                 <StackList>
                     <Row>
                         {Stack.map((item, index) => (
-                            <a key={index} href={item[3]} target="_blank" rel="noreferrer">
+                            <a key={index} href={item[2]} target="_blank" rel="noreferrer">
                                 <StackBox key={index} url={item[1]} />
                             </a>))}
                     </Row>

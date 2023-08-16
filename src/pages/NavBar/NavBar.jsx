@@ -4,14 +4,17 @@ import styled from "styled-components";
 import avatar from "../../assets/avatar.png";
 
 const Section = styled.div`
-  height: 10vh;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
 `
 
 const Container = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 15px;
-  background: linear-gradient(rgba(65, 13, 108, 0.91), rgba(65, 13, 108, 0.04));
+  padding: 5px;
+  background: linear-gradient(rgba(65, 13, 108, 0.91), rgba(65, 13, 108, 0.10));
   font-size: 20px;
 `;
 
@@ -27,6 +30,16 @@ const Avatar = styled.div`
   background-position: center;
 `;
 
+const NavItem = styled.a`
+  color: #c0bebe; // Default text color
+  margin: 0 15px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #fff; // Change text color on hover
+  }
+`;
+
 function NavBar() {
     const navRef = useRef();
 
@@ -35,11 +48,11 @@ function NavBar() {
                 <Container>
                     <span className="darkmode-ignore"><Avatar url={avatar}/></span>
                     <nav ref={navRef}>
-                        <a href="/#Home">Home</a>
-                        <a href="/#About">About</a>
-                        <a href="/#Education">Education</a>
-                        <a href="/#Projects">Projects</a>
-                        <a href="/#Credits">Credits</a>
+                        <NavItem href="/#Home">Home</NavItem>
+                        <NavItem href="/#About">About</NavItem>
+                        <NavItem href="/#Education">Education</NavItem>
+                        <NavItem href="/#Projects">Projects</NavItem>
+                        <NavItem href="/#Contact">Contact</NavItem>
                     </nav>
                 </Container>
             </Section>

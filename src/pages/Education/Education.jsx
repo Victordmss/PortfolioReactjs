@@ -8,6 +8,7 @@ import {StyledContainer, StyledGradientLine, StyledCircle} from "../../App.js"
 import Hat from "./GraduationHat";
 import UtcComponent from "./Schools/UTC"
 import rtuComponent from "./Schools/RTU";
+import EducationIcon from "../../assets/Icons/ICONeducation.png";
 
 const Section = styled.div`
   height: 100vh;
@@ -47,6 +48,7 @@ const Button = styled.div`
   align-items: center;
   justify-content: center;
   padding: 20px 20px;
+  margin-top: 30px;
   border: none;
   border-radius: 10px;
   background: linear-gradient(140deg, #30167c 0%, #4b1a75 72%);
@@ -64,13 +66,31 @@ const Button = styled.div`
   }
 `
 
-const Title = styled.h1`
+const TitleRow = styled.h1`
+  //background: #db2b39;
+  padding-top: 30px;
   font-size: 74px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  height: 120px;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`;
+
+const TitleIcon = styled.div`
+  margin-right: 20px;
+  border-radius: 10px;
+  height: 100px;
+  width: 100px;
+  background-image: url(${EducationIcon});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const MapContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   width: 500px;
   height: 500px;
   display: flex;
@@ -141,13 +161,14 @@ function Education() {
             <Left>
                 <StyledContainer>
                     <StyledCircle />
-                    <StyledGradientLine  size = {635}/>
+                    <StyledGradientLine  size = {655}/>
                 </StyledContainer>
             </Left>
             <Middle>
-                <Title>
+                <TitleRow>
+                    <TitleIcon/>
                     Education
-                </Title>
+                </TitleRow>
                 <Button>
                     Click on the markers to learn more about my studies
                 </Button>

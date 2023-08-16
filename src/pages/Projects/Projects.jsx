@@ -9,12 +9,14 @@ import {EDUTCProject} from "./EDUTCProject";
 import {DAFourProject} from "./DAFourProject";
 import {CookeatProject} from "./CookeatProject";
 import 'swiper/css/bundle';
+import ProjectIcon from "./../../assets/Icons/ICONProjects.png"
 
 
 
 const Section = styled.div`
   height: 100vh;
   scroll-snap-align: center;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,8 +28,10 @@ const TitleRow = styled.h1`
   font-size: 74px;
   padding-bottom: 10px;
   height: 120px;
-  margin-left: 100px;
   text-align: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 `;
 
 
@@ -52,6 +56,18 @@ const ProjectBox = styled.div`
   }
 `;
 
+const TitleIcon = styled.div`
+  margin-left: 100px;
+  margin-right: 20px;
+  border-radius: 10px;
+  height: 100px;
+  width: 100px;
+  background-image: url(${ProjectIcon});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
 function Projects() {
 
     const data = [
@@ -65,20 +81,22 @@ function Projects() {
 
     const customSwiperStyles = `
       .myCustomSwiper {
-        height: 480px;
+        height: 490px;
       }
       
-      .swiper-pagination-bullet {
+      .myCustomSwiper .swiper-pagination-bullet {
+        height : 15px;
+        width : 15px;
         background-color: rgba(239, 236, 236, 0.71);
       }
         
-      .swiper-pagination-bullet-active {
+      .myCustomSwiper .swiper-pagination-bullet-active:nth-child() {
         background-color: rgba(238, 238, 238, 0.19); 
       }
       
         ${data
         .map((item, index) => `
-            .swiper-pagination-bullet-active:nth-child(${index + 1}) {
+            .myCustomSwiper .swiper-pagination-bullet-active:nth-child(${index + 1}) {
                 background-color: ${item.color};
             }
         `)
@@ -89,6 +107,7 @@ function Projects() {
         <Section id="Projects">
             <style>{customSwiperStyles}</style>
             <TitleRow>
+                <TitleIcon/>
                 Projects
             </TitleRow>
             <ProjectBox>

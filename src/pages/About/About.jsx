@@ -220,10 +220,10 @@ function percentCircle(percent) {
 function About() {
 
     const skillsImages = [
-        ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],
-        ["UML", logoUML, "transparent", "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
-        ["C++", logoCplusplus, "transparent", "https://en.wikipedia.org/wiki/C%2B%2B"],
-        ["FIREBASE", logoFIREBASE, "transparent", "https://firebase.google.com/"],
+        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
+        ["C++", logoCplusplus, "https://en.wikipedia.org/wiki/C%2B%2B"],
+        ["FIREBASE", logoFIREBASE, "https://firebase.google.com/"],
         ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
         ["Flutter", logoFLUTTER, "https://flutter.dev/"],
         ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
@@ -293,7 +293,7 @@ function About() {
                         </SkillTitleContainer>
                         <Skillsgrid>
                         {skillsImages.map((item, index) => (
-                            <a key={index} href={item[3]} target="_blank" rel="noreferrer">
+                            <a key={index} href={item[2]} target="_blank" rel="noreferrer">
                                 <StackBox key={index} url={item[1]} />
                             </a>))}
                         </Skillsgrid>

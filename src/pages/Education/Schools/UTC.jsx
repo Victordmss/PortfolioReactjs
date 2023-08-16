@@ -127,17 +127,17 @@ export default function UtcComponent(animation) {
 
     const customSwiperStyles = `
     
-        .myCustomSwiper {
+        .UTCSwiper {
             height: 85px;
         }
    
-        .swiper-pagination-bullet {
+        .UTCSwiper .swiper-pagination-bullet {
           width: 10px;
           height: 10px; 
           cursor: pointer;
         }
         
-        .swiper-pagination-bullet-active {
+        .UTCSwiper .swiper-pagination-bullet-active {
           background-color: #F7CC11; 
         }
 `;
@@ -155,7 +155,7 @@ export default function UtcComponent(animation) {
                 <StackListContainer>
                     <StackList>
                         <Swiper
-                            className={"myCustomSwiper"}
+                            className={"UTCSwiper"}
                             modules={[Autoplay, Pagination]}
                             slidesPerView={3}
                             spaceBetween={20}

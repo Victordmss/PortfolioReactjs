@@ -1,14 +1,34 @@
-import React, {useState} from "react"
+import React, {useRef, useState} from "react"
 import styled from "styled-components";
 import LOGOGithub from './../../assets/Logos/logoGITHUBwhite.png'
 import LOGOLinkedin from './../../assets/Logos/logoLINKEDIN.png'
+import emailjs from "@emailjs/browser";
+
 
 const Section = styled.div`
   height: 100vh;
   scroll-snap-align: center;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const FirstRow = styled.div`
+  //background: aqua;
+  flex: 0.9;
+  display: flex;
   flex-direction: row;
+  justify-content: center;
+`;
+
+const SecondRow = styled.div`
+  background: rgba(51, 25, 143, 0.3);
+  flex: 0.1;
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
 `;
 
 const FirstColumn = styled.div`
@@ -65,10 +85,10 @@ const ContactContainer = styled.div`
 `;
 
 const ContactTitle = styled.div`
+  cursor: default;
   margin-top: 30px;
   width: 200px;
   background: linear-gradient(70deg, rgba(66, 5, 119, 0.73), rgba(89, 25, 143, 0.49));
-  border: 2px inset rgba(108, 37, 169, 0.73);
   padding: 10px;
   margin-bottom: 10px ;
   font-size: 22px;
@@ -99,27 +119,37 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  background: #e8e6e6;
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 `;
 
 const TextArea = styled.textarea`
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
   width: 100%;
   height: 120px;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 `;
 
 const Select = styled.select`
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   color: black;
-  font-size: 16px;
+  margin-bottom: 15px;
 `;
 
 const Button = styled.button`
@@ -131,7 +161,7 @@ const Button = styled.button`
   align-self: center;
   font-size: 20px;
   background: linear-gradient(70deg, rgba(66, 5, 119, 0.73), rgba(89, 25, 143, 0.49));
-  border: none;
+  border: 2px inset rgba(108, 37, 169, 0.73);
 
   &:hover {
     background-color: #683891;
@@ -140,10 +170,14 @@ const Button = styled.button`
 `;
 
 function Contact() {
+    const ref = useRef();
+    const [success, setSuccess] = useState(null);
+
+
     const [formData, setFormData] = useState({
-        Name: "",
+        name: "",
         requestType: "",
-        description: "",
+        message: "",
     });
 
     const handleInputChange = (event) => {
@@ -154,55 +188,87 @@ function Contact() {
         }));
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("Form submitted:", formData);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm(
+                "service_txtz9qn",
+                "template_q17gzx7",
+                ref.current,
+                "bRAhh3LI5_aJoB2t3"
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                    setSuccess(true);
+                },
+                (error) => {
+                    console.log(error.text);
+                    setSuccess(false);
+                }
+            );
+    };
+
+    const optionStyle = {
+        color: 'black',
+        fontWeight: 'bold',
     };
 
     return (
         <Section id="Contact">
+            <FirstRow>
             <FirstColumn>
-               <IconNetwork url={LOGOGithub}/>
-                <span className="darkmode-ignore"><IconNetwork url={LOGOLinkedin}/></span>
+                <a href="https://github.com/Victordmss" target="_blank" rel="noreferrer">
+                    <IconNetwork url={LOGOGithub} />
+                </a>
+                <a href="https://www.linkedin.com/in/victor-demessance-65a9431b0/"  target="_blank" rel="noreferrer">
+                    <span className="darkmode-ignore"><IconNetwork url={LOGOLinkedin}/></span>
+                </a>
             </FirstColumn>
             <SecondColumn>
                 <ContactContainer>
                     <ContactTitle>Contact me</ContactTitle>
-                    <Form onSubmit={handleSubmit}>
-                        <Label htmlFor="name">Full Name</Label>
+                    <Form onSubmit={handleSubmit} ref={ref}>
                         <Input
+                            placeholder="Full Name"
                             type="text"
                             id="name"
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
                         />
-                        <Label htmlFor="requestType">Request Type</Label>
+                        <Label htmlFor="requestType">Who are you ?</Label>
                         <Select
                             id="requestType"
                             name="requestType"
                             value={formData.requestType}
                             onChange={handleInputChange}
                         >
-                            <option value="">Select an option</option>
-                            <option value="General">General Inquiry</option>
-                            <option value="Support">Support Request</option>
-                            <option value="Feedback">Feedback</option>
+                            <option value="Entreprise" style={optionStyle}>Company</option>
+                            <option value="Particulier" style={optionStyle}>Individual</option>
+                            <option value="Etudiant" style={optionStyle}>Student</option>
                         </Select>
-
-                        <Label htmlFor="description">Description</Label>
                         <TextArea
-                            id="description"
-                            name="description"
+                            placeholder="Write your message"
+                            id="message"
+                            name="message"
                             value={formData.description}
                             onChange={handleInputChange}
                             rows="4"
                         />
 
                         <Button type="submit">Send me !</Button>
+                        {success &&
+                            "The message has been sent. I'll get back to you soon"}
                     </Form>
                 </ContactContainer>
             </SecondColumn>
+            </FirstRow>
+            <SecondRow>
+                <span><i>Created by <b>Victor Demessance</b></i></span>
+                <b>@All rights reserved</b>
+            </SecondRow>
         </Section>
     )
 }

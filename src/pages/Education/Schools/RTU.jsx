@@ -20,6 +20,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
+
 import {
     AssociationBox,
     AssociationList,
@@ -83,25 +84,25 @@ export default function RtuComponent(animation) {
         [logoRIGA, "#ffffff", "https://www.riga.lv/lv?utm_source=https%3A%2F%2Fwww.google.com%2F"],
     ];
 
-    const customSwiperStyles = `
+    const RTUSwiperStyles = `
     
-        .myCustomSwiper {
+        .RTUSwiper {
             height: 85px;
         }
            
-        .swiper-pagination-bullet {
+        .RTUSwiper .swiper-pagination-bullet {
           width: 10px;
           height: 10px; 
           cursor: pointer;
         }
         
-        .swiper-pagination-bullet-active {
+        .RTUSwiper .swiper-pagination-bullet-active {
           background-color: #225451; 
         }
 `;
 
     return <DescriptionContainer animation={animation}>
-        <style>{customSwiperStyles}</style>
+        <style>{RTUSwiperStyles}</style>
         <SchoolTitle><b>Technical University of Riga</b></SchoolTitle>
         <Line color="#225451"/>
         <FirstRow>
@@ -110,7 +111,7 @@ export default function RtuComponent(animation) {
                 <StackListContainer>
                     <StackList>
                         <Swiper
-                            className="myCustomSwiper"
+                            className="RTUSwiper"
                             modules={[Autoplay, Pagination]}
                             slidesPerView={3}
                             spaceBetween={25}
@@ -136,10 +137,10 @@ export default function RtuComponent(animation) {
                 </StackListContainer>
                 <Line color="#225451"/>
                 <KeyWords>
-                    <Word> <a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Software engineering</a> </Word>
-                    <Word> <a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">OOP</a> </Word>
-                    <Word> <a href={"https://stph.scenari-community.org/bdd/0/co/bdd.html"} target="_blank" rel="noreferrer">AI & Machine's learning</a> </Word>
-                    <Word> <a href={"https://en.wikipedia.org/wiki/VHDL"} target="_blank" rel="noreferrer">Algorithms</a> </Word>
+                    <Word> <a href={"https://en.wikipedia.org/wiki/Software_development"} target="_blank" rel="noreferrer">Software engineering</a> </Word>
+                    <Word> <a href={"https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet"} target="_blank" rel="noreferrer">OOP</a> </Word>
+                    <Word> <a href={"https://en.wikipedia.org/wiki/Artificial_intelligence"} target="_blank" rel="noreferrer">AI & Machine's learning</a> </Word>
+                    <Word> <a href={"https://www.geeksforgeeks.org/fundamentals-of-algorithms/"} target="_blank" rel="noreferrer">Algorithms</a> </Word>
                 </KeyWords>
             </Presentation>
         </FirstRow>
