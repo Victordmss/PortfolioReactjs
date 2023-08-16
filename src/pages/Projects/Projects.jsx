@@ -38,7 +38,7 @@ const TitleRow = styled.h1`
 const ProjectBox = styled.div`
   margin-inline: 7%;
   margin-block: 3%;
-  margin-bottom: 6%;
+  margin-bottom: 5%;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -54,6 +54,7 @@ const ProjectBox = styled.div`
       transform: translateY(10px);
     }
   }
+  
 `;
 
 const TitleIcon = styled.div`
@@ -81,7 +82,7 @@ function Projects() {
 
     const customSwiperStyles = `
       .myCustomSwiper {
-        height: 490px;
+        height: 500px;
       }
       
       .myCustomSwiper .swiper-pagination-bullet {

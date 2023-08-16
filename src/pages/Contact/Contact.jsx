@@ -134,6 +134,7 @@ const TextArea = styled.textarea`
   font-size: 15px;
   color: black;
   width: 100%;
+  background: #e8e6e6;
   height: 120px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -142,6 +143,7 @@ const TextArea = styled.textarea`
 
 const Select = styled.select`
   font-weight: bold;
+  background: #e8e6e6;
   font-size: 18px;
   cursor: pointer;
   width: 100%;
