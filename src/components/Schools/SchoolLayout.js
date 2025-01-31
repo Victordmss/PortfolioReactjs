@@ -75,15 +75,12 @@ export const KeyWords = styled.div`
 export const SecondRow = styled.div`
   height: 100%;
   margin-top: 10px;
-  //border-radius: 20px;
-  //background: rgba(239, 236, 236, 0.24);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
 export const SchoolDescription = styled.div`
-  //background: rgba(173, 101, 13, 0.42);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -183,7 +180,6 @@ export const StackList = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: 10px;
-  //background: rgba(250, 54, 217, 0.42);
 `;
 
 export const StackBox = styled.div`
@@ -222,7 +218,6 @@ export const AssociationList = styled.div`
   justify-content: center;
   gap: 50px;
   height: 60px;
-  //background: rgba(250, 54, 217, 0.42);
 `;
 
 export const AssociationBox = styled.div`

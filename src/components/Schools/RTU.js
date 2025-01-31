@@ -2,18 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import 'swiper/css/bundle';
 
-import logoRTU from "../../../assets/Schools/RTU/logoRTU.png";
+import logoRTU from "../../assets/Schools/RTU/logoRTU.png";
 
-import logoESN from "../../../assets/Schools/RTU/logoESN.png"
-import logoRIGA from "../../../assets/Schools/RTU/logoRIGA.png"
-import logoPROGRAMING from "../../../assets/Logos/logoPROGRAMING.jpg"
+import logoESN from "../../assets/Schools/RTU/logoESN.png"
+import logoRIGA from "../../assets/Schools/RTU/logoRIGA.png"
+import logoPROGRAMING from "../../assets/Logos/logoPROGRAMING.jpg"
 
-import logoUML from "../../../assets/Logos/logoUML.png";
-import logoPYTHON from "../../../assets/Logos/logoPYTHON.png";
-import logoCplusplus from "../../../assets/Logos/logoC++.png"
-import logoORANGE from "../../../assets/Logos/logoORANGE.png"
-import logoPYGAME from "../../../assets/Logos/logoPYGAME.png"
-import logoWORDPRESS from "../../../assets/Logos/logoWORDPRESS.png"
+import logoUML from "../../assets/Logos/logoUML.png";
+import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
+import logoCplusplus from "../../assets/Logos/logoC++.png"
+import logoORANGE from "../../assets/Logos/logoORANGE.png"
+import logoPYGAME from "../../assets/Logos/logoPYGAME.png"
+import logoWORDPRESS from "../../assets/Logos/logoWORDPRESS.png"
 
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -67,7 +67,7 @@ function RTUDescription() {
     </SchoolDescription>);
 }
 
-export default function RtuComponent(animation) {
+export function RtuComponent(animation) {
 
     const stackBoxImages = [
         ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],

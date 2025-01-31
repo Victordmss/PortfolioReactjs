@@ -12,7 +12,7 @@ const markers = [
     {name: "RTU", coordinates: [24.1051846, 56.9493977], color: "#225451" , size : 2, description : ["Université technologique de Riga"]},
 ];
 
-const Map = ({setState}) => {
+export function Map (setState) {
     return (
         <ComposableMap
             projection="geoAzimuthalEqualArea"
@@ -65,5 +65,3 @@ const Map = ({setState}) => {
         </ComposableMap>
     );
 };
-
-export default Map;

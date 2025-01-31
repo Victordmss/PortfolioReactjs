@@ -1,7 +1,7 @@
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export default function Hat(props) {
+export function Hat(props) {
   const { nodes, materials } = useGLTF('/education.gltf')
   return (
     <group {...props} dispose={null}>

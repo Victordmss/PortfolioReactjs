@@ -1,23 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-import logo1 from "../../../assets/Schools/UTC/logoUTC1.png";
-import logo2 from "../../../assets/Schools/UTC/logoUTC2.png";
+import logo1 from "../../assets/Schools/UTC/logoUTC1.png";
+import logo2 from "../../assets/Schools/UTC/logoUTC2.png";
 
-import logoSQL from "../../../assets/Logos/logoSQL.png";
-import logoC from "../../../assets/Logos/logoC.png";
-import logoPYTHON from "../../../assets/Logos/logoPYTHON.png";
-import logoVHDL from "../../../assets/Logos/logoVHDL.jpg";
-import logoPOSTGRESQL from "../../../assets/Logos/logoPOSTGRESQL.png";
-import logoLINUX from "../../../assets/Logos/logoLINUX.png";
-import logoR from "../../../assets/Logos/logoR.png";
-import logoUML from "../../../assets/Logos/logoUML.png";
+import logoSQL from "../../assets/Logos/logoSQL.png";
+import logoC from "../../assets/Logos/logoC.png";
+import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
+import logoVHDL from "../../assets/Logos/logoVHDL.jpg";
+import logoPOSTGRESQL from "../../assets/Logos/logoPOSTGRESQL.png";
+import logoLINUX from "../../assets/Logos/logoLINUX.png";
+import logoR from "../../assets/Logos/logoR.png";
+import logoUML from "../../assets/Logos/logoUML.png";
 
-import logoCANDIDE from "../../../assets/Schools/UTC/logoCANDIDE.jpg";
-import logoEPI from "../../../assets/Schools/UTC/logoEPI.jpg";
-import logoFABLAB from "../../../assets/Schools/UTC/logoFABLAB.png";
-import logoINTEGFEV from "../../../assets/Logos/logoINTEGFEV.png";
-import logoUCC from "../../../assets/Schools/UTC/logoUCC.png";
+import logoCANDIDE from "../../assets/Schools/UTC/logoCANDIDE.jpg";
+import logoEPI from "../../assets/Schools/UTC/logoEPI.jpg";
+import logoFABLAB from "../../assets/Schools/UTC/logoFABLAB.png";
+import logoINTEGFEV from "../../assets/Logos/logoINTEGFEV.png";
+import logoUCC from "../../assets/Schools/UTC/logoUCC.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
@@ -104,7 +104,7 @@ function UTCDescription() {
     </SchoolDescription>);
 }
 
-export default function UtcComponent(animation) {
+export function UtcComponent(animation) {
 
     const stackBoxImages = [
         ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],

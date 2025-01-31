@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react'
 import { useGLTF} from '@react-three/drei'
 
-export default function Model(props) {
+export function Robot(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/robot-transformed.glb')
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

@@ -1,13 +1,8 @@
 import React, {useState} from "react"
 import styled from "styled-components";
-import Map from "./Map.jsx"
-import '../../App.css'
 import {OrbitControls} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
-import {StyledContainer, StyledGradientLine, StyledCircle} from "../../App.js"
-import Hat from "./GraduationHat";
-import UtcComponent from "./Schools/UTC"
-import rtuComponent from "./Schools/RTU";
+import {UtcComponent, RtuComponent, Hat, Map, StyledCircle, StyledContainer, StyledGradientLine} from "../../components"
 import EducationIcon from "../../assets/Icons/ICONeducation.png";
 
 const Section = styled.div`
@@ -33,7 +28,6 @@ const Middle = styled.div`
 `;
 
 const Right = styled.div`
-  //background: #db2b39;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,7 +61,6 @@ const Button = styled.div`
 `
 
 const TitleRow = styled.h1`
-  //background: #db2b39;
   padding-top: 30px;
   font-size: 74px;
   padding-bottom: 10px;
@@ -94,7 +87,6 @@ const MapContainer = styled.div`
   width: 500px;
   height: 500px;
   display: flex;
-  background: #050519;
   border-radius: 50px;
   overflow: hidden;
   background: linear-gradient(140deg, #110165 0%, #4b1a75 72%);
@@ -187,7 +179,7 @@ function Education() {
                     (
                         description==="RTU"
                         &&
-                        rtuComponent(isDescriptionOpen)
+                        RtuComponent(isDescriptionOpen)
                     )
                     ||
                     (

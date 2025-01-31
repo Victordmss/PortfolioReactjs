@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import logoLFC from "../../../assets/Logos/logoLFC.jpg";
-import logoDEGREE from "../../../assets/Schools/LFC/logoDIPLOME.png";
-import logoRCME from "../../../assets/Schools/LFC/logoRCME.png";
-import Diplome from "../../../assets/Schools/LFC/Diplome_BAC.pdf"
+import logoLFC from "../../assets/Logos/logoLFC.jpg";
+import logoDEGREE from "../../assets/Schools/LFC/logoDIPLOME.png";
+import logoRCME from "../../assets/Schools/LFC/logoRCME.png";
+import Diplome from "../../assets/Schools/LFC/Diplome_BAC.pdf"
 
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -129,7 +129,7 @@ function LFCDescription() {
     </SchoolDescription>);
 }
 
-export default function LfcComponent(animation) {
+export function LfcComponent(animation) {
     return <DescriptionContainer animation={animation}>
         <SchoolTitle><b>Fustel de Coulanges High School</b></SchoolTitle>
         <Line color="#4C9B3F"/>

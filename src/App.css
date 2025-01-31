@@ -1,10 +1,3 @@
-:root {
-    --secondaryColor: #db2b39;
-    --textColor: #eee;
-    --clientX: 0;
-    --clientY: 0;
-}
-
 * {
     padding: 0;
     margin: 0;

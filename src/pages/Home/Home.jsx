@@ -1,11 +1,9 @@
 import React, {useState} from "react"
-import Robot from "./Robot"
+import {Robot} from "../../components"
 import {OrbitControls} from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import styled from "styled-components";
-import {StyledCircle, StyledContainer, StyledGradientLine} from "../../App";
-
-
+import {StyledCircle, StyledContainer, StyledGradientLine} from "../../components";
 
 const Section = styled.div`
   height: 100vh;
@@ -152,24 +150,6 @@ function Home() {
     const [descriptionShowed, setDescriptionShowed] = useState(false)
     const [buttonShowed, setButtonShowed] = useState(false)
     const [lineSize, setLineSize] = useState(false)
-
-    /*const handleRobotClicked = () => {
-        if (robotClicked) {
-            setRobotClicked(false)
-            setTimeout(() => {
-                setLineSize(false)
-                setButtonShowed(true)
-                setDescriptionShowed(false)
-            }, 3500)
-        } else {
-            setTimeout(() => {
-                setLineSize(true)
-            }, 3500)
-            setButtonShowed(false)
-            setDescriptionShowed(true)
-            setRobotClicked(true)
-        }
-    }*/
 
     const handleRobotClicked = () => {
         setTimeout(() => {
