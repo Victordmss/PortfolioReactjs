@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {theme} from "../../theme"
 export const DescriptionContainer = styled.div`
   z-index: 1;
   padding: 20px;
@@ -7,7 +7,7 @@ export const DescriptionContainer = styled.div`
   margin-left: 50px ;
   margin-right: 80px;
   border-radius: 50px;
-  background: rgba(238, 238, 238, 0.19);
+  background: ${theme.colors.primary};
   display: flex;
   flex-direction: column;
   animation: 3s infinite alternate floating, ${(props) => (props.animation ? "getIn" : "getOut")} 0.5s ease-in;

@@ -52,7 +52,6 @@ const FirstRowLogo = styled.div`
   align-self: center;
   width: 250px;
   height: 100px;
-  //background: rgba(255, 0, 213, 0.56);
   background-image: url(${logo1});
   background-size: contain;
   background-repeat: no-repeat;
@@ -63,7 +62,6 @@ const SecondRowLogo = styled.div`
   align-self: center;
   width: 250px;
   height: 100px;
-  //background: rgba(255, 153, 0, 0.56);
   background-image: url(${logo2});
   background-size: contain;
   background-repeat: no-repeat;

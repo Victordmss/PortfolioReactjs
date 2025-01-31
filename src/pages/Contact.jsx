@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react"
 import styled from "styled-components";
-import LOGOGithub from './../../assets/Logos/logoGITHUBwhite.png'
-import LOGOLinkedin from './../../assets/Logos/logoLINKEDIN.png'
+import LOGOGithub from '../assets/Logos/logoGITHUBwhite.png'
+import LOGOLinkedin from '../assets/Logos/logoLINKEDIN.png'
 import emailjs from "@emailjs/browser";
 
 

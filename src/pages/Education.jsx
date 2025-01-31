@@ -2,37 +2,51 @@ import React, {useState} from "react"
 import styled from "styled-components";
 import {OrbitControls} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
-import {UtcComponent, RtuComponent, Hat, Map, StyledCircle, StyledContainer, StyledGradientLine} from "../../components"
-import EducationIcon from "../../assets/Icons/ICONeducation.png";
+import {UtcComponent, RtuComponent, Hat, Map, StyledCircle, StyledContainer, StyledGradientLine} from "../components"
+import {theme} from "../theme"
 
 const Section = styled.div`
-  height: 100vh;
+  height: 90vh;
   scroll-snap-align: center;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: ${theme.colors.secondary};
+`;
+
+const FirstRow = styled.div`
+  padding-block : 0.5rem;
+  font-weight: bold;
+  font-size: 4rem;
+  height: 10vh;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const SecondRow = styled.div`
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
 `;
 
 const Left = styled.div`
-  text-align: center;
-  flex: 0.8;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Middle = styled.div`
-  flex: 3;
+  flex: 0.5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 50px;
+  gap: 1rem;
+  align-items:center;
 `;
 
 const Right = styled.div`
+  flex: 0.5;
   display: flex;
   flex-direction: column;
+  align-items:center;
   justify-content: center;
-  width: 50%;
-  height: 100%;
 `;
 
 const Button = styled.div`
@@ -45,7 +59,7 @@ const Button = styled.div`
   margin-top: 30px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(140deg, #30167c 0%, #4b1a75 72%);
+  background: ${theme.colors.primary};
   font-size: 18px;
   transition: background-color 0.3s ease;
   animation: ${(props) => (props.animation && "appearing") || ""} 1s;
@@ -60,28 +74,6 @@ const Button = styled.div`
   }
 `
 
-const TitleRow = styled.h1`
-  padding-top: 30px;
-  font-size: 74px;
-  padding-bottom: 10px;
-  height: 120px;
-  text-align: start;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-`;
-
-const TitleIcon = styled.div`
-  margin-right: 20px;
-  border-radius: 10px;
-  height: 100px;
-  width: 100px;
-  background-image: url(${EducationIcon});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
-
 const MapContainer = styled.div`
   margin-top: 20px;
   width: 500px;
@@ -89,7 +81,7 @@ const MapContainer = styled.div`
   display: flex;
   border-radius: 50px;
   overflow: hidden;
-  background: linear-gradient(140deg, #110165 0%, #4b1a75 72%);
+  background: ${theme.colors.primary};
   animation: floating 2s infinite ease alternate;
 
   @keyframes floating {
@@ -101,7 +93,6 @@ const MapContainer = styled.div`
 
 const CanvasContainer = styled.div`
   align-self: center;
-  //background: aqua;
   height: 70%;
   width: 70%;
   animation: ${(props) => (props.animation && "getIn") || "getOut"} 0.5s ease-in;
@@ -150,24 +141,18 @@ function Education() {
 
     return (
         <Section id="Education">
-            <Left>
-                <StyledContainer>
-                    <StyledCircle />
-                    <StyledGradientLine  size = {655}/>
-                </StyledContainer>
-            </Left>
-            <Middle>
-                <TitleRow>
-                    <TitleIcon/>
-                    Education
-                </TitleRow>
+          <FirstRow>
+            EDUCATION
+          </FirstRow>
+          <SecondRow>
+          <Left>
                 <Button>
                     Click on the markers to learn more about my studies
                 </Button>
                 <MapContainer animation = {description}>
                     <Map setState={handleMarkerClick}/>
                 </MapContainer>
-            </Middle>
+            </Left>
             <Right>
                 {
                     (
@@ -191,6 +176,7 @@ function Education() {
                     </CanvasContainer>)
                 }
             </Right>
+          </SecondRow>
         </Section>
     )
 }

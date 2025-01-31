@@ -6,19 +6,19 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation} from "swiper";
 import 'swiper/css/bundle';
 
-import logoUML from "../../assets/Logos/logoUML.png";
-import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
-import logoCplusplus from "../../assets/Logos/logoC++.png"
-import logoFLUTTER from "../../assets/Logos/logoFlutter.png"
-import logoFIREBASE from "../../assets/Logos/logoFirebase.png"
-import logoREACT from "../../assets/Logos/logoREACT.png"
-import logoC from "../../assets/Logos/logoC.png";
-import logoSQL from "../../assets/Logos/logoSQL.png";
-import logoVHDL from "../../assets/Logos/logoVHDL.jpg";
-import logoPOSTGRESQL from "../../assets/Logos/logoPOSTGRESQL.png";
-import logoLINUX from "../../assets/Logos/logoLINUX.png";
-import logoGithub from "../../assets/Logos/logoGITHUB.png";
-
+import logoUML from "../assets/Logos/logoUML.png";
+import logoPYTHON from "../assets/Logos/logoPYTHON.png";
+import logoCplusplus from "../assets/Logos/logoC++.png"
+import logoFLUTTER from "../assets/Logos/logoFlutter.png"
+import logoFIREBASE from "../assets/Logos/logoFirebase.png"
+import logoREACT from "../assets/Logos/logoREACT.png"
+import logoC from "../assets/Logos/logoC.png";
+import logoSQL from "../assets/Logos/logoSQL.png";
+import logoVHDL from "../assets/Logos/logoVHDL.jpg";
+import logoPOSTGRESQL from "../assets/Logos/logoPOSTGRESQL.png";
+import logoLINUX from "../assets/Logos/logoLINUX.png";
+import logoGithub from "../assets/Logos/logoGITHUB.png";
+import {theme} from "../theme"
 
 const Section = styled.div`
   height: 100vh;
@@ -26,7 +26,6 @@ const Section = styled.div`
 `
 
 const AboutContainer = styled.div`
-  //background: #db2b39;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -37,7 +36,6 @@ const AboutContainer = styled.div`
 
 const FirstRow = styled.div`
   margin-top: 5%;
-  //background: #dbff39;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -48,15 +46,15 @@ const FirstRow = styled.div`
 `
 
 const PercentageCell = styled.div`
-  //background: red;
   width: 250px;
   height: 250px;
   margin-bottom: 30px;  
 `
-
 const SecondRow = styled.div`
   align-self: center;
-  background: rgba(116, 106, 136, 0.45);
+  background: ${theme.colors.primary};
+  border: 1px solid rgba(180, 180, 180, 0.12);
+  box-shadow: rgba(151, 151, 151, 0.06) 0px 0px 1rem 1rem;
   margin-top: 20px;
   margin-inline: 20px;
   display: flex;
@@ -77,7 +75,6 @@ const SecondRow = styled.div`
 `
 
 const SkillCell = styled.div`
-  //background: rgba(44, 110, 22, 0.53);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -110,8 +107,7 @@ const PercentageText = styled.div`
 
 const SkillTitleContainer = styled.div`
   width: 200px;
-  background: linear-gradient(70deg, rgba(66, 5, 119, 0.73), rgba(89, 25, 143, 0.49));
-  border: 2px inset rgba(108, 37, 169, 0.73);
+  background: ${theme.colors.secondary};
   padding: 10px;
   margin-bottom: 15px ;
   font-size: 22px;
@@ -193,7 +189,7 @@ const HobbieDesc = styled.div`
 function percentCircle(percent) {
     return (<PercentContainer>
         <VictoryPie
-            colorScale={["transparent", "rgba(66,5,119,0.65)"]}
+            colorScale={["transparent", theme.colors.secondary]}
             cornerRadius={({ datum }) => datum.y * 5}
             innerRadius={180}
             data={[
@@ -307,7 +303,7 @@ function About() {
                         <ProgressBar
 
                             percent={100}
-                            fillColor={"rgba(42,3,75,0.73)"}
+                            fillColor={theme.colors.secondary}
                             width="200px"
                             height="20px"
                         />
@@ -315,7 +311,7 @@ function About() {
                         English
                         <ProgressBar
                             percent={80}
-                            fillColor={"rgba(78,24,126,0.73)"}
+                            fillColor={theme.colors.secondary}
                             width="200px"
                             height="20px"
                         />
@@ -323,7 +319,7 @@ function About() {
                         Spanish
                         <ProgressBar
                             percent={60}
-                            fillColor={"rgba(130,57,194,0.73)"}
+                            fillColor={theme.colors.secondary}
                             width="200px"
                             height="20px"
                         />
@@ -331,7 +327,7 @@ function About() {
                         Latvian
                         <ProgressBar
                             percent={20}
-                            fillColor={"rgba(149,99,194,0.73)"}
+                            fillColor={theme.colors.secondary}
                             width="200px"
                             height="20px"
                         />

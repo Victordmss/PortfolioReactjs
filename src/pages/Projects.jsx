@@ -2,15 +2,10 @@ import React from "react"
 import styled from "styled-components";
 import {Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {OthelloProject} from "./OthelloProject";
-import {DaDProject} from "./DaDProject";
-import {PortfolioProject} from "./PortfolioProject";
-import {EDUTCProject} from "./EDUTCProject";
-import {DAFourProject} from "./DAFourProject";
-import {CookeatProject} from "./CookeatProject";
 import 'swiper/css/bundle';
-import ProjectIcon from "./../../assets/Icons/ICONProjects.png"
-
+import ProjectIcon from "../assets/Icons/ICONProjects.png"
+import {OthelloProject, DaDProject, PortfolioProject, EDUTCProject, DAFourProject, CookeatProject} from "../components"
+import {theme} from "../theme"
 
 
 const Section = styled.div`
@@ -20,6 +15,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: ${theme.colors.secondary};
 `;
 
 const TitleRow = styled.h1`
