@@ -68,7 +68,8 @@ const CanvasContainer = styled.div`
 `;
 
 const Button = styled.button`
-  background: ${theme.colors.secondary};
+  background: ${theme.colors.tertiary};
+  color: white;
   height: 10px;
   width: fit-content;
   display: flex;

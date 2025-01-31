@@ -107,7 +107,8 @@ const PercentageText = styled.div`
 
 const SkillTitleContainer = styled.div`
   width: 200px;
-  background: ${theme.colors.secondary};
+  background: ${theme.colors.tertiary_light};
+  color: white;
   padding: 10px;
   margin-bottom: 15px ;
   font-size: 22px;
@@ -189,7 +190,7 @@ const HobbieDesc = styled.div`
 function percentCircle(percent) {
     return (<PercentContainer>
         <VictoryPie
-            colorScale={["transparent", theme.colors.secondary]}
+            colorScale={["transparent", theme.colors.tertiary]}
             cornerRadius={({ datum }) => datum.y * 5}
             innerRadius={180}
             data={[
@@ -240,7 +241,7 @@ function About() {
 
     const customSwiperStyles = `
       .swiper-button-next{
-        color: rgba(255, 254, 254, 0.34);
+        color: ${theme.colors.tertiary};
         padding-left: 45px;
         transform: scale(0.6);
         &:hover {
@@ -248,7 +249,7 @@ function About() {
         }
         
       .swiper-button-prev {
-        color: rgba(255, 254, 254, 0.34);
+        color: ${theme.colors.tertiary};
         padding-right: 45px;
         transform: scale(0.6);
 
@@ -303,7 +304,7 @@ function About() {
                         <ProgressBar
 
                             percent={100}
-                            fillColor={theme.colors.secondary}
+                            fillColor={theme.colors.tertiary}
                             width="200px"
                             height="20px"
                         />
@@ -311,7 +312,7 @@ function About() {
                         English
                         <ProgressBar
                             percent={80}
-                            fillColor={theme.colors.secondary}
+                            fillColor={theme.colors.tertiary}
                             width="200px"
                             height="20px"
                         />
@@ -319,7 +320,7 @@ function About() {
                         Spanish
                         <ProgressBar
                             percent={60}
-                            fillColor={theme.colors.secondary}
+                            fillColor={theme.colors.tertiary}
                             width="200px"
                             height="20px"
                         />
@@ -327,7 +328,7 @@ function About() {
                         Latvian
                         <ProgressBar
                             percent={20}
-                            fillColor={theme.colors.secondary}
+                            fillColor={theme.colors.tertiary}
                             width="200px"
                             height="20px"
                         />

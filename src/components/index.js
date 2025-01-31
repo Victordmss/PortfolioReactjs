@@ -1,7 +1,17 @@
+import styled from "styled-components";
 // -------- Centralize all exports --------
 
-// Styled line
-export {StyledCircle, StyledContainer, StyledGradientLine} from "./Styled_line";
+// Title 
+export const TitleRow = styled.div`
+  padding-block : 0.5rem;
+  font-weight: bold;
+  font-size: 4rem;
+  height: 10vh;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
 
 // 3D robot model 
 export {Robot} from "./3D_models/Robot";
@@ -23,3 +33,4 @@ export {PortfolioProject} from "./Projects/PortfolioProject";
 export {EDUTCProject} from "./Projects/EDUTCProject";
 export {DAFourProject} from "./Projects/DAFourProject";
 export {CookeatProject} from "./Projects/CookeatProject";
+

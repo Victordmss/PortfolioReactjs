@@ -2,27 +2,17 @@ import React, {useState} from "react"
 import styled from "styled-components";
 import {OrbitControls} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
-import {UtcComponent, RtuComponent, Hat, Map, StyledCircle, StyledContainer, StyledGradientLine} from "../components"
+import {UtcComponent, RtuComponent, Hat, Map, TitleRow} from "../components"
 import {theme} from "../theme"
 
 const Section = styled.div`
   height: 90vh;
+  width : 100vw;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background: ${theme.colors.secondary};
-`;
-
-const FirstRow = styled.div`
-  padding-block : 0.5rem;
-  font-weight: bold;
-  font-size: 4rem;
-  height: 10vh;
-  text-align: start;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 `;
 
 const SecondRow = styled.div`
@@ -37,7 +27,7 @@ const Left = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 1rem;
+  gap: 5px;
   align-items:center;
 `;
 
@@ -59,7 +49,8 @@ const Button = styled.div`
   margin-top: 30px;
   border: none;
   border-radius: 10px;
-  background: ${theme.colors.primary};
+  background: ${theme.colors.tertiary};
+  color: white;
   font-size: 18px;
   transition: background-color 0.3s ease;
   animation: ${(props) => (props.animation && "appearing") || ""} 1s;
@@ -141,9 +132,9 @@ function Education() {
 
     return (
         <Section id="Education">
-          <FirstRow>
+          <TitleRow>
             EDUCATION
-          </FirstRow>
+          </TitleRow>
           <SecondRow>
           <Left>
                 <Button>

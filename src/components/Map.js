@@ -1,12 +1,13 @@
 import React from "react";
 import { ComposableMap, Geography, Geographies, Marker } from "react-simple-maps";
+import {theme} from "../theme"
 
 const markers = [
   { name: "UTC", coordinates: [2.8263171, 49.4179497], color: "#F7CC11", size: 2, description: ["Université de technologie de Compiègne"] },
   { name: "RTU", coordinates: [24.1051846, 56.9493977], color: "#225451", size: 2, description: ["Université technologique de Riga"] },
 ];
 
-export function Map({ setState }) {
+export function Map({setState}) {
   return (
     <ComposableMap
       projection="geoAzimuthalEqualArea"
@@ -16,15 +17,14 @@ export function Map({ setState }) {
         scale: 1500,
       }}
     >
-      <Geographies geography="/features.json" fill="#1E1E4199" stroke="#FFFFFF" strokeWidth={0.8}>
+      <Geographies geography="/features.json" fill={theme.colors.tertiary} stroke="#FFFFFF" strokeWidth={0.8}>
         {({ geographies }) =>
           geographies.map((geo) => (
             <Geography
               key={geo.rsmKey}
               geography={geo}
               style={{
-                hover: { fill: '#1E1E4100' },
-                pressed: { fill: '#323248' },
+                hover: { fill: theme.colors.tertiary_light },
               }}
             />
           ))

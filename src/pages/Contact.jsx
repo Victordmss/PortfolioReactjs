@@ -1,9 +1,9 @@
 import React, {useRef, useState} from "react"
 import styled from "styled-components";
-import LOGOGithub from '../assets/Logos/logoGITHUBwhite.png'
+import LOGOGithub from '../assets/Logos/logoGITHUB.png'
 import LOGOLinkedin from '../assets/Logos/logoLINKEDIN.png'
 import emailjs from "@emailjs/browser";
-
+import {theme} from "../theme"
 
 const Section = styled.div`
   height: 100vh;
@@ -14,7 +14,6 @@ const Section = styled.div`
 `;
 
 const FirstRow = styled.div`
-  //background: aqua;
   flex: 0.9;
   display: flex;
   flex-direction: row;
@@ -22,7 +21,8 @@ const FirstRow = styled.div`
 `;
 
 const SecondRow = styled.div`
-  background: rgba(51, 25, 143, 0.3);
+  background: ${theme.colors.tertiary};
+  color: white;
   flex: 0.1;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,6 @@ const SecondRow = styled.div`
 `;
 
 const FirstColumn = styled.div`
-  //background: #db2b39;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -56,7 +55,6 @@ const IconNetwork = styled.div`
 `;
 
 const SecondColumn = styled.div`
-  //background: chartreuse;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,7 +67,7 @@ const ContactContainer = styled.div`
   border-radius: 30px;
   height: fit-content;
   width: 500px;
-  background: rgba(180, 180, 180, 0.28);
+  background: ${theme.colors.secondary};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -88,7 +86,8 @@ const ContactTitle = styled.div`
   cursor: default;
   margin-top: 30px;
   width: 200px;
-  background: linear-gradient(70deg, rgba(66, 5, 119, 0.73), rgba(89, 25, 143, 0.49));
+  background: ${theme.colors.tertiary};
+  color: white;
   padding: 10px;
   margin-bottom: 10px ;
   font-size: 22px;
@@ -106,7 +105,6 @@ const ContactTitle = styled.div`
 
 const Form = styled.form`
   width: 90%;
-  //background: #db2b39;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -154,7 +152,7 @@ const Select = styled.select`
   margin-bottom: 15px;
 `;
 
-const Button = styled.button`
+const Button = styled.div`
   margin-top: 10px;
   padding: 10px 20px;
   color: white;
@@ -162,11 +160,10 @@ const Button = styled.button`
   cursor: pointer;
   align-self: center;
   font-size: 20px;
-  background: linear-gradient(70deg, rgba(66, 5, 119, 0.73), rgba(89, 25, 143, 0.49));
-  border: 2px inset rgba(108, 37, 169, 0.73);
+  background: ${theme.colors.tertiary};
 
   &:hover {
-    background-color: #683891;
+    background-color: ${theme.colors.tertiary_light};
     transform: scale(1.1);
   }
 `;
