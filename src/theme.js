@@ -2,13 +2,16 @@
 
 export const theme = {
     gradient: {
-        primary: "linear-gradient(25deg, #5e0204 0%, #5104e7 51%, #532270 90%), linear-gradient(140deg, #1d39be 27%, #9d062e 100%), linear-gradient(140deg, #6f1fce 0%, #480783 72%), radial-gradient(100% 100% at 70% 0%, #5017b0 0%, #1a38ad 100%);"
+        background: "linear-gradient(355deg, #fff 0%,rgb(238, 250, 255) 100%)",
+        primary: "linear-gradient(355deg, #004790 0%, #19b5fe 100%)",
+        secondary: "linear-gradient(270deg, #000e3e -50%, #19b5fe 200%)",
     },
     colors: {
       primary: "#fff",
       secondary: "#eee",
-      tertiary: "#532270",
-      tertiary_light: "#534870",
-      text: "#333",
+      tertiary: "#004790",
+      tertiary_light: "#19b5fe",
+      tertiary_light_light: "#67cfff",
+      tertiary_dark: "#000e3e",
     },
   };

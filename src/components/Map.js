@@ -1,30 +1,31 @@
 import React from "react";
 import { ComposableMap, Geography, Geographies, Marker } from "react-simple-maps";
 import {theme} from "../theme"
+import { style } from "framer-motion/client";
 
 const markers = [
-  { name: "UTC", coordinates: [2.8263171, 49.4179497], color: "#F7CC11", size: 2, description: ["Université de technologie de Compiègne"] },
-  { name: "RTU", coordinates: [24.1051846, 56.9493977], color: "#225451", size: 2, description: ["Université technologique de Riga"] },
+  { name: "UTC", coordinates: [2.8, 48], color: "#F7CC11", size: 3, description: ["Université de technologie de Compiègne"] },
+  { name: "RTU", coordinates: [24, 57], color: "#225451", size: 2.5, description: ["Université technologique de Riga"] },
+  { name: "SNU", coordinates: [127, 37.6], color: "#b90005", size: 2.5, description: ["Université technologique de Séoul"] },
 ];
 
 export function Map({setState}) {
   return (
     <ComposableMap
-      projection="geoAzimuthalEqualArea"
-      projectionConfig={{
-        rotate: [-10.0, -52.0, 0],
-        center: [-5, -3],
-        scale: 1500,
-      }}
+          projection="geoMercator" 
+          projectionConfig={{
+            center: [65, 40], 
+            scale: 300, 
+          }}
     >
-      <Geographies geography="/features.json" fill={theme.colors.tertiary} stroke="#FFFFFF" strokeWidth={0.8}>
+      <Geographies geography="/files/map_features.json" fill="#004790AA" stroke="#FFFFFF" strokeWidth={0.8}>
         {({ geographies }) =>
           geographies.map((geo) => (
             <Geography
               key={geo.rsmKey}
               geography={geo}
               style={{
-                hover: { fill: theme.colors.tertiary_light },
+                hover: { fill: theme.colors.tertiary },
               }}
             />
           ))
@@ -38,7 +39,7 @@ export function Map({setState}) {
         >
           <g
             fill={color}
-            stroke="#CCCCCC"
+            stroke={color}
             strokeWidth={1}
             strokeLinecap="round"
             strokeLinejoin="round"

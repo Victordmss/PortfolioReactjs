@@ -2,15 +2,16 @@ import { useRef, useState, useEffect } from "react";
 import "../App.css";
 import styled from "styled-components";
 import avatar from "../assets/avatar.png";
+import {theme} from "../theme"
 
 const Section = styled.div`
-  height: 70px;
-  width: 100%;
+  height: 8vh;
+  width: 100vw;
   position: fixed;
   z-index: 10;
   background: ${(props) => (props.scrolled ? "white" : "transparent")};
   box-shadow: ${(props) =>
-    props.scrolled ? "rgba(69, 69, 69, 0.06) 0px 0px 1rem 1rem" : "none"};
+    props.scrolled ? "#00479015 0px 0px 1rem 1rem" : "none"};
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 `;
 

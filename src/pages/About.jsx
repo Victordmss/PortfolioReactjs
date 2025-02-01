@@ -54,7 +54,7 @@ const SecondRow = styled.div`
   align-self: center;
   background: ${theme.colors.primary};
   border: 1px solid rgba(180, 180, 180, 0.12);
-  box-shadow: rgba(151, 151, 151, 0.06) 0px 0px 1rem 1rem;
+  box-shadow: #00479015 0px 0px 1rem 1rem;
   margin-top: 20px;
   margin-inline: 20px;
   display: flex;
@@ -65,13 +65,6 @@ const SecondRow = styled.div`
   height: 45%;
   align-items: center;
   border-radius: 50px;
-  animation: 3s infinite alternate floating;
-
-  @keyframes floating {
-    to {
-      transform: translateY(5px);
-    }
-  }
 `
 
 const SkillCell = styled.div`
@@ -93,7 +86,8 @@ const Skillsgrid = styled.div`
 `
 
 const Border = styled.div`
-  background: rgba(255, 254, 254, 0.34);
+  background: ${theme.colors.tertiary_dark};
+  opacity: 0.7;
   width: 4px;
   height: 80%;
   border-radius: 20px;
@@ -107,12 +101,13 @@ const PercentageText = styled.div`
 
 const SkillTitleContainer = styled.div`
   width: 200px;
-  background: ${theme.colors.tertiary_light};
+  background: ${theme.gradient.primary};
   color: white;
   padding: 10px;
   margin-bottom: 15px ;
   font-size: 22px;
   text-align: center;
+  font-weight: bold;
   height: max-content;
   border-radius: 15px;
   animation: 2s scaling infinite alternate ;
@@ -300,16 +295,16 @@ function About() {
                         <SkillTitleContainer>
                             Languages
                         </SkillTitleContainer>
-                        French native
+                        <b>French</b>
                         <ProgressBar
 
                             percent={100}
-                            fillColor={theme.colors.tertiary}
+                            fillColor={theme.colors.tertiary_dark}
                             width="200px"
                             height="20px"
                         />
                         <br/>
-                        English
+                        <b>English</b>
                         <ProgressBar
                             percent={80}
                             fillColor={theme.colors.tertiary}
@@ -317,18 +312,18 @@ function About() {
                             height="20px"
                         />
                         <br/>
-                        Spanish
+                        <b>Spanish</b>
                         <ProgressBar
                             percent={60}
-                            fillColor={theme.colors.tertiary}
+                            fillColor={theme.colors.tertiary_light}
                             width="200px"
                             height="20px"
                         />
                         <br/>
-                        Latvian
+                        <b>Latvian</b>
                         <ProgressBar
                             percent={20}
-                            fillColor={theme.colors.tertiary}
+                            fillColor={theme.colors.tertiary_light_light}
                             width="200px"
                             height="20px"
                         />

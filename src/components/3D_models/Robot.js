@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export function Robot(props) {
   const group = useRef();
-  const {nodes, materials} = useGLTF("/robot-transformed.glb");
+  const {nodes, materials} = useGLTF("/files/3D_models/robot-transformed.glb");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {

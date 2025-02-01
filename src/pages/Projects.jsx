@@ -13,7 +13,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: ${theme.colors.secondary};
+  background: ${theme.colors.primary};
 `;
 
 const ProjectBox = styled.div`
@@ -24,7 +24,9 @@ const ProjectBox = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background: rgba(180, 180, 180, 0.28);
+  background: ${theme.colors.primary};
+  border: 1px solid rgba(180, 180, 180, 0.12);
+  box-shadow: rgba(151, 151, 151, 0.06) 0px 0px 1rem 1rem;
   border-radius: 40px;
   overflow: hidden;
   animation: floating 3s infinite ease alternate;

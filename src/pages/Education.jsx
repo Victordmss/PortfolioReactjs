@@ -4,9 +4,11 @@ import {OrbitControls} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
 import {UtcComponent, RtuComponent, Hat, Map, TitleRow} from "../components"
 import {theme} from "../theme"
+import hexa_flower from "../assets/hexa_flower.png"
+import {motion} from "framer-motion";
 
 const Section = styled.div`
-  height: 90vh;
+  height: 100vh;
   width : 100vw;
   scroll-snap-align: center;
   display: flex;
@@ -31,12 +33,41 @@ const Left = styled.div`
   align-items:center;
 `;
 
-const Right = styled.div`
+const Right = motion(styled.div`
+  background: url(${hexa_flower}) no-repeat left top;
+  background-size: contain;
   flex: 0.5;
+  overflow: visible
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   justify-content: center;
+`);
+
+const CanvasContainer = styled.div`
+  align-self: center;
+  height: 100%;
+  width: 100%;
+  padding: 10rem;
+  animation: ${(props) => (props.animation && "getIn") || "getOut"} 0.5s ease-in;
+
+  @keyframes getIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes getOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 `;
 
 const Button = styled.div`
@@ -82,31 +113,6 @@ const MapContainer = styled.div`
   }
 `;
 
-const CanvasContainer = styled.div`
-  align-self: center;
-  height: 70%;
-  width: 70%;
-  animation: ${(props) => (props.animation && "getIn") || "getOut"} 0.5s ease-in;
-
-  @keyframes getIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes getOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-`;
-
 function Education() {
     const [description, setDescription] = useState("")
     const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
@@ -144,7 +150,12 @@ function Education() {
                     <Map setState={handleMarkerClick}/>
                 </MapContainer>
             </Left>
-            <Right>
+            <Right
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }} 
+            >
                 {
                     (
                         description==="UTC"

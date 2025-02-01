@@ -11,10 +11,11 @@ import {theme} from "./theme"
 
 const Container = styled.div`
   height: 100vh;
+  width : 100vw;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  background: ${theme.colors.primary}
+  background: ${theme.gradient.background}
   background-blend-mode: overlay, overlay, difference, difference, color-burn, exclusion;
 
   &::-webkit-scrollbar {

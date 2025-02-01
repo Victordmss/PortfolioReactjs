@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import {theme} from "../theme"
+
 // -------- Centralize all exports --------
 
 // Title 
 export const TitleRow = styled.div`
-  padding-block : 0.5rem;
+  padding-block : 1rem;
+  color : ${theme.colors.tertiary};
   font-weight: bold;
   font-size: 4rem;
   height: 10vh;

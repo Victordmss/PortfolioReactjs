@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import {theme} from "../../theme"
+
+
 export const DescriptionContainer = styled.div`
   z-index: 1;
   padding: 20px;
-  width: fit-content;
-  margin-left: 50px ;
-  margin-right: 80px;
+  width: 40vw;
+  height: 100%;
+  margin-top: 1rem;
   border-radius: 50px;
   background: ${theme.colors.primary};
+  border: 1px solid rgba(180, 180, 180, 0.12);
+  box-shadow: #00479015 0px 0px 1rem 1rem;
   display: flex;
   flex-direction: column;
   animation: 3s infinite alternate floating, ${(props) => (props.animation ? "getIn" : "getOut")} 0.5s ease-in;
@@ -47,7 +51,6 @@ export const SchoolTitle = styled.div`
 `;
 
 export const Line = styled.div`
-  margin-bottom: 10px;
   align-self: center;
   height: 3px;
   width: 90%;

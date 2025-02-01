@@ -2,12 +2,12 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Hat(props) {
-  const { nodes, materials } = useGLTF('/education.gltf')
+  const { nodes, materials } = useGLTF('/files/3D_models/education.gltf')
   return (
     <group {...props} dispose={null}>
       <ambientLight intensity={0.6}/>
-      <directionalLight position={[5, 5, 0]} intensity={0.8} />
-      <group rotation={[-Math.PI / 2.2, 0.3, -3.7]} scale={3.5}>
+      <directionalLight position={[5, 10, 0]} intensity={0.8} />
+      <group rotation={[-Math.PI/2, 0 , -3.7]} scale={3.5}>
         <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <group rotation={[-Math.PI / 2, 0, 0]} scale={[100, 100, 12.406]}>
             <mesh geometry={nodes.Cube_book_0.geometry} material={materials.book} />
