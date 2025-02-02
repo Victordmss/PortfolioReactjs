@@ -8,9 +8,8 @@ import hexa_flower from "../assets/hexa_flower.png"
 import {motion} from "framer-motion";
 
 const Section = styled.div`
-  height: 100vh;
+  height: 92vh;
   width : 100vw;
-  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -18,7 +17,8 @@ const Section = styled.div`
 `;
 
 const SecondRow = styled.div`
-  height: 80vh;
+  height: 85vh;
+  padding-block: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -28,46 +28,18 @@ const Left = styled.div`
   flex: 0.5;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 5px;
   align-items:center;
 `;
 
-const Right = motion(styled.div`
+const Right = styled.div`
   background: url(${hexa_flower}) no-repeat left top;
   background-size: contain;
   flex: 0.5;
-  overflow: visible
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-`);
-
-const CanvasContainer = styled.div`
-  align-self: center;
-  height: 100%;
-  width: 100%;
-  padding: 10rem;
-  animation: ${(props) => (props.animation && "getIn") || "getOut"} 0.5s ease-in;
-
-  @keyframes getIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes getOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
 `;
 
 const Button = styled.div`
@@ -80,7 +52,7 @@ const Button = styled.div`
   margin-top: 30px;
   border: none;
   border-radius: 10px;
-  background: ${theme.colors.tertiary};
+  background: ${theme.gradient.secondary};
   color: white;
   font-size: 18px;
   transition: background-color 0.3s ease;
@@ -96,7 +68,7 @@ const Button = styled.div`
   }
 `
 
-const MapContainer = styled.div`
+const MapContainer = motion(styled.div`
   margin-top: 20px;
   width: 500px;
   height: 500px;
@@ -104,14 +76,7 @@ const MapContainer = styled.div`
   border-radius: 50px;
   overflow: hidden;
   background: ${theme.colors.primary};
-  animation: floating 2s infinite ease alternate;
-
-  @keyframes floating {
-    to {
-      transform: translateY(20px);
-    }
-  }
-`;
+`);
 
 function Education() {
     const [description, setDescription] = useState("")
@@ -143,19 +108,16 @@ function Education() {
           </TitleRow>
           <SecondRow>
           <Left>
-                <Button>
-                    Click on the markers to learn more about my studies
-                </Button>
-                <MapContainer animation = {description}>
+                <MapContainer animation = {description}
+                  initial={{ x: -500, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  viewport={{ once: false, amount: 0.001 }} 
+                >
                     <Map setState={handleMarkerClick}/>
                 </MapContainer>
             </Left>
-            <Right
-              initial={{ x: 100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.3 }} 
-            >
+            <Right>
                 {
                     (
                         description==="UTC"
@@ -168,14 +130,6 @@ function Education() {
                         &&
                         RtuComponent(isDescriptionOpen)
                     )
-                    ||
-                    (
-                        <CanvasContainer animation = {isModelOpen}>
-                            <Canvas frameloop={"demand"} camera={{position: [3, 2, 10]}}>
-                                <Hat/>
-                                <OrbitControls enableZoom={false} enablePan={false} autoRotate={true}/>
-                            </Canvas>
-                    </CanvasContainer>)
                 }
             </Right>
           </SecondRow>

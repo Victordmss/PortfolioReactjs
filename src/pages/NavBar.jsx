@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import "../App.css";
 import styled from "styled-components";
 import avatar from "../assets/avatar.png";
-import {theme} from "../theme"
+import { theme } from "../theme";
 
 const Section = styled.div`
   height: 8vh;
@@ -11,7 +11,7 @@ const Section = styled.div`
   z-index: 10;
   background: ${(props) => (props.scrolled ? "white" : "transparent")};
   box-shadow: ${(props) =>
-    props.scrolled ? "#00479015 0px 0px 1rem 1rem" : "none"};
+    props.scrolled ? theme.colors.tertiary_transparent + " 0px 0px 1rem 1rem" : "none"};
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 `;
 
@@ -34,9 +34,17 @@ const Avatar = styled.div`
   background-position: center;
 `;
 
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+`;
+
 const NavItem = styled.a`
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  color: var(--textColor);
+  text-decoration: none;
   font-weight: bold;
-  margin: 0 15px;
   transition: transform 0.1s ease-in-out;
 
   &:hover {
@@ -45,30 +53,56 @@ const NavItem = styled.a`
 `;
 
 function NavBar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);  // Scrool value for background effect
 
+  // Scrool Background hook
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 1);
+      setScrolled(window.scrollY > 1);  // Since we start to scrool on the Y axe
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  // Navigation function (to take into account the size of the Navigation Bar in the process)
+  const handleNavClick = (event, targetId) => {
+    event.preventDefault();   // Don't just link to the section
+    const targetElement = document.querySelector(targetId);   // Find the target section
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "end", // Link the bottom of the screen with the bottom of the section
+      });
+    }
+  };
+
+  // Array of pages to optimize Navigation component
+  const pages = [
+    { name: "Home", id: "#Home" },
+    { name: "Education", id: "#Education" },
+    { name: "About", id: "#About" },
+    { name: "Projects", id: "#Projects" },
+    { name: "Contact", id: "#Contact" },
+  ];
+
   return (
     <Section scrolled={scrolled}>
       <Container>
         <Avatar url={avatar} />
-        <nav>
-          <NavItem href="/#Home">Home</NavItem>
-          <NavItem href="/#About">About</NavItem>
-          <NavItem href="/#Education">Education</NavItem>
-          <NavItem href="/#Projects">Projects</NavItem>
-          <NavItem href="/#Contact">Contact</NavItem>
-        </nav>
+        <Nav>
+          {pages.map((page) => (
+            <NavItem
+              key={page.id}
+              href={page.id}
+              onClick={(e) => handleNavClick(e, page.id)}
+            >
+              {page.name}
+            </NavItem>
+          ))}
+        </Nav>
       </Container>
     </Section>
   );

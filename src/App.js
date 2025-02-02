@@ -10,29 +10,29 @@ import Contact from "./pages/Contact";
 import {theme} from "./theme"
 
 const Container = styled.div`
-  height: 100vh;
-  width : 100vw;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
   scrollbar-width: none;
-  background: ${theme.gradient.background}
-  background-blend-mode: overlay, overlay, difference, difference, color-burn, exclusion;
-
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
+
 function App() {
-       return (
+  return (
+    <>
+    <NavBar/>
     <Container>
-        <NavBar/>
-        <Home/>
-        <Education/>
-        <About/>
-        <Projects/>
-        <Contact/>
+      <Home/>
+      <Education/>
+      <About/>
+      <Projects/>
+      <Contact/>
     </Container>
+    </>
   );
 }
 

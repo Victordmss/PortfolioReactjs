@@ -77,27 +77,23 @@ function UTCDescription() {
             </DateTitle>
             <DateLink size={60} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.81) 92%);"/>
             <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
-                <b>2022</b>
+                <b>2024</b>
             </DateTitle>
             <DateLink size={25} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
             <RightArrow color="rgba(255, 208, 0, 0.11)"/>
         </DateTitleRow>
         <TextDescription>
-            Preparatory school for engineering studies.
-            These two years provide the general knowledge and learning methods that are essential for contemporary
-            engineers.
+            Computer Science engineering degree (specialising in embeeded systems).
         </TextDescription>
         <DateTitleRow>
             <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
-                <b>2022 </b>
+                <b>2024</b>
             </DateTitle>
             <DateLink size={30} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
             <RightArrow color="rgba(255, 208, 0, 0.11)"/>
         </DateTitleRow>
         <TextDescription>
-            Engineering course specialising in computer science.
-            The aim is to develop general and rigorous skills in order to combine academic excellence with the
-            adaptability and responsibility learnt at the UTC.
+            Master course specialising in Automatics and Robotics.
         </TextDescription>
     </SchoolDescription>);
 }

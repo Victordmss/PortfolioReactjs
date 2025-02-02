@@ -4,9 +4,9 @@ import {theme} from "../theme"
 import { style } from "framer-motion/client";
 
 const markers = [
-  { name: "UTC", coordinates: [2.8, 48], color: "#F7CC11", size: 3, description: ["Université de technologie de Compiègne"] },
-  { name: "RTU", coordinates: [24, 57], color: "#225451", size: 2.5, description: ["Université technologique de Riga"] },
-  { name: "SNU", coordinates: [127, 37.6], color: "#b90005", size: 2.5, description: ["Université technologique de Séoul"] },
+  { name: "UTC", coordinates: [2.8, 48], color: theme.schools.utc, size: 3, description: ["Université de technologie de Compiègne"] },
+  { name: "RTU", coordinates: [24, 57], color: theme.schools.rtu, size: 2.5, description: ["Université technologique de Riga"] },
+  { name: "SNU", coordinates: [127, 37.6], color: theme.schools.snu, size: 2.5, description: ["Université technologique de Séoul"] },
 ];
 
 export function Map({setState}) {

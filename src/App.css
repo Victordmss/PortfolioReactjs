@@ -2,7 +2,7 @@
 
 html::-webkit-scrollbar, 
 body::-webkit-scrollbar {
-  display: none; /* Cache la scrollbar sur Chrome, Edge et Safari */
+  display: none; 
 }
 
 * {

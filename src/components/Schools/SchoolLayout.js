@@ -6,21 +6,14 @@ export const DescriptionContainer = styled.div`
   z-index: 1;
   padding: 20px;
   width: 40vw;
-  height: 100%;
-  margin-top: 1rem;
+  max-height: 100%;
   border-radius: 50px;
   background: ${theme.colors.primary};
   border: 1px solid rgba(180, 180, 180, 0.12);
   box-shadow: #00479015 0px 0px 1rem 1rem;
   display: flex;
   flex-direction: column;
-  animation: 3s infinite alternate floating, ${(props) => (props.animation ? "getIn" : "getOut")} 0.5s ease-in;
-
-  @keyframes floating {
-    to {
-      transform: translateY(5px);
-    }
-  }
+  animation: ${(props) => (props.animation ? "getIn" : "getOut")} 0.5s ease-in;
 
   @keyframes getIn {
     from {
@@ -60,7 +53,6 @@ export const Line = styled.div`
 export const FirstRow = styled.div`
   flex: 0.7;
   align-self: center;
-  //background: rgba(239, 236, 236, 0.37);
   display: flex;
   flex-direction: row;
   margin-block: 8px;
@@ -89,7 +81,8 @@ export const SchoolDescription = styled.div`
   justify-content: flex-start;
   text-align: justify;
   border-radius: 20px;
-  padding: 20px;
+  padding-inline: 20px;
+  padding-block: 10px;
   background: rgba(239, 236, 236, 0.24);
 `;
 

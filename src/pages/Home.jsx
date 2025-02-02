@@ -15,10 +15,10 @@ const Section = styled.div`
   position: relative;
   height: 100vh;
   width : 100vw;
-  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  background: ${theme.gradient.background}
 `;
 
 const FirstRow = styled.div`
@@ -184,9 +184,10 @@ function Home() {
                   <Button onClick={() => window.open("/files/CV_Victordemessance.pdf", '_blank')}>Click to learn more about me !</Button>
               </Left>
               <Right 
-                initial={{ x: 100, opacity: 0 }} 
-                animate={{ x: 0, opacity: 1 }} 
-                transition={{ duration: 3, ease: "easeOut", delay: 0.5}}>
+                initial={{ x: 500}} 
+                whileInView={{ x: 0}}
+                transition={{ duration: 2, ease: "easeOut"}}
+                viewport={{ once: false, amount: 0.01 }}>
                   <CanvasContainer>
                     <Canvas
                         frameloop={"demand"}
@@ -204,10 +205,10 @@ function Home() {
               <LogoRTU/>
             </SecondRow>
             <HexaLeft
-              initial={{ x: -100, opacity: 0 }} 
-              animate={{ x: 0, opacity: 1 }} 
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: false, amount: 0.4 }}
+              initial={{x: -200}} 
+              whileInView={{ x: 0}}
+              transition={{ duration: 1, ease: "easeOut"}}
+              viewport={{ once: false, amount: 0.01 }}
             />
         </Section>
     )
