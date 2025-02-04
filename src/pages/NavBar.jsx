@@ -82,8 +82,8 @@ function NavBar() {
   // Array of pages to optimize Navigation component
   const pages = [
     { name: "Home", id: "#Home" },
-    { name: "Education", id: "#Education" },
     { name: "About", id: "#About" },
+    { name: "Education", id: "#Education" },
     { name: "Projects", id: "#Projects" },
     { name: "Contact", id: "#Contact" },
   ];

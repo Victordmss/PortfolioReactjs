@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components";
-import {VictoryPie} from 'victory';
 import ProgressBar from "react-percent-bar";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation} from "swiper";
 import 'swiper/css/bundle';
+
+import {PourcentPie} from "../components/"
 
 import logoUML from "../assets/Logos/logoUML.png";
 import logoPYTHON from "../assets/Logos/logoPYTHON.png";
@@ -21,51 +22,47 @@ import logoGithub from "../assets/Logos/logoGITHUB.png";
 import {theme} from "../theme"
 
 const Section = styled.div`
-  height: 100vh;
+  height: 90vh;
+  width: 100vw;
   scroll-snap-align: center;
-`
-
-const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 20px;
-  width: 100%;
-  height: 100%;
+  justify-content: space-evenly;
+  margin-top: 2vh;
 `
 
 const FirstRow = styled.div`
-  margin-top: 5%;
+  height: 30vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 10%;
-  width: 100%;
-  height: 35%;
+  justify-content: space-evenly;
   align-items: center;
 `
 
-const PercentageCell = styled.div`
-  width: 250px;
-  height: 250px;
-  margin-bottom: 30px;  
-`
 const SecondRow = styled.div`
+  height: 60vh;
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+`
+const AboutContainer = styled.div`
   align-self: center;
+  width: 80vw;
+  height: 45vh;
   background: ${theme.colors.primary};
   border: 1px solid rgba(180, 180, 180, 0.12);
   box-shadow: #00479015 0px 0px 1rem 1rem;
-  margin-top: 20px;
-  margin-inline: 20px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 5px;
-  width: 1200px;
-  height: 45%;
   align-items: center;
-  border-radius: 50px;
-`
+  border-radius: 2rem;
+`;
 
 const SkillCell = styled.div`
   display: flex;
@@ -92,12 +89,6 @@ const Border = styled.div`
   height: 80%;
   border-radius: 20px;
 `
-
-const PercentageText = styled.div`
-  padding-top: 5px;
-  font-size: 22px;
-  text-align: center;
-`;
 
 const SkillTitleContainer = styled.div`
   width: 200px;
@@ -135,28 +126,6 @@ const SkillTitleContainer = styled.div`
   }
 `;
 
-const PercentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  animation: 3s infinite alternate floating;
-
-  @keyframes floating {
-    to {
-      transform: translateY(5px);
-    }
-  }
-
-  &:hover {
-    scale: 1.03;
-  }
-`;
-
-const TextPercent = styled.div`
-  font-size: 30px;
-`;
-
 const HobbiesContainer = styled.div`
   font-size: 30px;
   height: 100%;
@@ -179,36 +148,6 @@ const HobbieDesc = styled.div`
   font-size: 15px;
 `;
 
-
-
-
-function percentCircle(percent) {
-    return (<PercentContainer>
-        <VictoryPie
-            colorScale={["transparent", theme.colors.tertiary]}
-            cornerRadius={({ datum }) => datum.y * 5}
-            innerRadius={180}
-            data={[
-                {y: 100 - percent},
-                {y:percent}
-            ]}
-            style={{ labels: { fill: "transparent"} }}/>
-        <div
-            style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                textAlign: 'center',
-                width: '100%',
-                cursor : 'default'
-            }}
-        >
-            <TextPercent><b>{percent}%</b></TextPercent>
-        </div>
-    </PercentContainer>)
-}
-
 function About() {
 
     const skillsImages = [
@@ -226,7 +165,7 @@ function About() {
         ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
     ];
 
-    const Hobbies = [
+    const hobbies = [
         ["Rugby", 'A healthy mind in a healthy body'],
         ["Poetry", "Science describes nature, poetry paints and embellishes it"],
         ["Driver Licence", '"B" permit. Personal car'],
@@ -253,116 +192,105 @@ function About() {
         }
       }
 `;
-
+    const pourcentPieValues = [
+      ["Programming", 80],
+      ["Proactivity", 95],
+      ["Project Management", 65],
+    ]
     return (
         <Section id="About">
             <style>{customSwiperStyles}</style>
-            <AboutContainer>
-                <FirstRow>
-                    <PercentageCell>
-                        {percentCircle(80)}
-                        <PercentageText>
-                            Programming
-                        </PercentageText>
-                    </PercentageCell>
-                    <PercentageCell>
-                        {percentCircle(95)}
-                        <PercentageText>
-                            Proactivity
-                        </PercentageText>
-                    </PercentageCell>
-                    <PercentageCell>
-                        {percentCircle(60)}
-                        <PercentageText>
-                            Project Management
-                        </PercentageText>
-                    </PercentageCell>
-                </FirstRow>
-                <SecondRow>
-                    <SkillCell>
-                        <SkillTitleContainer>
-                            Skills
-                        </SkillTitleContainer>
-                        <Skillsgrid>
-                        {skillsImages.map((item, index) => (
-                            <a key={index} href={item[2]} target="_blank" rel="noreferrer">
-                                <StackBox key={index} url={item[1]} />
-                            </a>))}
-                        </Skillsgrid>
-                    </SkillCell>
-                    <Border/>
-                    <SkillCell>
-                        <SkillTitleContainer>
-                            Languages
-                        </SkillTitleContainer>
-                        <b>French</b>
-                        <ProgressBar
+            <FirstRow>
+              {pourcentPieValues.map((item, index) => (
+                <PourcentPie item={item} key={index} />
+              ))}
+            </FirstRow>
+            <SecondRow>
+              <AboutContainer>
+                <SkillCell>
+                    <SkillTitleContainer>
+                        Skills
+                    </SkillTitleContainer>
+                    <Skillsgrid>
+                    {skillsImages.map((item, index) => (
+                        <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+                            <StackBox key={index} url={item[1]} />
+                        </a>))}
+                    </Skillsgrid>
+                </SkillCell>
+                <Border/>
+                <SkillCell>
+                    <SkillTitleContainer>
+                        Languages
+                    </SkillTitleContainer>
+                    <b>French</b>
+                    <ProgressBar
 
-                            percent={100}
-                            fillColor={theme.colors.tertiary_dark}
-                            width="200px"
-                            height="20px"
-                        />
-                        <br/>
-                        <b>English</b>
-                        <ProgressBar
-                            percent={80}
-                            fillColor={theme.colors.tertiary}
-                            width="200px"
-                            height="20px"
-                        />
-                        <br/>
-                        <b>Spanish</b>
-                        <ProgressBar
-                            percent={60}
-                            fillColor={theme.colors.tertiary_light}
-                            width="200px"
-                            height="20px"
-                        />
-                        <br/>
-                        <b>Latvian</b>
-                        <ProgressBar
-                            percent={20}
-                            fillColor={theme.colors.tertiary_light_light}
-                            width="200px"
-                            height="20px"
-                        />
-                    </SkillCell>
-                    <Border/>
-                    <SkillCell>
-                        <SkillTitleContainer>
-                            Other
-                        </SkillTitleContainer>
-                        <HobbiesContainer>
-                            <Swiper
-                                modules={[Navigation, Autoplay]}
-                                navigation={true}
-                                slidesPerView={1}
-                                spaceBetween={10}
-                                loop={true}
-                                autoplay={{
-                                    disableOnInteraction: false,
-                                    pauseOnMouseEnter: true,
-                                    delay: 4000,
-                                }}
-                            >
-                                {Hobbies.map((item, index) => (
-                                    <SwiperSlide key={index}>
-                                        <HobbieTitle>
-                                            {item[0]}
-                                        </HobbieTitle>
-                                        <HobbieDesc>
-                                            <i>
-                                            {item[1]}
-                                            </i>
-                                        </HobbieDesc>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </HobbiesContainer>
-                    </SkillCell>
-                </SecondRow>
-            </AboutContainer>
+                        percent={100}
+                        fillColor={theme.colors.tertiary_dark}
+                        width="200px"
+                        height="20px"
+                    />
+                    <br/>
+                    <b>English</b>
+                    <ProgressBar
+                        percent={80}
+                        fillColor={theme.colors.tertiary}
+                        width="200px"
+                        height="20px"
+                    />
+                    <br/>
+                    <b>Spanish</b>
+                    <ProgressBar
+                        percent={60}
+                        fillColor={theme.colors.tertiary_light}
+                        width="200px"
+                        height="20px"
+                    />
+                    <br/>
+                    <b>Latvian</b>
+                    <ProgressBar
+                        percent={20}
+                        fillColor={theme.colors.tertiary_light_light}
+                        width="200px"
+                        height="20px"
+                    />
+                </SkillCell>
+                <Border/>
+                <SkillCell>
+                    <SkillTitleContainer>
+                        Other
+                    </SkillTitleContainer>
+                    <HobbiesContainer>
+                        <Swiper
+                            modules={[Navigation, Autoplay]}
+                            navigation={true}
+                            slidesPerView={1}
+                            spaceBetween={10}
+                            loop={true}
+                            autoplay={{
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                                delay: 4000,
+                            }}
+                        >
+                            {hobbies.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <HobbieTitle>
+                                        {item[0]}
+                                    </HobbieTitle>
+                                    <HobbieDesc>
+                                        <i>
+                                        {item[1]}
+                                        </i>
+                                    </HobbieDesc>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </HobbiesContainer>
+                </SkillCell>
+              </AboutContainer>
+            </SecondRow>
         </Section>
     )
 }

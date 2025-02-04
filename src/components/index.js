@@ -19,9 +19,6 @@ export const TitleRow = styled.div`
 // 3D robot model 
 export {Robot} from "./3D_models/Robot";
 
-// 3D graduation hat model 
-export {Hat} from "./3D_models/GraduationHat";
-
 // Schools 
 export {UtcComponent} from "./Schools/UTC"
 export {RtuComponent} from "./Schools/RTU"
@@ -37,3 +34,5 @@ export {EDUTCProject} from "./Projects/EDUTCProject";
 export {DAFourProject} from "./Projects/DAFourProject";
 export {CookeatProject} from "./Projects/CookeatProject";
 
+// Pourcentage Pie
+export {PourcentPie} from "./pourcentPie";

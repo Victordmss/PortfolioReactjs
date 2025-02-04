@@ -7,7 +7,6 @@ import Education from "./pages/Education";
 import Projects from "./pages/Projects";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import {theme} from "./theme"
 
 const Container = styled.div`
   display: flex;
@@ -27,8 +26,8 @@ function App() {
     <NavBar/>
     <Container>
       <Home/>
-      <Education/>
       <About/>
+      <Education/>
       <Projects/>
       <Contact/>
     </Container>

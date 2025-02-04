@@ -86,7 +86,7 @@ const ContactTitle = styled.div`
   cursor: default;
   margin-top: 30px;
   width: 200px;
-  background: ${theme.colors.tertiary};
+  background: ${theme.gradient.primary};
   color: white;
   padding: 10px;
   margin-bottom: 10px ;
@@ -94,13 +94,6 @@ const ContactTitle = styled.div`
   text-align: center;
   height: max-content;
   border-radius: 15px;
-  animation: 2s scaling infinite alternate ;
-
-  @keyframes scaling {
-    to {
-      transform: scale(1.05);
-    }
-  }
 `;
 
 const Form = styled.form`
@@ -160,11 +153,11 @@ const Button = styled.div`
   cursor: pointer;
   align-self: center;
   font-size: 20px;
-  background: ${theme.colors.tertiary};
+  background: ${theme.gradient.secondary};
+  transition: scale 0.1s ease-in-out;
 
   &:hover {
-    background-color: ${theme.colors.tertiary_light};
-    transform: scale(1.1);
+    scale: 1.1;
   }
 `;
 

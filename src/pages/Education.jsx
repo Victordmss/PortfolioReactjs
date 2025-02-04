@@ -1,8 +1,6 @@
 import React, {useState} from "react"
 import styled from "styled-components";
-import {OrbitControls} from "@react-three/drei";
-import {Canvas} from "@react-three/fiber";
-import {UtcComponent, RtuComponent, Hat, Map, TitleRow} from "../components"
+import {UtcComponent, RtuComponent, Map, TitleRow} from "../components"
 import {theme} from "../theme"
 import hexa_flower from "../assets/hexa_flower.png"
 import {motion} from "framer-motion";
@@ -17,6 +15,7 @@ const Section = styled.div`
 `;
 
 const SecondRow = styled.div`
+  overflow: hidden;
   height: 85vh;
   padding-block: 2rem;
   display: flex;
@@ -33,40 +32,14 @@ const Left = styled.div`
   align-items:center;
 `;
 
-const Right = styled.div`
+const Right = motion(styled.div`
   background: url(${hexa_flower}) no-repeat left top;
   background-size: contain;
   flex: 0.5;
   display: flex;
   flex-direction: row;
   justify-content: center;
-`;
-
-const Button = styled.div`
-  height: 10px;
-  width: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 20px;
-  margin-top: 30px;
-  border: none;
-  border-radius: 10px;
-  background: ${theme.gradient.secondary};
-  color: white;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
-  animation: ${(props) => (props.animation && "appearing") || ""} 1s;
-
-  @keyframes appearing {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-`
+`);
 
 const MapContainer = motion(styled.div`
   margin-top: 20px;
@@ -108,16 +81,16 @@ function Education() {
           </TitleRow>
           <SecondRow>
           <Left>
-                <MapContainer animation = {description}
-                  initial={{ x: -500, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  viewport={{ once: false, amount: 0.001 }} 
-                >
+                <MapContainer animation = {description}>
                     <Map setState={handleMarkerClick}/>
                 </MapContainer>
             </Left>
-            <Right>
+            <Right // Animate only if not any marker is clicked (to prevent lag)
+              initial={description === "" ? { x: 200, opacity: 0 } : { x: 0, opacity: 1 }}
+              whileInView={description === "" ? { x: 0, opacity: 1 } : { x: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: false, amount: 0.1 }}
+            >
                 {
                     (
                         description==="UTC"
@@ -129,6 +102,12 @@ function Education() {
                         description==="RTU"
                         &&
                         RtuComponent(isDescriptionOpen)
+                    )
+                    || 
+                    (
+                      description==="SNU"
+                      &&
+                      RtuComponent(isDescriptionOpen)
                     )
                 }
             </Right>

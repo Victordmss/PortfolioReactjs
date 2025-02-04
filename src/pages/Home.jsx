@@ -25,6 +25,7 @@ const FirstRow = styled.div`
   height: 75%;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 `;
 
 const SecondRow = styled.div`
@@ -82,7 +83,7 @@ const Button = styled.button`
   box-shadow: rgba(62, 62, 62, 0.06) 0px 0px 1rem 1rem;
   font-size: 20px;
   transition: background-color 0.3s ease;
-  transition: scale 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
+  transition: scale 0.1s ease-in-out, box-shadow 0.5s ease-in-out;
   cursor: pointer;
 
   &:hover {
