@@ -22,6 +22,7 @@ export {Robot} from "./3D_models/Robot";
 // Schools 
 export {UtcComponent} from "./Schools/UTC"
 export {RtuComponent} from "./Schools/RTU"
+export {SnuComponent} from "./Schools/SNU"
 
 // Map model
 export {Map} from "./Map"

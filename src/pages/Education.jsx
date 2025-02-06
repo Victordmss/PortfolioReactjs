@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import styled from "styled-components";
-import {UtcComponent, RtuComponent, Map, TitleRow} from "../components"
+import {UtcComponent, RtuComponent, SnuComponent, Map, TitleRow} from "../components"
 import {theme} from "../theme"
 import hexa_flower from "../assets/hexa_flower.png"
 import {motion} from "framer-motion";
@@ -35,14 +35,13 @@ const Left = styled.div`
 const Right = motion(styled.div`
   background: url(${hexa_flower}) no-repeat left top;
   background-size: contain;
-  flex: 0.5;
+  flex: 0.45;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 `);
 
 const MapContainer = motion(styled.div`
-  margin-top: 20px;
   width: 500px;
   height: 500px;
   display: flex;
@@ -85,32 +84,17 @@ function Education() {
                     <Map setState={handleMarkerClick}/>
                 </MapContainer>
             </Left>
-            <Right // Animate only if not any marker is clicked (to prevent lag)
+            <Right 
               initial={description === "" ? { x: 200, opacity: 0 } : { x: 0, opacity: 1 }}
               whileInView={description === "" ? { x: 0, opacity: 1 } : { x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: false, amount: 0.1 }}
             >
-                {
-                    (
-                        description==="UTC"
-                        &&
-                        UtcComponent(isDescriptionOpen)
-                    )
-                    ||
-                    (
-                        description==="RTU"
-                        &&
-                        RtuComponent(isDescriptionOpen)
-                    )
-                    || 
-                    (
-                      description==="SNU"
-                      &&
-                      RtuComponent(isDescriptionOpen)
-                    )
-                }
+              {description === "UTC" && <UtcComponent animation={isDescriptionOpen} />}
+              {description === "RTU" && <RtuComponent animation={isDescriptionOpen} />}
+              {description === "SNU" && <SnuComponent animation={isDescriptionOpen} />}
             </Right>
+
           </SecondRow>
         </Section>
     )

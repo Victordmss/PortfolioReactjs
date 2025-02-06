@@ -4,7 +4,7 @@ import {OrbitControls} from "@react-three/drei"
 import {Canvas} from "@react-three/fiber"
 import {motion} from "framer-motion";
 import styled from "styled-components";
-import logoUTC from "../assets/Schools/UTC/logoUTC1.png"
+import logoUTC from "../assets/Schools/UTC/logoUTC.png"
 import logoRTU from "../assets/Schools/RTU/logoRTU.png"
 import logoSNU from "../assets/Schools/SNU/logoSNU.png"
 import {theme} from "../theme"

@@ -9,6 +9,7 @@ export const theme = {
     colors: {
       primary: "#fff",
       secondary: "#eee",
+      secondary_transparent: "rgba(236, 237, 239, 0.56)",
       tertiary: "#004790",
       tertiary_transparent: "#00479015",
       tertiary_light: "#19b5fe",
@@ -16,8 +17,9 @@ export const theme = {
       tertiary_dark: "#000e3e",
     },
     schools: {
-      utc: "#F7CC11",
+      utc: "#f5d44a",
       rtu: "#225451",
+      rtu_gradient: "inear-gradient(140deg, rgba(42, 133, 127, 0.54) 20%, rgba(32, 100, 95, 0.81) 92%)",
       snu: "#b90005"
     }
   };

@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useState} from "react"
 import styled from "styled-components";
 
-import logo1 from "../../assets/Schools/UTC/logoUTC1.png";
-import logo2 from "../../assets/Schools/UTC/logoUTC2.png";
+import logoUTC from "../../assets/Schools/UTC/logoUTC.png";
 
 import logoSQL from "../../assets/Logos/logoSQL.png";
 import logoC from "../../assets/Logos/logoC.png";
@@ -19,10 +18,15 @@ import logoFABLAB from "../../assets/Schools/UTC/logoFABLAB.png";
 import logoINTEGFEV from "../../assets/Logos/logoINTEGFEV.png";
 import logoUCC from "../../assets/Schools/UTC/logoUCC.png";
 
+import logoRobotics from "../../assets/Logos/logoRobotics.png";
+import logoComputer from "../../assets/Logos/logoComputerScience.png";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import {Autoplay, Pagination} from "swiper";
 import "swiper/css";
 import "swiper/css/autoplay";
+
+import {theme} from "../../theme"
 
 import {
     AssociationBox,
@@ -37,60 +41,78 @@ import {
     TextDescription, VolunteeringTitle, Word
 } from "./SchoolLayout";
 
-const Logo = styled.div`
+
+const FirstCol = styled.div`
+  flex: 0.5;
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
-  align-self: center;
-  width: 265px;
-  height: 225px;
-  padding: 10px;
-  gap: 20px;
+  align-items: center; 
+  justify-content: center; 
+  gap: 1rem;
+  width: 100%;
+
 `;
 
-const FirstRowLogo = styled.div`
+const Logo = styled.div`
+  background-image: url(${logoUTC});
   align-self: center;
-  width: 250px;
-  height: 100px;
-  background-image: url(${logo1});
+  height: 13vh;
+  width: 90%;
+  margin-inline: 1rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 `;
 
-const SecondRowLogo = styled.div`
-  align-self: center;
-  width: 250px;
-  height: 100px;
-  background-image: url(${logo2});
+const DegreeButtonRaw = styled.div`
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-evenly; 
+  width: 100%;
+`;
+
+const DegreeButton = styled.div`
+  padding: 30px;
+  background-image: url(${(props) => props.url}); 
+  opacity: ${(props) => (props.activated ? 0.5 : 1)};
+  scale : ${(props) => (props.activated ? 1.1 : 1)};
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: scale 0.1s ease-in-out;
+
+  &:hover {
+    scale : 1.1; 
+  }
 `;
 
 function UTCDescription() {
 
     return (<SchoolDescription>
         <DateTitleRow>
-            <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+            <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
                 <b>2020</b>
             </DateTitle>
-            <DateLink size={60} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.81) 92%);"/>
-            <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+            <DateLink size={60} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(231, 177, 0, 0.82) 92%);"/>
+            <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
                 <b>2024</b>
             </DateTitle>
             <DateLink size={25} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
-            <RightArrow color="rgba(255, 208, 0, 0.11)"/>
+            <RightArrow color="rgba(230, 192, 22, 0.3)"/>
         </DateTitleRow>
         <TextDescription>
             Computer Science engineering degree (specialising in embeeded systems).
         </TextDescription>
         <DateTitleRow>
-            <DateTitle gradient="linear-gradient(90deg, rgba(203, 156, 3, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+            <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
                 <b>2024</b>
             </DateTitle>
             <DateLink size={30} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
-            <RightArrow color="rgba(255, 208, 0, 0.11)"/>
+            <RightArrow color="rgba(230, 192, 22, 0.3)"/>
         </DateTitleRow>
         <TextDescription>
             Master course specialising in Automatics and Robotics.
@@ -98,7 +120,12 @@ function UTCDescription() {
     </SchoolDescription>);
 }
 
-export function UtcComponent(animation) {
+export function UtcComponent({animation}) {
+    const [degreeDisplayed, setDegreeDisplayed] = useState("Engineer");
+
+    const handleDegreeChange = (degreeType) => {
+        setDegreeDisplayed(degreeType); 
+    };
 
     const stackBoxImages = [
         ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
@@ -132,19 +159,26 @@ export function UtcComponent(animation) {
         }
         
         .UTCSwiper .swiper-pagination-bullet-active {
-          background-color: #F7CC11; 
+          background-color: ${theme.schools.utc}; 
         }
 `;
 
     return <DescriptionContainer animation={animation}>
         <style>{customSwiperStyles}</style>
-        <SchoolTitle><b>University of Technology of Compiegne</b></SchoolTitle>
-        <Line color='#F7CC11'/>
+        <SchoolTitle>
+            <div>
+                University of Technology of Compiegne
+            </div>
+            <Line color={theme.schools.utc}/>
+        </SchoolTitle>
         <FirstRow>
-            <Logo>
-                <FirstRowLogo/>
-                <SecondRowLogo/>
-            </Logo>
+            <FirstCol>
+                <Logo/>
+                <DegreeButtonRaw>
+                    <DegreeButton url={logoComputer} activated={degreeDisplayed==="Engineer"} onClick={() => handleDegreeChange("Engineer")}/>
+                    <DegreeButton url={logoRobotics} activated={degreeDisplayed==="Master"} onClick={() => handleDegreeChange("Master")}/>
+                </DegreeButtonRaw>
+            </FirstCol>
             <Presentation>
                 <StackListContainer>
                     <StackList>
@@ -173,7 +207,7 @@ export function UtcComponent(animation) {
                         </Swiper>
                     </StackList>
                 </StackListContainer>
-                <Line color="#F7CC11"/>
+                <Line color={theme.schools.utc}/>
                 <KeyWords>
                     <Word><a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Data Structures</a></Word>
                     <Word><a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">Computer Architecture</a></Word>
@@ -185,7 +219,7 @@ export function UtcComponent(animation) {
         <SecondRow>
             <UTCDescription/>
             <AssociationListContainer>
-                <VolunteeringTitle><SemiLine color="#F7CC11"/><b>Volunteering Experiences</b><SemiLine color="#F7CC11"/></VolunteeringTitle>
+                <VolunteeringTitle><SemiLine color={theme.schools.utc}/><b>Volunteering Experiences</b><SemiLine color={theme.schools.utc}/></VolunteeringTitle>
                 <AssociationList>
                     {associationBoxImages.map((data, index) => (
                         <a key={index} href={data[2]} target="_blank" rel="noreferrer">
