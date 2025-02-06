@@ -185,10 +185,10 @@ function Home() {
                   <Button onClick={() => window.open("/files/CV_Victordemessance.pdf", '_blank')}>Click to learn more about me !</Button>
               </Left>
               <Right 
-                initial={{ x: 500}} 
-                whileInView={{ x: 0}}
-                transition={{ duration: 2, ease: "easeOut"}}
-                viewport={{ once: false, amount: 0.01 }}>
+                initial={{ x: 400, opacity: 0}} 
+                whileInView={{ x: 0, opacity: 1}}
+                transition={{ duration: 1, ease: "easeOut"}}
+                viewport={{ once: false, amount: 0.1 }}>
                   <CanvasContainer>
                     <Canvas
                         frameloop={"demand"}

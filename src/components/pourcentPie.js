@@ -46,41 +46,8 @@ const PercentageText = styled.div`
 `;
 
 export function PourcentPie({ item }) {
-  const [animatedPercent, setAnimatedPercent] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef(null);
-
-  useEffect(() => {
-    const currentElement = elementRef.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
-
-    return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement);
-      }
-    };
-  }, []); 
-
-
-  useEffect(() => {
-    if (isVisible) {
-      setAnimatedPercent(item[1]);
-    }
-  }, [isVisible, item]);
-
   return (
-    <PercentageCell ref={elementRef}>
+    <PercentageCell>
       <PercentContainer>
         <VictoryPie
           animate={{ duration: 2000 }}
@@ -88,14 +55,14 @@ export function PourcentPie({ item }) {
           cornerRadius={({ datum }) => datum.y * 5}
           innerRadius={180}
           data={[
-            { y: animatedPercent },
-            { y: 100 - animatedPercent }
+            { y: item[1] },
+            { y: 100 - item[1] }
           ]}
           style={{ labels: { fill: "transparent" } }}
           startAngle={0}
           endAngle={360}
         />
-        <TextPercent>{animatedPercent}%</TextPercent>
+        <TextPercent>{item[1]}%</TextPercent>
       </PercentContainer>
       <PercentageText>{item[0]}</PercentageText>
     </PercentageCell>
