@@ -11,6 +11,9 @@ import logoPOSTGRESQL from "../../assets/Logos/logoPOSTGRESQL.png";
 import logoLINUX from "../../assets/Logos/logoLINUX.png";
 import logoR from "../../assets/Logos/logoR.png";
 import logoUML from "../../assets/Logos/logoUML.png";
+import logoMATLAB from "../../assets/Logos/logoMatlab.png"
+import logoOCTAVE from "../../assets/Logos/logoOctave.png"
+import logoSIMULINK from "../../assets/Logos/logoSimulink.png"
 
 import logoCANDIDE from "../../assets/Schools/UTC/logoCANDIDE.jpg";
 import logoEPI from "../../assets/Schools/UTC/logoEPI.jpg";
@@ -90,32 +93,73 @@ const DegreeButton = styled.div`
   }
 `;
 
-function UTCDescription() {
+const DegreeTitle = styled.div`
+  flex: 0.05;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  gap: 5px;
+  font-weight: bold;
+`;
+
+
+function UTCDescription({degreeDisplayed}) {
 
     return (<SchoolDescription>
-        <DateTitleRow>
-            <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
-                <b>2020</b>
-            </DateTitle>
-            <DateLink size={60} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(231, 177, 0, 0.82) 92%);"/>
-            <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
-                <b>2024</b>
-            </DateTitle>
-            <DateLink size={25} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
-            <RightArrow color="rgba(230, 192, 22, 0.3)"/>
-        </DateTitleRow>
+        {
+            degreeDisplayed === "Engineer" && 
+            <>
+                <DateTitleRow>
+                    <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+                        <b>2020</b>
+                    </DateTitle>
+                    <DateLink size={60} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(231, 177, 0, 0.82) 92%);"/>
+                    <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+                        <b>2024</b>
+                    </DateTitle>
+                    <DateLink size={25} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
+                    <RightArrow color="rgba(230, 192, 22, 0.3)"/>
+                </DateTitleRow>
+            </>
+        }
+        {
+            degreeDisplayed === "Master" && 
+            <>
+                <DateTitleRow>
+                    <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+                        <b>2024</b>
+                    </DateTitle>
+                    <DateLink size={60} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(231, 177, 0, 0.82) 92%);"/>
+                    <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
+                        <b>2025</b>
+                    </DateTitle>
+                    <DateLink size={25} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
+                    <RightArrow color="rgba(230, 192, 22, 0.3)"/>
+                </DateTitleRow>
+            </>
+        }
         <TextDescription>
-            Computer Science engineering degree (specialising in embeeded systems).
-        </TextDescription>
-        <DateTitleRow>
-            <DateTitle gradient="linear-gradient(90deg, rgba(231, 177, 0, 0.82) 20%, rgba(225, 185, 12, 0.81) 92%);">
-                <b>2024</b>
-            </DateTitle>
-            <DateLink size={30} gradient="linear-gradient(140deg, rgba(225, 185, 12, 0.82) 20%, rgba(203, 156, 3, 0.12) 92%);"/>
-            <RightArrow color="rgba(230, 192, 22, 0.3)"/>
-        </DateTitleRow>
-        <TextDescription>
-            Master course specialising in Automatics and Robotics.
+        {
+            degreeDisplayed === "Engineer" && 
+            <>
+                I have a Computer Science engineering degree from UTC, specialising in embedded and autonomous systems (INES)
+                Although the course is general and covers all the concepts that are essential for any computer engineer,
+                it also covers concepts that are specific to embedded programming and real-time operating systems.
+            </>
+        }
+        {
+            degreeDisplayed === "Master" &&
+            <>
+                My master's degree in Robotics and Autonomous Systems (ARS) 
+                focuses on the research and development of advanced robotic systems. 
+                The program covers control theory, artificial intelligence, perception, and autonomous decision-making, 
+                with a strong emphasis on modeling, simulation, and innovative robotic transport applications 
+                in real-world environments.
+            </>
+        }
         </TextDescription>
     </SchoolDescription>);
 }
@@ -127,7 +171,7 @@ export function UtcComponent({animation}) {
         setDegreeDisplayed(degreeType); 
     };
 
-    const stackBoxImages = [
+    const stackBoxImagesEngineer = [
         ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
         ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
         ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
@@ -136,6 +180,12 @@ export function UtcComponent({animation}) {
         ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
         ["R", logoR, "https://en.wikipedia.org/wiki/R_(programming_language)"],
         ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
+    ];
+
+    const stackBoxImagesMaster = [
+        ["Matlab", logoMATLAB, "https://www.mathworks.com/products/matlab.html"],
+        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["Simulink", logoSIMULINK, "https://en.wikipedia.org/wiki/Simulink"],
     ];
 
     const associationBoxImages = [
@@ -198,7 +248,13 @@ export function UtcComponent({animation}) {
                                 dynamicBullets: true,
                             }}
                         >
-                            {stackBoxImages.map((item, index) => (
+                            {degreeDisplayed==="Engineer" && stackBoxImagesEngineer.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+                                        <StackBox key={index} url={item[1]}/></a>
+                                </SwiperSlide>
+                            ))}
+                            {degreeDisplayed==="Master" && stackBoxImagesMaster.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <a key={index} href={item[2]} target="_blank" rel="noreferrer">
                                         <StackBox key={index} url={item[1]}/></a>
@@ -209,15 +265,45 @@ export function UtcComponent({animation}) {
                 </StackListContainer>
                 <Line color={theme.schools.utc}/>
                 <KeyWords>
-                    <Word><a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Data Structures</a></Word>
-                    <Word><a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">Computer Architecture</a></Word>
-                    <Word><a href={"https://stph.scenari-community.org/bdd/0/co/bdd.html"} target="_blank" rel="noreferrer">Database</a></Word>
-                    <Word><a href={"https://en.wikipedia.org/wiki/VHDL"} target="_blank" rel="noreferrer">FPGA</a></Word>
+                    {
+                        degreeDisplayed === "Engineer" && 
+                        <>
+                            <Word><a href={"https://www.geeksforgeeks.org/data-structures/"} target="_blank" rel="noreferrer">Data Structures</a></Word>
+                            <Word><a href={"https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/"} target="_blank" rel="noreferrer">Computer Architecture</a></Word>
+                            <Word><a href={"https://en.wikipedia.org/wiki/Data_science"} target="_blank" rel="noreferrer">Data Science</a></Word>
+                            <Word><a href={"https://en.wikipedia.org/wiki/Real-time_computing"} target="_blank" rel="noreferrer">Real time systems</a></Word>
+                        </>
+                    }
+                    {
+                        degreeDisplayed === "Master" && 
+                        <>
+                            <Word>Modeling</Word>
+                            <Word>Perception</Word>
+                            <Word>Estimation</Word>
+                            <Word>Control</Word>
+                        </>
+                    }
                 </KeyWords>
             </Presentation>
         </FirstRow>
         <SecondRow>
-            <UTCDescription/>
+            <DegreeTitle>
+                <SemiLine color={theme.schools.utc} size={degreeDisplayed === "Engineer" ? "20%" : "30%"}/>
+                {   
+                    degreeDisplayed === "Engineer" &&
+                    <>
+                        Computer Science Engineering degree
+                    </>
+                }
+                {   
+                    degreeDisplayed === "Master" &&
+                    <>
+                        Robotics Master's degree
+                    </>
+                }
+                <SemiLine color={theme.schools.utc} size={degreeDisplayed === "Engineer" ? "20%" : "30%"}/>
+                </DegreeTitle>
+            <UTCDescription degreeDisplayed={degreeDisplayed}/>
             <AssociationListContainer>
                 <VolunteeringTitle><SemiLine color={theme.schools.utc}/><b>Volunteering Experiences</b><SemiLine color={theme.schools.utc}/></VolunteeringTitle>
                 <AssociationList>

@@ -11,7 +11,7 @@ export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 20px;
+  gap: 10px;
 
   border-radius: 50px;
   background: ${theme.colors.primary};
@@ -121,7 +121,7 @@ export const KeyWords = styled.div`
 `;
 
 export const Word = styled.div`
-  cursor:pointer;
+  cursor: default;
   text-align: center;
   width: max-content;
 
@@ -203,7 +203,7 @@ export const VolunteeringTitle = styled.div`
 
 export const SemiLine = styled.div`
   height: 2px;
-  width: 30%;
+  width: ${(props)=>props.size || "30%"};
   background: ${(props)=>props.color};
 `;
 
@@ -225,7 +225,7 @@ export const AssociationList = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
   height: 60px;
 `;
 
@@ -239,6 +239,7 @@ export const AssociationBox = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  transition: scale 0.1s ease-in-out;
 
   &:hover {
     scale: 1.1;
