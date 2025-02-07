@@ -145,7 +145,7 @@ function UTCDescription({degreeDisplayed}) {
         {
             degreeDisplayed === "Engineer" && 
             <>
-                I have a Computer Science engineering degree from UTC, specialising in embedded and autonomous systems (INES)
+                My Computer Science engineering degree from UTC is specialising in embedded and autonomous systems (INES).
                 Although the course is general and covers all the concepts that are essential for any computer engineer,
                 it also covers concepts that are specific to embedded programming and real-time operating systems.
             </>
