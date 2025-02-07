@@ -6,7 +6,7 @@ import emailjs from "@emailjs/browser";
 import {theme} from "../theme"
 
 const Section = styled.div`
-  height: 100vh;
+  height: 92vh;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;

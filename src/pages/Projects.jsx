@@ -8,44 +8,37 @@ import {theme} from "../theme"
 
 
 const Section = styled.div`
-  height: 90vh;
-  scroll-snap-align: center;
+  height: 92vh;
+  width : 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: ${theme.colors.primary};
+  align-items: center;
+  gap: 2.5rem;
 `;
 
 const ProjectBox = styled.div`
-  margin-inline: 4rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  padding: 10px;
+  height: 70vh;
+  width: 90vw;
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
   flex-direction: row;
   background: ${theme.colors.primary};
   border: 1px solid rgba(180, 180, 180, 0.12);
-  box-shadow: rgba(151, 151, 151, 0.06) 0px 0px 1rem 1rem;
+  box-shadow: #00479015 0px 0px 1rem 1rem;
   border-radius: 40px;
   overflow: hidden;
-  animation: floating 3s infinite ease alternate;
-  height: fit-content;
-
-  @keyframes floating {
-    to {
-      transform: translateY(10px);
-    }
-  }
+  
   
 `;
 
 function Projects() {
 
     const data = [
-        { component: <OthelloProject />, color: "hsl(116, 91%, 18%)" },
+        { component: <OthelloProject />, color: "hsl(116, 91%, 18%)", gradient: "linear-gradient(to right,hsl(116, 91%, 18%) 0, hsla(122, 20%, 61%, 0.85) 15%, hsl(116, 91%, 18%) 25%)"},
         { component: <PortfolioProject />, color: "rgba(116, 10, 147, 0.62)" },
-        { component: <DaDProject />, color: "hsl(192, 65%, 65%)" },
+        { component: <DaDProject />, color: "hsl(192, 65%, 65%)", gradient: "linear-gradient(to right, hsl(192, 65%, 65%) 0, hsla(180, 82%, 94%, 0.85) 15%, hsl(192, 65%, 65%) 25%)"},
         { component: <CookeatProject />, color: "hsl(334, 86%, 25%)" },
         { component: <EDUTCProject />, color: "rgb(238,238,238)" },
         { component: <DAFourProject />, color: "hsl(52, 100%, 50%)" },
@@ -53,7 +46,7 @@ function Projects() {
 
     const customSwiperStyles = `
       .myCustomSwiper {
-        height: 500px;
+        height: 100%;
       }
       
       .myCustomSwiper .swiper-pagination-bullet {
@@ -89,7 +82,7 @@ function Projects() {
                 >
                     {data.map((item, index) => (
                         <SwiperSlide key={index}>
-                            {item.component}
+                            {React.cloneElement(item.component, { color: item.color , gradient: item.gradient})}
                         </SwiperSlide>
                     ))}
                 </Swiper>

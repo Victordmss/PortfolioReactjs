@@ -1,8 +1,16 @@
 import React, {useState} from "react"
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {Autoplay, Pagination} from "swiper";
+import "swiper/css";
+import "swiper/css/autoplay";
 
+import {theme} from "../../theme"
+
+// Logo School
 import logoUTC from "../../assets/Schools/UTC/logoUTC.png";
 
+// Logo Skills Engineer
 import logoSQL from "../../assets/Logos/logoSQL.png";
 import logoC from "../../assets/Logos/logoC.png";
 import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
@@ -11,26 +19,23 @@ import logoPOSTGRESQL from "../../assets/Logos/logoPOSTGRESQL.png";
 import logoLINUX from "../../assets/Logos/logoLINUX.png";
 import logoR from "../../assets/Logos/logoR.png";
 import logoUML from "../../assets/Logos/logoUML.png";
+
+// Logo Skills Master
 import logoMATLAB from "../../assets/Logos/logoMatlab.png"
-import logoOCTAVE from "../../assets/Logos/logoOctave.png"
 import logoSIMULINK from "../../assets/Logos/logoSimulink.png"
 
+// Logo Voluntering 
 import logoCANDIDE from "../../assets/Schools/UTC/logoCANDIDE.jpg";
 import logoEPI from "../../assets/Schools/UTC/logoEPI.jpg";
 import logoFABLAB from "../../assets/Schools/UTC/logoFABLAB.png";
 import logoINTEGFEV from "../../assets/Logos/logoINTEGFEV.png";
 import logoUCC from "../../assets/Schools/UTC/logoUCC.png";
 
+// Logo degrees
 import logoRobotics from "../../assets/Logos/logoRobotics.png";
 import logoComputer from "../../assets/Logos/logoComputerScience.png";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import {Autoplay, Pagination} from "swiper";
-import "swiper/css";
-import "swiper/css/autoplay";
-
-import {theme} from "../../theme"
-
+// Card component imports
 import {
     AssociationBox,
     AssociationList,
@@ -38,13 +43,15 @@ import {
     DateLink,
     DateTitle,
     DateTitleRow,
-    DescriptionContainer, FirstRow, KeyWords, Line, Presentation,
+    DescriptionContainer, FirstRow, KeyWords, Presentation,
     RightArrow,
     SchoolDescription, SchoolTitle, SecondRow, SemiLine, StackBox, StackList, StackListContainer,
     TextDescription, VolunteeringTitle, Word
 } from "./SchoolLayout";
 
+import {Line} from "../index"
 
+// Different FirstCol because of the degree selection
 const FirstCol = styled.div`
   flex: 0.5;
   display: flex;
@@ -56,6 +63,7 @@ const FirstCol = styled.div`
 
 `;
 
+// School logo
 const Logo = styled.div`
   background-image: url(${logoUTC});
   align-self: center;
@@ -67,6 +75,7 @@ const Logo = styled.div`
   background-position: center;
 `;
 
+// Degree selection raw
 const DegreeButtonRaw = styled.div`
   display: flex;
   flex-direction: row; 
@@ -74,6 +83,7 @@ const DegreeButtonRaw = styled.div`
   width: 100%;
 `;
 
+// Degree selection button
 const DegreeButton = styled.div`
   padding: 30px;
   background-image: url(${(props) => props.url}); 
@@ -93,6 +103,7 @@ const DegreeButton = styled.div`
   }
 `;
 
+// Degree selected title 
 const DegreeTitle = styled.div`
   flex: 0.05;
   display: flex;

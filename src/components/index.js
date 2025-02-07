@@ -37,3 +37,12 @@ export {CookeatProject} from "./Projects/CookeatProject";
 
 // Pourcentage Pie
 export {PourcentPie} from "./pourcentPie";
+
+// Line
+export const Line = styled.div`
+  align-self: center;
+  height: 3px;
+  width: 90%;
+  background: ${(props) => props.color} ;
+  margin-block: 2px;
+`;

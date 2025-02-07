@@ -4,10 +4,6 @@ import 'swiper/css/bundle';
 
 import logoSNU from "../../assets/Schools/SNU/logoSNU.png";
 
-import logoESN from "../../assets/Schools/RTU/logoESN.png"
-import logoRIGA from "../../assets/Schools/RTU/logoRIGA.png"
-import logoPROGRAMING from "../../assets/Logos/logoPROGRAMING.jpg"
-
 import logoGOOGLECOLLAB from "../../assets/Logos/logoGoogleCollab.png";
 import logoHTML from "../../assets/Logos/logoHTML.png";
 import logoCSS from "../../assets/Logos/logoCSS.png"
@@ -27,11 +23,13 @@ import {
     DateLink,
     DateTitle,
     DateTitleRow,
-    DescriptionContainer, FirstRow, KeyWords, Line, Presentation,
+    DescriptionContainer, FirstRow, KeyWords, Presentation,
     RightArrow,
     SchoolDescription, SchoolTitle, SecondRow, StackBox, StackList, StackListContainer,
     TextDescription, Word
 } from "./SchoolLayout";
+
+import {Line} from "../index"
 
 const Logo = styled.div`
     flex: 0.5;

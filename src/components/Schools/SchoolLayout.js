@@ -50,14 +50,6 @@ export const SchoolTitle = styled.div`
   font-weight: bold;
 `;
 
-export const Line = styled.div`
-  align-self: center;
-  height: 3px;
-  width: 90%;
-  background: ${(props) => props.color} ;
-  margin-block: 2px;
-`;
-
 export const FirstRow = styled.div`
   flex: 0.35;
   width: 100%;
@@ -124,10 +116,10 @@ export const Word = styled.div`
   cursor: default;
   text-align: center;
   width: max-content;
+  transition: letter-spacing 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:hover {
       letter-spacing: 2px;
-      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   a {
