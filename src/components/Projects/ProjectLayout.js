@@ -24,7 +24,7 @@ export const TitleRow = styled.div`
 `;
 
 export const ProjectTitle = styled.div`
-    font-size: 5rem;
+    font-size: ${(props) => props.fontsize || "5rem"};
     font-weight: bold;
     background: ${(props) => props.gradient};
     -webkit-background-clip: text;
@@ -73,8 +73,8 @@ export const MediaContainer = styled.div`
   justify-content: center;
   align-items : center;
   margin-top: 1.5rem;
-  width: 33vw;
-  height: 35vh;
+  width: ${(props) => props.width || "33vw"};
+  height: ${(props) => props.height || "35vh"};
   background-position: center;  
   border: ${(props) => props.color} 2px solid;
   border-radius: 20px;
@@ -100,13 +100,13 @@ gap: 1rem;
 `;
 
 export const Description = styled.div`
-  height: 75%;
+  height: 70%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 5px;
+  gap: 1rem;
   border-radius: 25px;
   padding: 1.5rem;
   background: ${theme.colors.secondary_transparent};
@@ -120,7 +120,7 @@ export const KeyWords = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 `;
 
 export const Word = styled.div`

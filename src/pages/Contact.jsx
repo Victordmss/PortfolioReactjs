@@ -21,7 +21,7 @@ const FirstRow = styled.div`
 `;
 
 const SecondRow = styled.div`
-  background: ${theme.colors.tertiary};
+  background: ${theme.gradient.secondary};
   color: white;
   flex: 0.1;
   display: flex;
@@ -63,11 +63,13 @@ const SecondColumn = styled.div`
 `;
 
 const ContactContainer = styled.div`
-  padding-bottom : 20px;
+  padding-block : 2rem;
   border-radius: 30px;
   height: fit-content;
   width: 500px;
-  background: ${theme.colors.secondary};
+  background: ${theme.colors.primary};
+  border: 1px solid rgba(180, 180, 180, 0.12);
+  box-shadow: #00479015 0px 0px 1rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -80,20 +82,6 @@ const ContactContainer = styled.div`
       transform: translateY(10px);
     }
   }
-`;
-
-const ContactTitle = styled.div`
-  cursor: default;
-  margin-top: 30px;
-  width: 200px;
-  background: ${theme.gradient.primary};
-  color: white;
-  padding: 10px;
-  margin-bottom: 10px ;
-  font-size: 22px;
-  text-align: center;
-  height: max-content;
-  border-radius: 15px;
 `;
 
 const Form = styled.form`
@@ -113,10 +101,10 @@ const Input = styled.input`
   font-size: 18px;
   color: black;
   font-weight: bold;
-  background: #e8e6e6;
+  background: ${theme.colors.secondary_transparent};
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 0px;
   border-radius: 5px;
 `;
 
@@ -125,21 +113,22 @@ const TextArea = styled.textarea`
   font-size: 15px;
   color: black;
   width: 100%;
-  background: #e8e6e6;
+  background: ${theme.colors.secondary_transparent};
   height: 120px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 0px;
   border-radius: 5px;
+  resize: none;
 `;
 
 const Select = styled.select`
   font-weight: bold;
-  background: #e8e6e6;
+  background: ${theme.colors.secondary_transparent};
   font-size: 18px;
   cursor: pointer;
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 0px;
   border-radius: 5px;
   color: black;
   margin-bottom: 15px;
@@ -220,7 +209,6 @@ function Contact() {
             </FirstColumn>
             <SecondColumn>
                 <ContactContainer>
-                    <ContactTitle>Contact me</ContactTitle>
                     <Form onSubmit={handleSubmit} ref={ref}>
                         <Input
                             placeholder="Full Name"

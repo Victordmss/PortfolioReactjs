@@ -31,8 +31,8 @@ export {Map} from "./Map"
 export {OthelloProject} from "./Projects/OthelloProject";
 export {DaDProject} from "./Projects/DaDProject";
 export {PortfolioProject} from "./Projects/PortfolioProject";
-export {EDUTCProject} from "./Projects/EDUTCProject";
-export {DAFourProject} from "./Projects/DAFourProject";
+//export {EDUTCProject} from "./Projects/old_projects/EDUTCProject";
+//export {DAFourProject} from "./Projects/old_projects/DAFourProject";
 export {CookeatProject} from "./Projects/CookeatProject";
 
 // Pourcentage Pie

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css/bundle';
-import {OthelloProject, DaDProject, PortfolioProject, EDUTCProject, DAFourProject, CookeatProject, TitleRow} from "../components"
+import {OthelloProject, DaDProject, PortfolioProject, CookeatProject, TitleRow} from "../components"
 import {theme} from "../theme"
 
 
@@ -28,20 +28,20 @@ const ProjectBox = styled.div`
   border: 1px solid rgba(180, 180, 180, 0.12);
   box-shadow: #00479015 0px 0px 1rem 1rem;
   border-radius: 40px;
-  overflow: hidden;
-  
-  
+  overflow: hidden; 
+  padding-inline: 2rem;
+
 `;
 
 function Projects() {
 
     const data = [
-        { component: <OthelloProject />, color: "hsl(116, 91%, 18%)", gradient: "linear-gradient(to right,hsl(116, 91%, 18%) 0, hsla(122, 20%, 61%, 0.85) 15%, hsl(116, 91%, 18%) 25%)"},
-        { component: <PortfolioProject />, color: "rgba(116, 10, 147, 0.62)" },
-        { component: <DaDProject />, color: "hsl(192, 65%, 65%)", gradient: "linear-gradient(to right, hsl(192, 65%, 65%) 0, hsla(180, 82%, 94%, 0.85) 15%, hsl(192, 65%, 65%) 25%)"},
-        { component: <CookeatProject />, color: "hsl(334, 86%, 25%)" },
-        { component: <EDUTCProject />, color: "rgb(238,238,238)" },
-        { component: <DAFourProject />, color: "hsl(52, 100%, 50%)" },
+        { component: <OthelloProject/>, color: "rgb(10, 88, 4)", gradient: "linear-gradient(to right,rgb(10, 88, 4) 0, rgba(136, 175, 137, 0.85) 15%, rgb(10, 88, 4) 25%)"},
+        { component: <PortfolioProject/>, color: theme.colors.tertiary, gradient: "linear-gradient(to right, "+ theme.colors.tertiary +" 0, "+ theme.colors.tertiary_dark +" 15%, "+ theme.colors.tertiary +" 25%)"},
+        { component: <DaDProject/>, color: "rgb(108, 201, 224)", gradient: "linear-gradient(to right, rgb(108, 201, 224) 0, rgba(227, 252, 252, 0.85) 15%, rgb(108, 201, 224) 25%)"},
+        { component: <CookeatProject/>, color: "rgb(119, 9, 56)", gradient: "linear-gradient(to right,rgb(119, 9, 56) 0, rgba(175, 136, 145, 0.85) 15%, rgb(119, 9, 56) 25%)"},
+        //{ component: <EDUTCProject />, color: "rgb(238,238,238)" },
+        //{ component: <DAFourProject />, color: "rgb(255, 221, 0)" },
     ];
 
     const customSwiperStyles = `

@@ -78,12 +78,12 @@ export function OthelloProject({color, gradient}) {
                             Game design
                         </Word>
                         <Word>
-                            AI implementation
+                            Machine Learning
                         </Word>
                     </KeyWords>
                     <Line color={color}/>
-                    User can see all his available moves and has to click on the board to make a move. After that, AI will play.<br/><br/>
-                    When the game ends, it stays possible to review the game in order to understand or to check something. After that, the reset button allows to play a new game. <br/><br/><br/>
+                    User can see all his available moves and has to click on the board to make a move. After that, AI will play. When the game ends, 
+                    it stays possible to review the game in order to understand or to check something. After that, the reset button allows to play a new game. <br/><br/>
                     AI process is based on the minimax algorithms with an heuristic function.
                 </Description>
                 <StackList>

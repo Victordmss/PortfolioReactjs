@@ -10,8 +10,6 @@ import {PourcentPie} from "../components/"
 import logoUML from "../assets/Logos/logoUML.png";
 import logoPYTHON from "../assets/Logos/logoPYTHON.png";
 import logoCplusplus from "../assets/Logos/logoC++.png"
-import logoFLUTTER from "../assets/Logos/logoFlutter.png"
-import logoFIREBASE from "../assets/Logos/logoFirebase.png"
 import logoREACT from "../assets/Logos/logoREACT.png"
 import logoC from "../assets/Logos/logoC.png";
 import logoSQL from "../assets/Logos/logoSQL.png";
@@ -19,6 +17,20 @@ import logoVHDL from "../assets/Logos/logoVHDL.jpg";
 import logoPOSTGRESQL from "../assets/Logos/logoPOSTGRESQL.png";
 import logoLINUX from "../assets/Logos/logoLINUX.png";
 import logoGithub from "../assets/Logos/logoGITHUB.png";
+import logoJS from "../assets/Logos/logoJS.png"
+import logoPHP from "../assets/Logos/logoPHP.png"
+import logoPHPMYADMIN from "../assets/Logos/logoPHPMA.png"
+import logoHTML from "../assets/Logos/logoHTML.png"
+import logoCSS from "../assets/Logos/logoCSS.png"
+import logoLARAVEL from "../assets/Logos/logoLARAVEL.png"
+import logoCMAKE from "../assets/Logos/logoCMAKE.png"
+import logoMATLAB from "../assets/Logos/logoMatlab.png"
+import logoSIMULINK from "../assets/Logos/logoSimulink.png"
+import logoKCACHEGRIND from "../assets/Logos/logoKCACHEGRIND.png"
+import logoROS from "../assets/Logos/logoROS.png"
+import logoVALGRIND from "../assets/Logos/logoVALGRIND.png"
+
+
 import {theme} from "../theme"
 
 const Section = styled.div`
@@ -79,7 +91,7 @@ const Skillsgrid = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 95%;
-  height: 80%;
+  height: 85%;
 `
 
 const Border = styled.div`
@@ -91,7 +103,8 @@ const Border = styled.div`
 `
 
 const SkillTitleContainer = styled.div`
-  width: 200px;
+  width: fit-content;
+  self-align: center;
   background: ${theme.gradient.primary};
   color: white;
   padding: 10px;
@@ -120,9 +133,10 @@ const SkillTitleContainer = styled.div`
   background-position: center;
   cursor: pointer;
   margin: 10px;
+  transition: scale 0.1s ease-in-out;
 
   &:hover {
-    scale: 0.95
+    scale: 1.2;
   }
 `;
 
@@ -150,19 +164,42 @@ const HobbieDesc = styled.div`
 
 function About() {
 
-    const skillsImages = [
+    const devSkillsImages = [
+        // Dev languages
         ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
-        ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
-        ["C++", logoCplusplus, "https://en.wikipedia.org/wiki/C%2B%2B"],
-        ["FIREBASE", logoFIREBASE, "https://firebase.google.com/"],
-        ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
-        ["Flutter", logoFLUTTER, "https://flutter.dev/"],
-        ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
-        ["PostreSQL", logoPOSTGRESQL, "https://www.postgresql.org/"],
-        ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
-        ["Github", logoGithub, "https://github.com/Victordmss"],
         ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
+        ["JS", logoJS, "transparent", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
+        ["PHP", logoPHP, "transparent", "https://www.php.net/"],
+        ["C++", logoCplusplus, "https://en.wikipedia.org/wiki/C%2B%2B"],
+
+        // Logo SGBD
+        ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
+        ["PostreSQL", logoPOSTGRESQL, "https://www.postgresql.org/"],
+        ["PhpMyAdmin", logoPHPMYADMIN, "https://www.phpmyadmin.net/"],
+
+        // Logo Web
+        ["HTML", logoHTML, "transparent", "https://developer.mozilla.org/en-US/docs/Web/HTML"],
+        ["CSS", logoCSS, "transparent", "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content"],
         ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
+        ["Laravel ", logoLARAVEL, "https://laravel.com/"],
+    ];
+
+    const embeededSystemsSkillsImages = [
+      // Embeeded systems
+      ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
+      ["Matlab", logoMATLAB, "https://www.mathworks.com/products/matlab.html"],
+      ["Simulink", logoSIMULINK, "https://en.wikipedia.org/wiki/Simulink"],
+      ["ROS", logoROS, "https://www.ros.org/"],
+      ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
+
+      // Optimisation
+      ["Valgrind", logoVALGRIND, "https://valgrind.org/"],
+      ["Kcachegrind", logoKCACHEGRIND, "https://kcachegrind.sourceforge.net/html/Home.html"],
+      ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
+
+      // Project management
+      ["Github", logoGithub, "https://github.com/Victordmss"],
+      ["CMake", logoCMAKE, "https://cmake.org/"], 
     ];
 
     const hobbies = [
@@ -209,52 +246,14 @@ function About() {
               <AboutContainer>
                 <SkillCell>
                     <SkillTitleContainer>
-                        Skills
+                        Computer Science
                     </SkillTitleContainer>
                     <Skillsgrid>
-                    {skillsImages.map((item, index) => (
+                    {devSkillsImages.map((item, index) => (
                         <a key={index} href={item[2]} target="_blank" rel="noreferrer">
                             <StackBox key={index} url={item[1]} />
                         </a>))}
                     </Skillsgrid>
-                </SkillCell>
-                <Border/>
-                <SkillCell>
-                    <SkillTitleContainer>
-                        Languages
-                    </SkillTitleContainer>
-                    <b>French</b>
-                    <ProgressBar
-
-                        percent={100}
-                        fillColor={theme.colors.tertiary_dark}
-                        width="200px"
-                        height="20px"
-                    />
-                    <br/>
-                    <b>English</b>
-                    <ProgressBar
-                        percent={80}
-                        fillColor={theme.colors.tertiary}
-                        width="200px"
-                        height="20px"
-                    />
-                    <br/>
-                    <b>Spanish</b>
-                    <ProgressBar
-                        percent={60}
-                        fillColor={theme.colors.tertiary_light}
-                        width="200px"
-                        height="20px"
-                    />
-                    <br/>
-                    <b>Latvian</b>
-                    <ProgressBar
-                        percent={20}
-                        fillColor={theme.colors.tertiary_light_light}
-                        width="200px"
-                        height="20px"
-                    />
                 </SkillCell>
                 <Border/>
                 <SkillCell>
@@ -289,6 +288,18 @@ function About() {
                         </Swiper>
                     </HobbiesContainer>
                 </SkillCell>
+                <Border/>
+                <SkillCell>
+                    <SkillTitleContainer>
+                        Systems & Optimisation
+                    </SkillTitleContainer>
+                    <Skillsgrid>
+                    {embeededSystemsSkillsImages.map((item, index) => (
+                        <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+                            <StackBox key={index} url={item[1]} />
+                        </a>))}
+                    </Skillsgrid>
+                </SkillCell>       
               </AboutContainer>
             </SecondRow>
         </Section>

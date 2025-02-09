@@ -11,7 +11,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: ${theme.colors.secondary};
+  background: ${theme.colors.secondary_transparent};
 `;
 
 const SecondRow = styled.div`

@@ -33,12 +33,16 @@ export function DaDProject({color, gradient}) {
     return (
         <BoxContent>
             <FirstColumn>
-                <ProjectTitle gradient={gradient}>Drag&drop maker</ProjectTitle>
+                <TitleRow>
+                  <ProjectTitle fontsize={"3rem"} gradient={gradient}>Drag&Drop Maker</ProjectTitle>
+                  <LinkBox url={logoGithub}/>
+                </TitleRow>
+                <br/>
                 <BriefDescription>
                   Creation of a mario maker style game, based on drag&drop functionality
                 </BriefDescription>
                 <MediaContainer color={color}>
-                    <video width="460" height="265" autoPlay loop muted>
+                    <video width="100%" height="100%" autoPlay loop muted>
                         <source src={DaDPreview} type="video/mp4"/>
                     </video>
                 </MediaContainer>
@@ -59,7 +63,7 @@ export function DaDProject({color, gradient}) {
                     <Line color={color}/>
                     The aim of this project is to develop a platformer that allows users to create their own levels. <br/><br/>
                     This project had no specific goal, only to develop a video game design program with instinctive, functional drag&drop. <br/><br/>
-                    This project was created with the help of Clear code. <br/>
+                    This project was created with the help of Clear code <br/>
                 </Description>
                 <StackList>
                     <Row>
