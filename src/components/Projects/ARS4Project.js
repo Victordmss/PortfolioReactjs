@@ -26,16 +26,16 @@ import {BoxContent,
 
 import {Line} from "../index"
 
-export function PortfolioProject({color, gradient}) {
+export function ARS4Project({color, gradient}) {
     const Canvas = [
-      Portfolio1,
-      Portfolio2,
-      Portfolio3
+      ARS4_1,
+      ARS4_2,
+      ARS4_3
     ];
 
     const Stack = [
-        ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
-        ["React Simple Map", logoRSM, "https://www.react-simple-maps.io"],
+        ["Matlab", logoMATLAB, "https://fr.legacy.reactjs.org/"],
+        ["React Simple Map", logoOVERLEAF, "https://www.react-simple-maps.io"],
     ];
 
     return (
@@ -82,7 +82,7 @@ export function PortfolioProject({color, gradient}) {
                     </KeyWords>
                     <Line color={color}/>
                     The aim of the project was to create a website from Scracth (without using any UI component libraries) offering the opportunity to get to know me better. <br/><br/>
-                    This portfolio allows me to learn more about myself, my skills, my career path and the experience I've acquired in the course of my personal projects.
+                    This portfolio allows me to learn more about myself, my skills, my career path and the experience I've acquired in the course of my personal projects.<br/><br/>
                 </Description>
                 <StackList>
                     <Row>

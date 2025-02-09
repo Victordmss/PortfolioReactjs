@@ -14,7 +14,7 @@ import logoUTC from "../../assets/Schools/UTC/logoUTC.png";
 import logoSQL from "../../assets/Logos/logoSQL.png";
 import logoC from "../../assets/Logos/logoC.png";
 import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
-import logoVHDL from "../../assets/Logos/logoVHDL.jpg";
+import logoVHDL from "../../assets/Logos/logoVHDL.png";
 import logoPOSTGRESQL from "../../assets/Logos/logoPOSTGRESQL.png";
 import logoLINUX from "../../assets/Logos/logoLINUX.png";
 import logoR from "../../assets/Logos/logoR.png";
