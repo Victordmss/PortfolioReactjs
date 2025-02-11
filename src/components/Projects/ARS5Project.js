@@ -1,12 +1,14 @@
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay} from "swiper/modules";
 import React from "react";
-import logoREACT from "../../assets/Logos/logoREACT.png";
+import logoSIMULINK from "../../assets/Logos/logoSimulink.png";
 import logoGithub from "../../assets/Logos/logoGITHUB.png";
-import logoRSM from "../../assets/Logos/logoRSM.jpg"
-import Portfolio1 from "../../assets/ProjectsCanvas/Portfolio1.png";
-import Portfolio2 from "../../assets/ProjectsCanvas/Portfolio2.png";
-import Portfolio3 from "../../assets/ProjectsCanvas/Portfolio3.png";
+import logoTelechargement from "../../assets/Logos/logoTELECHARGEMENTPDF.png"
+import logoOVERLEAF from "../../assets/Logos/logoOVERLEAF.jpg";
+import logoMATLAB from "../../assets/Logos/logoMatlab.png";
+import ARS5_1 from "../../assets/ProjectsCanvas/ARS5_1.png";
+import ARS5_2 from "../../assets/ProjectsCanvas/ARS5_2.png";
+import ARS5_3 from "../../assets/ProjectsCanvas/ARS5_3.png";
 
 import {BoxContent, 
   FirstColumn, 
@@ -26,27 +28,29 @@ import {BoxContent,
 
 import {Line} from "../index"
 
-export function PortfolioProject({color, gradient}) {
+export function ARS5Project({color, gradient}) {
     const Canvas = [
-      Portfolio1,
-      Portfolio2,
-      Portfolio3
+      [ARS5_1, "contain"],
+      [ARS5_2, "cover"],
+      [ARS5_3, "contain"],
     ];
 
     const Stack = [
-        ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
-        ["React Simple Map", logoRSM, "https://www.react-simple-maps.io"],
+        ["Matlab", logoMATLAB, "https://fr.legacy.reactjs.org/"],
+        ["Simulink", logoSIMULINK, "https://fr.mathworks.com/products/simulink.html"],
+        ["Overleaf", logoOVERLEAF, "https://fr.overleaf.com"],
     ];
 
     return (
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <ProjectTitle fontsize={"4rem"} gradient={gradient}>Web Portfolio</ProjectTitle>
+                <LinkBox url={logoTelechargement}/>
+                <ProjectTitle fontsize={"3rem"} gradient={gradient}>Quadcopter Control</ProjectTitle>
                 <LinkBox url={logoGithub}/>
               </TitleRow>                
               <BriefDescription>
-                Creating a portfolio website in React.js from scratch
+                Euler-Lagrange modelling of a quadcopter, stabilisation using neested saturation functions and trajectory convergence.
               </BriefDescription>
               <MediaContainer color={color}>
                   <Swiper
@@ -61,7 +65,7 @@ export function PortfolioProject({color, gradient}) {
                   >
                       {Canvas.map((item, index) => (
                           <SwiperSlide key={index}>
-                              <Item url={item}/>
+                              <Item url={item[0]} content={item[1]}/>
                           </SwiperSlide>
                       ))}
                   </Swiper>
@@ -71,18 +75,18 @@ export function PortfolioProject({color, gradient}) {
                 <Description>
                     <KeyWords>
                         <Word>
-                            Web design
+                            Euler-Lagrange Model
                         </Word>
                         <Word>
-                            Web Development
+                            Quadcopter Stabilization
                         </Word>
                         <Word>
-                            Responsiveness and Adaptability
+                            Control & trajectory convergence
                         </Word>
                     </KeyWords>
                     <Line color={color}/>
-                    The aim of the project was to create a website from Scracth (without using any UI component libraries) offering the opportunity to get to know me better. <br/><br/>
-                    This portfolio allows me to learn more about myself, my skills, my career path and the experience I've acquired in the course of my personal projects.
+                    This project focuses on the stabilization and control of a quadcopter using the nested saturation method. <br/> <br/>
+                    It involves modeling with the Euler-Lagrange approach and implementing control strategies in Matlab Simulink to ensure robust stability and performance.
                 </Description>
                 <StackList>
                     <Row>

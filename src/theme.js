@@ -3,7 +3,7 @@
 export const theme = {
     gradient: {
         background: "linear-gradient(355deg, #fff 10%,rgb(238, 250, 255) 100%)",
-        primary: "linear-gradient(355deg, #004790 0%, #19b5fe 100%)",
+        primary: "linear-gradient(45deg, #004790 0%,#0896d8 100%)",
         secondary: "linear-gradient(270deg, #000e3e -50%, #19b5fe 200%)",
     },
     colors: {

@@ -2,7 +2,6 @@ import React, {useRef, useState} from "react"
 import styled from "styled-components";
 import LOGOGithub from '../assets/Logos/logoGITHUB.png'
 import LOGOLinkedin from '../assets/Logos/logoLINKEDIN.png'
-import emailjs from "@emailjs/browser";
 import {theme} from "../theme"
 
 const Section = styled.div`
@@ -169,27 +168,7 @@ function Contact() {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        emailjs
-            .sendForm(
-                "service_txtz9qn",
-                "template_q17gzx7",
-                ref.current,
-                "bRAhh3LI5_aJoB2t3"
-            )
-            .then(
-                (result) => {
-                    console.log(result.text);
-                    setSuccess(true);
-                },
-                (error) => {
-                    console.log(error.text);
-                    setSuccess(false);
-                }
-            );
-    };
+    const handleSubmit = (e) => {};
 
     const optionStyle = {
         color: 'black',

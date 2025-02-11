@@ -1,6 +1,7 @@
 import React from "react";
 import { ComposableMap, Geography, Geographies, Marker } from "react-simple-maps";
 import {theme} from "../theme"
+import map_geography from "../assets/Schools/map_features.json"
 
 // Markers array for dynamic programming
 const markers = [
@@ -20,7 +21,7 @@ export function Map({setState}) {
             scale: 300, 
           }}
     >
-      <Geographies geography="/files/map_features.json" fill="#004790AA" stroke="#FFFFFF" strokeWidth={0.8}>
+      <Geographies geography={map_geography} fill="#004790AA" stroke="#FFFFFF" strokeWidth={0.8}>
         {({ geographies }) =>
           geographies.map((geo) => (
             <Geography

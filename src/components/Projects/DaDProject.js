@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import DaDPreview from "../../assets/ProjectsCanvas/PreviewDad.mp4";
 import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
 import logoPYGAME from "../../assets/Logos/logoPYGAME.png";
@@ -12,7 +11,6 @@ import {BoxContent,
   LinkBox,
   BriefDescription, 
   MediaContainer, 
-  Item, 
   SecondColumn,
   Description, 
   KeyWords,

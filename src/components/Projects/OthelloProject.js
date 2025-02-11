@@ -1,5 +1,5 @@
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper";
+import {Autoplay} from "swiper/modules";
 import React from "react";
 
 import {BoxContent, 

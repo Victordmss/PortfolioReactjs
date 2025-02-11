@@ -34,6 +34,8 @@ export {PortfolioProject} from "./Projects/PortfolioProject";
 //export {EDUTCProject} from "./Projects/old_projects/EDUTCProject";
 //export {DAFourProject} from "./Projects/old_projects/DAFourProject";
 export {CookeatProject} from "./Projects/CookeatProject";
+export {ARS4Project} from "./Projects/ARS4Project";
+export {ARS5Project} from "./Projects/ARS5Project";
 
 // Pourcentage Pie
 export {PourcentPie} from "./pourcentPie";

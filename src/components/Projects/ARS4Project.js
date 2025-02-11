@@ -1,12 +1,14 @@
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper";
+import {Autoplay} from "swiper/modules";
 import React from "react";
-import logoREACT from "../../assets/Logos/logoREACT.png";
+import logoGIT from "../../assets/Logos/logoGIT.png";
 import logoGithub from "../../assets/Logos/logoGITHUB.png";
-import logoRSM from "../../assets/Logos/logoRSM.jpg"
-import Portfolio1 from "../../assets/ProjectsCanvas/Portfolio1.png";
-import Portfolio2 from "../../assets/ProjectsCanvas/Portfolio2.png";
-import Portfolio3 from "../../assets/ProjectsCanvas/Portfolio3.png";
+import logoTelechargement from "../../assets/Logos/logoTELECHARGEMENTPDF.png"
+import logoOVERLEAF from "../../assets/Logos/logoOVERLEAF.jpg";
+import logoMATLAB from "../../assets/Logos/logoMatlab.png";
+import ARS4_1 from "../../assets/ProjectsCanvas/ARS4_1.png";
+import ARS4_2 from "../../assets/ProjectsCanvas/ARS4_2.png";
+import ARS4_3 from "../../assets/ProjectsCanvas/ARS4_3.png";
 
 import {BoxContent, 
   FirstColumn, 
@@ -28,25 +30,27 @@ import {Line} from "../index"
 
 export function ARS4Project({color, gradient}) {
     const Canvas = [
-      ARS4_1,
-      ARS4_2,
-      ARS4_3
+      [ARS4_1, "cover"],
+      [ARS4_2, "contain"],
+      [ARS4_3, "cover"]
     ];
 
     const Stack = [
         ["Matlab", logoMATLAB, "https://fr.legacy.reactjs.org/"],
-        ["React Simple Map", logoOVERLEAF, "https://www.react-simple-maps.io"],
+        ["Overleaf", logoOVERLEAF, "https://fr.overleaf.com"],
+        ["Git", logoGIT, "https://git-scm.com/"]
     ];
 
     return (
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <ProjectTitle fontsize={"4rem"} gradient={gradient}>Web Portfolio</ProjectTitle>
+                <LinkBox url={logoTelechargement}/>
+                <ProjectTitle fontsize={"4rem"} gradient={gradient}>UrbanNav</ProjectTitle>
                 <LinkBox url={logoGithub}/>
               </TitleRow>                
               <BriefDescription>
-                Creating a portfolio website in React.js from scratch
+                Localization using poles and signs detected by a lidar in urban environment of the city of Compiegne.
               </BriefDescription>
               <MediaContainer color={color}>
                   <Swiper
@@ -61,7 +65,7 @@ export function ARS4Project({color, gradient}) {
                   >
                       {Canvas.map((item, index) => (
                           <SwiperSlide key={index}>
-                              <Item url={item}/>
+                              <Item url={item[0]} content={item[1]}/>
                           </SwiperSlide>
                       ))}
                   </Swiper>
@@ -71,18 +75,19 @@ export function ARS4Project({color, gradient}) {
                 <Description>
                     <KeyWords>
                         <Word>
-                            Web design
+                            GNSS & LiDAR observations
                         </Word>
                         <Word>
-                            Web Development
+                            Extended & Uscented Kalman Filters
                         </Word>
                         <Word>
-                            Responsiveness and Adaptability
+                            MapMatching Data association
                         </Word>
                     </KeyWords>
                     <Line color={color}/>
-                    The aim of the project was to create a website from Scracth (without using any UI component libraries) offering the opportunity to get to know me better. <br/><br/>
-                    This portfolio allows me to learn more about myself, my skills, my career path and the experience I've acquired in the course of my personal projects.<br/><br/>
+                    This project focuses on localization by fusing GNSS and LiDAR data. <br/>
+                    It involves modeling system dynamics and observations, using EKF/UKF for sensor fusion, and consistency analysis. <br/> <br/>
+                    The approach is applied to real-world constraints, including data association algorithms and MapMatching techniques.
                 </Description>
                 <StackList>
                     <Row>

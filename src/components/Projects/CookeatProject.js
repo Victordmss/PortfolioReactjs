@@ -1,5 +1,5 @@
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper";
+import {Autoplay} from "swiper/modules";
 import React from "react";
 import Cookeat1 from "../../assets/ProjectsCanvas/Cookeat1.png";
 import Cookeat2 from "../../assets/ProjectsCanvas/Cookeat2.png";

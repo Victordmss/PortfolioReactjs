@@ -1,17 +1,17 @@
 import React from "react"
 import styled from "styled-components";
-import {Pagination} from "swiper";
+import {Pagination} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css/bundle';
-import {OthelloProject, DaDProject, PortfolioProject, CookeatProject, TitleRow} from "../components"
+import {OthelloProject, DaDProject, PortfolioProject, CookeatProject, TitleRow, ARS4Project, ARS5Project} from "../components"
 import {theme} from "../theme"
-
 
 const Section = styled.div`
   height: 92vh;
   width : 100vw;
   display: flex;
   flex-direction: column;
+  background: ${theme.colors.secondary_transparent};
   justify-content: flex-start;
   align-items: center;
   gap: 2.5rem;
@@ -36,8 +36,10 @@ const ProjectBox = styled.div`
 function Projects() {
 
     const data = [
-        { component: <OthelloProject/>, color: "rgb(10, 88, 4)", gradient: "linear-gradient(to right,rgb(10, 88, 4) 0, rgba(136, 175, 137, 0.85) 15%, rgb(10, 88, 4) 25%)"},
+        { component: <ARS4Project/>, color: "rgb(172, 14, 0)", gradient: "linear-gradient(to right,rgb(172, 14, 0) 0, rgba(166, 54, 44, 0.66) 15%, rgb(172, 14, 0) 25%)"},
+        { component: <ARS5Project/>, color: "rgb(0, 20, 172)", gradient: "linear-gradient(to right,rgb(0, 20, 172) 0, rgba(62, 74, 170, 0.44) 15%, rgb(0, 20, 172) 25%)"},
         { component: <PortfolioProject/>, color: theme.colors.tertiary, gradient: "linear-gradient(to right, "+ theme.colors.tertiary +" 0, "+ theme.colors.tertiary_dark +" 15%, "+ theme.colors.tertiary +" 25%)"},
+        { component: <OthelloProject/>, color: "rgb(10, 88, 4)", gradient: "linear-gradient(to right,rgb(10, 88, 4) 0, rgba(136, 175, 137, 0.85) 15%, rgb(10, 88, 4) 25%)"},
         { component: <DaDProject/>, color: "rgb(108, 201, 224)", gradient: "linear-gradient(to right, rgb(108, 201, 224) 0, rgba(227, 252, 252, 0.85) 15%, rgb(108, 201, 224) 25%)"},
         { component: <CookeatProject/>, color: "rgb(119, 9, 56)", gradient: "linear-gradient(to right,rgb(119, 9, 56) 0, rgba(175, 136, 145, 0.85) 15%, rgb(119, 9, 56) 25%)"},
         //{ component: <EDUTCProject />, color: "rgb(238,238,238)" },

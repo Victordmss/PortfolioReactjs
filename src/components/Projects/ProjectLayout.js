@@ -27,6 +27,7 @@ export const ProjectTitle = styled.div`
     font-size: ${(props) => props.fontsize || "5rem"};
     font-weight: bold;
     background: ${(props) => props.gradient};
+    text-align: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 3s infinite linear;
@@ -53,7 +54,7 @@ export const LinkBox = styled.div`
     transition: scale 0.1s ease-in-out;
 
     &:hover {
-        scale: 1.1;
+        scale: 1.2;
     }
 `;
 
@@ -85,7 +86,7 @@ export const Item = styled.div`
   width: 100%;
   height: 100%;
   background-image: url(${(props) => props.url});
-  background-size: cover;
+  background-size: ${(props) => props.content || "cover"};
   background-position: center;  
   background-repeat: no-repeat;
 `;
@@ -165,6 +166,6 @@ export const StackBox = styled.div`
   transition : scale 0.1s ease-in-out;
 
   &:hover{
-    scale: 1.1;
+    scale: 1.2;
   }
 `;

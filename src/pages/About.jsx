@@ -1,8 +1,7 @@
 import React from "react"
 import styled from "styled-components";
-import ProgressBar from "react-percent-bar";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay, Navigation} from "swiper";
+import {Autoplay, Navigation} from "swiper/modules";
 import 'swiper/css/bundle';
 
 import {PourcentPie} from "../components/"
@@ -36,7 +35,6 @@ import logoARM from "../assets/Logos/logoARM.png"
 import logoARDUINO from "../assets/Logos/logoARDUINO.png"
 import logoRASPBERRY from "../assets/Logos/logoRASPBERRY.png"
 import logoDRAWIO from "../assets/Logos/logoDRAWIO.png"
-import logoLATEX from "../assets/Logos/logoLATEX.png"
 import logoFIGMA from "../assets/Logos/logoFIGMA.png"
 import logoMICROSOFT from "../assets/Logos/logoMICROSOFT.png"
 
@@ -130,7 +128,7 @@ const SkillTitleContainer = styled.div`
 `;
 
 
-const Vertical_border = styled.div`
+const VerticalBorder = styled.div`
   background: ${theme.colors.tertiary_dark};
   opacity: 0.7;
   width: 4px;
@@ -138,9 +136,9 @@ const Vertical_border = styled.div`
   border-radius: 20px;
 `
 
-const Horizontal_border = styled.div`
+const HorizontalBorder = styled.div`
   background: ${theme.colors.tertiary_dark};
-  opacity: 0.7;
+  opacity: 0.4;
   width: 80%;
   height: 4px;
   border-radius: 20px;
@@ -317,7 +315,7 @@ function About() {
                         </a>))}
                     </Skillsgrid>
                 </SkillCell>
-                <Vertical_border/>
+                <VerticalBorder/>
                 <SkillCell>
                   <SkillTitleContainer margin={"5px"}>
                       DevOps & Others
@@ -328,7 +326,7 @@ function About() {
                           <StackBox key={index} url={item[1]} />
                       </a>))}
                   </Skillsgrid>       
-                  <Horizontal_border/>
+                  <HorizontalBorder/>
                   <Skillsgrid>
                   {otherSkillsImages.map((item, index) => (
                       <a key={index} href={item[2]} target="_blank" rel="noreferrer">
@@ -336,7 +334,7 @@ function About() {
                       </a>))}
                   </Skillsgrid>   
                 </SkillCell>
-                <Vertical_border/>
+                <VerticalBorder/>
                 <SkillCell>
                     <SkillTitleContainer>
                         Systems & Optimisation

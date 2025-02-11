@@ -13,7 +13,7 @@ import logoKERAS from "../../assets/Logos/logoKeras.png"
 
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Autoplay, Pagination} from "swiper";
+import {Autoplay, Pagination} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 

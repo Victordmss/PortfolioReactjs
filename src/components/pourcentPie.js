@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from "react";
 import { VictoryPie } from "victory";
 import styled from "styled-components";
 import { theme } from "../theme";
