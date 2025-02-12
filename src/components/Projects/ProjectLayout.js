@@ -128,7 +128,7 @@ export const Word = styled.div`
   cursor:default;
   text-align: center;
   width: max-content;
-  font-size: 1.4rem;
+  font-size: ${(props) => props.fontsize || "1.4rem"};
   transition: letter-spacing 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:hover {
@@ -148,10 +148,10 @@ export const Row = styled.div`
 `;
 
 export const StackList = styled.div`
-padding: 10px;
-align-self: center;
-width: 100%;
-height: fit-content;
+  padding: 10px;
+  align-self: center;
+  width: 100%;
+  height: fit-content;
 `;
 
 export const StackBox = styled.div`

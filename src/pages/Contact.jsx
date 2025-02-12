@@ -1,8 +1,9 @@
-import React, {useRef, useState} from "react"
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import LOGOGithub from '../assets/Logos/logoGITHUB.png'
-import LOGOLinkedin from '../assets/Logos/logoLINKEDIN.png'
-import {theme} from "../theme"
+import LOGOGithub from '../assets/Logos/logoGITHUB.png';
+import LOGOLinkedin from '../assets/Logos/logoLINKEDIN.png';
+import { theme } from "../theme";
+import emailjs from "emailjs-com"; // Assurez-vous que emailjs est bien installé
 
 const Section = styled.div`
   height: 92vh;
@@ -22,6 +23,8 @@ const FirstRow = styled.div`
 const SecondRow = styled.div`
   background: ${theme.gradient.secondary};
   color: white;
+  font-weight: bold;
+  padding-block: 1rem;
   flex: 0.1;
   display: flex;
   flex-direction: column;
@@ -43,13 +46,14 @@ const IconNetwork = styled.div`
   height: 100px;
   width: 100px;
   cursor: pointer;
-  background-image: url(${props => (props.url)});
+  background-image: url(${props => props.url});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  
+  transition : scale 0.1s ease-in-out;
+
   &:hover {
-    transform: scale(1.1);
+    scale: 1.2;
   }
 `;
 
@@ -62,7 +66,7 @@ const SecondColumn = styled.div`
 `;
 
 const ContactContainer = styled.div`
-  padding-block : 2rem;
+  padding-block: 2rem;
   border-radius: 30px;
   height: fit-content;
   width: 500px;
@@ -89,7 +93,7 @@ const Form = styled.form`
   flex-direction: column;
   gap: 15px;
   align-items: start;
-  padding-inline: 20px
+  padding-inline: 20px;
 `;
 
 const Label = styled.label`
@@ -133,19 +137,26 @@ const Select = styled.select`
   margin-bottom: 15px;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   margin-top: 10px;
   padding: 10px 20px;
   color: white;
+  font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
   align-self: center;
   font-size: 20px;
+  border: 0px;
   background: ${theme.gradient.secondary};
   transition: scale 0.1s ease-in-out;
 
   &:hover {
     scale: 1.1;
+  }
+
+  &:active {
+    background: ${theme.gradient.secondary_transparent};
+    scale: 1;
   }
 `;
 
@@ -153,11 +164,10 @@ function Contact() {
     const ref = useRef();
     const [success, setSuccess] = useState(null);
 
-
     const [formData, setFormData] = useState({
         name: "",
         requestType: "",
-        message: "",
+        message: "", // Utilise 'message' ici pour rester cohérent
     });
 
     const handleInputChange = (event) => {
@@ -168,7 +178,24 @@ function Contact() {
         }));
     };
 
-    const handleSubmit = (e) => {};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        emailjs.send(
+            "service_txtz9qn", 
+            "template_q17gzx7", 
+            formData,
+            "bRAhh3LI5_aJoB2t3"
+        )
+        .then((response) => {
+            console.log('Message sent successfully:', response);
+            setSuccess(true); 
+        })
+        .catch((err) => {
+            console.error('Error sending message:', err);
+            setSuccess(false); 
+        });
+    };
 
     const optionStyle = {
         color: 'black',
@@ -178,58 +205,57 @@ function Contact() {
     return (
         <Section id="Contact">
             <FirstRow>
-            <FirstColumn>
-                <a href="https://github.com/Victordmss" target="_blank" rel="noreferrer">
-                    <IconNetwork url={LOGOGithub} />
-                </a>
-                <a href="https://www.linkedin.com/in/victor-demessance-65a9431b0/"  target="_blank" rel="noreferrer">
-                    <span className="darkmode-ignore"><IconNetwork url={LOGOLinkedin}/></span>
-                </a>
-            </FirstColumn>
-            <SecondColumn>
-                <ContactContainer>
-                    <Form onSubmit={handleSubmit} ref={ref}>
-                        <Input
-                            placeholder="Full Name"
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                        />
-                        <Label htmlFor="requestType">Who are you ?</Label>
-                        <Select
-                            id="requestType"
-                            name="requestType"
-                            value={formData.requestType}
-                            onChange={handleInputChange}
-                        >
-                            <option value="Entreprise" style={optionStyle}>Company</option>
-                            <option value="Particulier" style={optionStyle}>Individual</option>
-                            <option value="Etudiant" style={optionStyle}>Student</option>
-                        </Select>
-                        <TextArea
-                            placeholder="Write your message"
-                            id="message"
-                            name="message"
-                            value={formData.description}
-                            onChange={handleInputChange}
-                            rows="4"
-                        />
-
-                        <Button type="submit">Send me !</Button>
-                        {success &&
-                            "The message has been sent. I'll get back to you soon"}
-                    </Form>
-                </ContactContainer>
-            </SecondColumn>
+                <FirstColumn>
+                    <a href="https://github.com/Victordmss" target="_blank" rel="noreferrer">
+                        <IconNetwork url={LOGOGithub} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/victor-demessance-65a9431b0/" target="_blank" rel="noreferrer">
+                        <IconNetwork url={LOGOLinkedin} />
+                    </a>
+                </FirstColumn>
+                <SecondColumn>
+                    <ContactContainer>
+                        <Form onSubmit={handleSubmit} ref={ref} autoComplete="true">
+                            <Input
+                                placeholder="Full Name"
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                            />
+                            <Label htmlFor="requestType">Who are you ?</Label>
+                            <Select
+                                id="requestType"
+                                name="requestType"
+                                value={formData.requestType}
+                                onChange={handleInputChange}
+                            >
+                                <option value="Entreprise" style={optionStyle}>Company</option>
+                                <option value="Particulier" style={optionStyle}>Individual</option>
+                                <option value="Etudiant" style={optionStyle}>Student</option>
+                            </Select>
+                            <TextArea
+                                placeholder="Write your message"
+                                id="message"
+                                name="message" 
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                rows="4"
+                            />
+                            <Button type="submit">Send me !</Button>
+                            {success === true && <p>The message has been sent. I'll get back to you soon</p>}
+                            {success === false && <p>There was an error sending the message. Please try again.</p>}
+                        </Form>
+                    </ContactContainer>
+                </SecondColumn>
             </FirstRow>
             <SecondRow>
-                <span><i>Created by <b>Victor Demessance</b></i></span>
-                <b>@All rights reserved</b>
+                Created by Victor Demessance <br/><br/>
+                @All rights reserved
             </SecondRow>
         </Section>
-    )
+    );
 }
 
 export default Contact;

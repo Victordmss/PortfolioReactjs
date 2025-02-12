@@ -6,8 +6,8 @@ import map_geography from "../assets/Schools/map_features.json"
 // Markers array for dynamic programming
 const markers = [
   { name: "UTC", coordinates: [2.8, 48], color: theme.schools.utc, size: 3, description: ["Université de technologie de Compiègne"] },
-  { name: "RTU", coordinates: [24, 57], color: theme.schools.rtu, size: 2.5, description: ["Université technologique de Riga"] },
-  { name: "SNU", coordinates: [127, 37.6], color: theme.schools.snu, size: 2.5, description: ["Université technologique de Séoul"] },
+  { name: "RTU", coordinates: [24.2, 56.4], color: theme.schools.rtu, size: 2.5, description: ["Université technologique de Riga"] },
+  { name: "SNU", coordinates: [127.5, 36.2], color: theme.schools.snu, size: 2.5, description: ["Université technologique de Séoul"] },
 ];
 
 const SCALE_FACTOR = 1.2;  // Scale factor for markers hover

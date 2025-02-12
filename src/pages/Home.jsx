@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {Robot} from "../components"
 import {OrbitControls} from "@react-three/drei"
 import {Canvas} from "@react-three/fiber"
@@ -48,14 +48,14 @@ const Left = styled.div`
   gap: 20px;
 `;
 
-const Right = motion(styled.div`
+const Right = styled.div`
   flex: 0.40;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background: url(${backgroundImage}) no-repeat right top;
   background-size: contain;
-`);
+`;
 
 const CanvasContainer = styled.div`
   animation: animate 2s infinite alternate;
@@ -90,6 +90,11 @@ const Button = styled.button`
     scale: 1.05;
     box-shadow: rgba(59, 59, 59, 0.07) 0px 0px 1rem 1rem;
   }    
+
+  &:active {
+    background: ${theme.gradient.secondary_transparent};
+    scale: 1;
+  }
 `;
 
 const Title = styled.h1`
@@ -165,11 +170,25 @@ const HexaLeft = motion(styled.div`
 
 function Home() {
     const [robotClicked, setRobotClicked] = useState(true)
+    const [scrollPosition, setScrollPosition] = useState(0);
 
+    // Setters 
     const handleRobotClicked = () => {
         setRobotClicked(!robotClicked)
     }
 
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    // Scrool value update
+    useEffect(() => {
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
 
     return (
         <Section id="Home">
@@ -182,13 +201,13 @@ function Home() {
                       On this website, I want to present one of my passions, computer science.
                       As a way to present myself and to discover a new knowledge, I decided to create this portfolio in React.js from scratch. <br></br>
                   </Desc>
-                  <Button onClick={() => window.open("/files/CV_Victordemessance.pdf", '_blank')}>Click to learn more about me !</Button>
+                  <Button onClick={() => window.open("/CV_Victordemessance.pdf", '_blank')}>Click to learn more about me !</Button>
               </Left>
-              <Right 
-                initial={{ x: 400, opacity: 0}} 
-                whileInView={{ x: 0, opacity: 1}}
-                transition={{ duration: 1, ease: "easeOut"}}
-                viewport={{ once: false, amount: 0.1 }}>
+              <Right
+                style={{
+                  transform: `translateX(${scrollPosition * 0.5}px)` 
+                }}
+              >
                   <CanvasContainer>
                     <Canvas
                         frameloop={"demand"}
