@@ -8,7 +8,7 @@ const Section = styled.div`
   height: 8vh;
   width: 100vw;
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   background: ${(props) => (props.scrolled ? "white" : "transparent")};
   box-shadow: ${(props) =>
     props.scrolled ? theme.colors.tertiary_transparent + " 0px 0px 1rem 1rem" : "none"};
@@ -20,18 +20,21 @@ const Container = styled.div`
   justify-content: flex-start;
   padding: 5px;
   font-size: 20px;
+  width: 100%;
+  height: 100%;
+  padding-block: 10px;
 `;
 
 const Avatar = styled.div`
-  border-radius: 50px;
-  height: 50px;
-  width: 50px;
-  margin-inline: 20px;
+  aspect-ratio: 1 / 1; 
+  height: 100%; 
+  border-radius: 50%;
   background: rgba(181, 180, 180, 0.13);
   background-image: url(${(props) => props.url});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  margin-inline: 1vw;
 `;
 
 const Nav = styled.nav`
@@ -40,7 +43,7 @@ const Nav = styled.nav`
 `;
 
 const NavItem = styled.a`
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   margin: 0 1rem;
   color: var(--textColor);
   text-decoration: none;
