@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import styled from "styled-components";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation} from "swiper/modules";
@@ -127,7 +127,6 @@ const SkillTitleContainer = styled.div`
   }
 `;
 
-
 const VerticalBorder = styled.div`
   background: ${theme.colors.tertiary_dark};
   opacity: 0.7;
@@ -162,54 +161,68 @@ const HorizontalBorder = styled.div`
 `;
 
 const HobbiesContainer = styled.div`
-  font-size: 30px;
   height: 100%;
   width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  @media (max-width: 768px) {
+      width: 80%;
+  }
 `;
 
 const HobbieTitle = styled.div`
-  font-size: 35px;
+  font-size: 3vw;
   padding-bottom: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 8vw;
+    padding-bottom: 2vh;
+  }
 `;
 
 const HobbieDesc = styled.div`
   align-self: center;
   padding-inline: 15px;
-  font-size: 15px;
+  font-size: 2vw;
+
+  @media (max-width: 768px) {
+    font-size: 3vw;
+    margin-inline: 5vw;
+  }
 `;
 
 function About() {
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
 
-    const devSkillsImages = [
-        // Dev languages
-        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
-        ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
-        ["JS", logoJS, "transparent", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
-        ["PHP", logoPHP, "transparent", "https://www.php.net/"],
-        ["C++", logoCplusplus, "https://en.wikipedia.org/wiki/C%2B%2B"],
+  const devSkillsImages = [
+    // Dev languages
+    ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+    ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
+    ["JS", logoJS, "transparent", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
+    ["PHP", logoPHP, "transparent", "https://www.php.net/"],
+    ["C++", logoCplusplus, "https://en.wikipedia.org/wiki/C%2B%2B"],
 
-        // Logo SGBD
-        ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
-        ["PostreSQL", logoPOSTGRESQL, "https://www.postgresql.org/"],
-        ["PhpMyAdmin", logoPHPMYADMIN, "https://www.phpmyadmin.net/"],
+    // Logo SGBD
+    ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
+    ["PostreSQL", logoPOSTGRESQL, "https://www.postgresql.org/"],
+    ["PhpMyAdmin", logoPHPMYADMIN, "https://www.phpmyadmin.net/"],
 
-        // Logo Web
-        ["HTML", logoHTML, "transparent", "https://developer.mozilla.org/en-US/docs/Web/HTML"],
-        ["CSS", logoCSS, "transparent", "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content"],
-        ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
-        ["Laravel ", logoLARAVEL, "https://laravel.com/"],
-    ];
+    // Logo Web
+    ["HTML", logoHTML, "transparent", "https://developer.mozilla.org/en-US/docs/Web/HTML"],
+    ["CSS", logoCSS, "transparent", "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content"],
+    ["React", logoREACT, "https://fr.legacy.reactjs.org/"],
+    ["Laravel ", logoLARAVEL, "https://laravel.com/"],
+  ];
 
-    const devOpsSkillsImages = [
-      // Project management
-      ["CMake", logoCMAKE, "https://cmake.org/"], 
-      ["Jupyter", logoJUPYTER, "https://jupyter.org/"],
-      ["Overleaf", logoOVERLEAF, "https://fr.overleaf.com"],
-      ["Git", logoGIT, "https://git-scm.com/"],
+  const devOpsSkillsImages = [
+    // Project management
+    ["CMake", logoCMAKE, "https://cmake.org/"], 
+    ["Jupyter", logoJUPYTER, "https://jupyter.org/"],
+    ["Overleaf", logoOVERLEAF, "https://fr.overleaf.com"],
+    ["Git", logoGIT, "https://git-scm.com/"],
   ];
 
   const otherSkillsImages = [
@@ -217,62 +230,76 @@ function About() {
     ["DrawIO", logoDRAWIO, "https://app.diagrams.net/"],
     ["Figma", logoFIGMA, "https://www.figma.com/"],
     ["Microsoft", logoMICROSOFT, "https://www.office.com/"],
-];
-    const embeededSystemsSkillsImages = [
-      // Embeeded systems
-      ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
-      ["Matlab", logoMATLAB, "https://www.mathworks.com/products/matlab.html"],
-      ["Simulink", logoSIMULINK, "https://en.wikipedia.org/wiki/Simulink"],
-      ["Octave", logoOCTAVE, "https://octave.org/"],
-      ["ROS", logoROS, "https://www.ros.org/"],
-      ["Arduino", logoARDUINO, "https://www.arduino.cc/"],
-      ["Raspberry", logoRASPBERRY, "https://www.raspberrypi.com/"],
-      ["ARM", logoARM, "https://en.wikipedia.org/wiki/ARM_architecture_family"],
+  ];
 
-      // Optimisation
-      ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
-      ["Valgrind", logoVALGRIND, "https://valgrind.org/"],
-      ["Kcachegrind", logoKCACHEGRIND, "https://kcachegrind.sourceforge.net/html/Home.html"],
-      ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
-    ];
+  const embeededSystemsSkillsImages = [
+    // Embeeded systems
+    ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
+    ["Matlab", logoMATLAB, "https://www.mathworks.com/products/matlab.html"],
+    ["Simulink", logoSIMULINK, "https://en.wikipedia.org/wiki/Simulink"],
+    ["Octave", logoOCTAVE, "https://octave.org/"],
+    ["ROS", logoROS, "https://www.ros.org/"],
+    ["Arduino", logoARDUINO, "https://www.arduino.cc/"],
+    ["Raspberry", logoRASPBERRY, "https://www.raspberrypi.com/"],
+    ["ARM", logoARM, "https://en.wikipedia.org/wiki/ARM_architecture_family"],
 
-    const hobbies = [
-        ["Rugby", 'A healthy mind in a healthy body'],
-        ["Poetry", "Science describes nature, poetry paints and embellishes it"],
-        ["Driver Licence", '"B" permit. Personal car'],
-        ["Biology", "Even the smallest of gardens offers mankind the most beautiful of spectacles"],
-        ["Video Games", "Every vocation is born of a hobby"]
-    ]
+    // Optimisation
+    ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
+    ["Valgrind", logoVALGRIND, "https://valgrind.org/"],
+    ["Kcachegrind", logoKCACHEGRIND, "https://kcachegrind.sourceforge.net/html/Home.html"],
+    ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
+  ];
 
-    const customSwiperStyles = `
-      .swiper-button-next{
-        color: ${theme.colors.tertiary};
-        padding-left: 40px;
-        scale: 0.6;
-        transition: scale 0.1s ease-in-out;
+  const hobbies = [
+    ["Rugby", 'A healthy mind in a healthy body'],
+    ["Poetry", "Science describes nature, poetry paints and embellishes it"],
+    ["Driver Licence", '"B" permit. Personal car'],
+    ["Biology", "Even the smallest of gardens offers mankind the most beautiful of spectacles"],
+    ["Video Games", "Every vocation is born of a hobby"]
+  ]
 
-        &:hover {
-          scale: 0.8;
-        }
+  const customSwiperStyles = `
+    .swiper-button-next{
+      color: ${theme.colors.tertiary};
+      padding-left: 40px;
+      scale: 0.6;
+      transition: scale 0.1s ease-in-out;
+
+      &:hover {
+        scale: 0.8;
       }
+    }
 
-      .swiper-button-prev {
-        color: ${theme.colors.tertiary};
-        padding-right: 40px;
-        scale: 0.6;
-        transition: scale 0.1s ease-in-out;
+    .swiper-button-prev {
+      color: ${theme.colors.tertiary};
+      padding-right: 40px;
+      scale: 0.6;
+      transition: scale 0.1s ease-in-out;
 
-        &:hover {
-          scale: 0.8;
-        }
+      &:hover {
+        scale: 0.8;
       }
-`;
+    }
+  `;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
     return (
         <Section id="About">
             <style>{customSwiperStyles}</style>
             <FirstRow>
-              <PourcentPie item={["Programming", 80]} key={"Programming"} />
+              {isLargeScreen && <PourcentPie item={["Programming", 80]} key={"Programming"} />}
               <HobbiesContainer>
                         <Swiper
                             modules={[Navigation, Autoplay]}
@@ -300,7 +327,7 @@ function About() {
                             ))}
                         </Swiper>
               </HobbiesContainer>
-              <PourcentPie item={["Proactivity", 95]} key={"Proactivity"} />
+              {isLargeScreen && <PourcentPie item={["Proactivity", 95]} key={"Proactivity"} />}
             </FirstRow>
             <SecondRow>
               <AboutContainer>

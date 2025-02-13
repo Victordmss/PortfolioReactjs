@@ -8,7 +8,9 @@ import logoUTC from "../assets/Schools/UTC/logoUTC.png"
 import logoRTU from "../assets/Schools/RTU/logoRTU.png"
 import logoSNU from "../assets/Schools/SNU/logoSNU.png"
 import {theme} from "../theme"
-import backgroundImage from "../assets/PortfolioBackground.png";
+import backgroundImage from "../assets/HomeTR_background.png";
+import robotBackgroundImage from "../assets/HomeRobot_background.png";
+
 import HexaLeftImg from "../assets/hexa_left.png"
 
 const Section = styled.div`
@@ -26,6 +28,11 @@ const FirstRow = styled.div`
   display: flex;
   flex-direction: row;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    overflow: visible;
+  }
 `;
 
 const Left = styled.div`
@@ -36,6 +43,11 @@ const Left = styled.div`
   justify-content: flex-start;
   padding-top: 10vh;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+    padding-left: 0;
+  }
 `;
 
 const Right = styled.div`
@@ -43,15 +55,21 @@ const Right = styled.div`
   background: url(${backgroundImage}) no-repeat right top;
   background-size: contain;
   position: relative;
+
+  @media (max-width: 768px) {
+    display: none;
+    flex: 0;
+  }
 `;
 
 const CanvasContainer = styled.div`
+  background: url(${robotBackgroundImage}) no-repeat center center;
+  background-size: contain;
   position: absolute;
-  bottom: 7vh;
+  bottom: 30%;
   animation: animate 2s infinite alternate;
-  height: 46vh;
-  width: 23vw;
-  padding: 2rem;
+  height: 50%;
+  width: 30vw;
   @keyframes animate {
     to {
       transform: translateY(0px);
@@ -61,11 +79,21 @@ const CanvasContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 4vw;
-  color: ${theme.colors.tertiary}
+  color: ${theme.colors.tertiary};
+
+  @media (max-width: 768px) {
+    font-size: 10vw;
+    text-align: center;
+  }
 `;
 
 const Subtitle = styled.h2`
   font-size: 2vw;
+
+  @media (max-width: 768px) {
+    font-size: 4vw;
+    text-align: center;
+  }
 `;
 
 const Desc = styled.div`
@@ -86,6 +114,10 @@ const Desc = styled.div`
       width: 100%;
     }
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }  
 `;
 
 const Button = styled.button`
@@ -117,6 +149,12 @@ const Button = styled.button`
     background: ${theme.gradient.secondary_transparent};
     scale: 1;
   }
+
+  @media (max-width: 768px) {
+    align-self: center;
+    font-size: 3vw;
+    margin-block: 5vw;
+  }  
 `;
 
 const SecondRow = styled.div`
@@ -127,6 +165,11 @@ const SecondRow = styled.div`
   gap: 5vw;
   align-items: flex-start;
   padding-bottom: 5vh;
+
+  @media (max-width: 768px) {
+    flex: 0.75;
+    flex-direction: column;
+  }
 `;
 
 const LogoUTC = styled.div`
@@ -138,6 +181,11 @@ const LogoUTC = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 768px) {
+    width: 30vw;
+    height: 15vh;
+  }
 `;
 
 const LogoRTU = styled.div`
@@ -149,6 +197,11 @@ const LogoRTU = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 768px) {
+    width: 20vw;
+    height: 15vh;
+  }
 `;
 
 const LogoSNU = styled.div`
@@ -160,6 +213,11 @@ const LogoSNU = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 768px) {
+    width: 20vw;
+    height: 15vh;
+  }
 `;
 
 const HexaLeft = motion(styled.div`
@@ -170,9 +228,16 @@ const HexaLeft = motion(styled.div`
   background: url(${HexaLeftImg}) no-repeat left;
   background-size: contain;
   transition: scale 0.3s ease-in-out;
+  
   &:hover {
     scale: 1.05;
-  }    
+  }   
+    
+  @media (max-width: 768px) {
+    width: 30vw; 
+    height: 60vh;
+    bottom: 0vh; 
+  }
 `);
 
 function Home() {
@@ -227,9 +292,9 @@ function Home() {
               </Right>
             </FirstRow>
             <SecondRow>
-              <LogoSNU/>
-              <LogoUTC/>
               <LogoRTU/>
+              <LogoUTC/>
+              <LogoSNU/>
             </SecondRow>
             <HexaLeft
               initial={{x: -200}} 

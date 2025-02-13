@@ -3,6 +3,7 @@ import "../App.css";
 import styled from "styled-components";
 import avatar from "../assets/avatar.png";
 import { theme } from "../theme";
+import { motion } from "framer-motion";
 
 const Section = styled.div`
   height: 8vh;
@@ -18,11 +19,15 @@ const Section = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 5px;
+  align-items: center;
+  padding: 5px 2vw;
   font-size: 20px;
   width: 100%;
   height: 100%;
-  padding-block: 10px;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 const Avatar = styled.div`
@@ -34,12 +39,16 @@ const Avatar = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin-inline: 1vw;
 `;
 
 const Nav = styled.nav`
+  margin-left: 1vw;
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    display: none; 
+  }
 `;
 
 const NavItem = styled.a`
@@ -55,34 +64,109 @@ const NavItem = styled.a`
   }
 `;
 
-function NavBar() {
-  const [scrolled, setScrolled] = useState(false);  // Scrool value for background effect
+const BurgerMenu = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
 
-  // Scrool Background hook
+  .hover .line1 {
+    transform: rotate(45deg);
+  }
+
+  .hover .line2 {
+    transform: rotate(-45deg);
+  }
+`;
+
+const Line = styled.div`
+  width: 100%;
+  height: 4px;
+  text-align: center;
+  background-color: #000;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;  
+  transform-origin: 9px center;
+`;
+
+const MenuContent = styled(motion.div)`
+  position: absolute;
+  top: 8vh;
+  right: 0;
+  width: 60vw;
+  height: auto;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  z-index: 999;
+
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+      background: lightgray;
+    }
+  }
+`;
+
+function NavBar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Screen size effect
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 768);
+      if (window.innerWidth > 768) {
+        setMenuOpen(false); 
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Scrool background effect
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 1);  // Since we start to scrool on the Y axe
+      setScrolled(window.scrollY > 1);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Navigation function (to take into account the size of the Navigation Bar in the process)
+  // Navigation effect
   const handleNavClick = (event, targetId) => {
-    event.preventDefault();   // Don't just link to the section
-    const targetElement = document.querySelector(targetId);   // Find the target section
+    event.preventDefault();
+    const targetElement = document.querySelector(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({
         behavior: "smooth",
-        block: "end", // Link the bottom of the screen with the bottom of the section
+        block: "end",
       });
     }
+    setMenuOpen(false); 
   };
 
-  // Array of pages to optimize Navigation component
+  // Pages list
   const pages = [
     { name: "Home", id: "#Home" },
     { name: "About", id: "#About" },
@@ -95,17 +179,44 @@ function NavBar() {
     <Section scrolled={scrolled}>
       <Container>
         <Avatar url={avatar} />
-        <Nav>
-          {pages.map((page) => (
-            <NavItem
-              key={page.id}
-              href={page.id}
-              onClick={(e) => handleNavClick(e, page.id)}
-            >
-              {page.name}
-            </NavItem>
-          ))}
-        </Nav>
+        
+        {/* Desktop menu */}
+        {isLargeScreen && (
+          <Nav>
+            {pages.map((page) => (
+              <NavItem
+                key={page.id}
+                href={page.id}
+                onClick={(e) => handleNavClick(e, page.id)}
+              >
+                {page.name}
+              </NavItem>
+            ))}
+          </Nav>
+        )}
+
+        {/* Mobile menu */}
+        {!isLargeScreen && (
+          <>
+            <BurgerMenu onClick={() => setMenuOpen(!menuOpen)}>
+              <Line style={{transform: menuOpen ? "rotate(45deg)" : "none"}}/>
+              <Line style={{transform: menuOpen ? "rotate(-45deg)" : "none"}}/>
+            </BurgerMenu>
+            {menuOpen && (
+              <MenuContent
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                {pages.map((page) => (
+                  <a key={page.id} href={page.id} onClick={(e) => handleNavClick(e, page.id)}>
+                    {page.name}
+                  </a>
+                ))}
+              </MenuContent>
+            )}
+          </>
+        )}
       </Container>
     </Section>
   );

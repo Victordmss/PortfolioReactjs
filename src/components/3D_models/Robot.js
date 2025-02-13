@@ -32,7 +32,7 @@ export function Robot(props) {
       <directionalLight position={[5, 5, 0]} intensity={0.8} />
       <group name="Sketchfab_Scene">
         <group name="RootNode" scale={0.3}>
-          <group name="sphere_body" rotation={[-Math.PI / 2 + 1 / 100, 0, 0]} scale={100}>
+          <group name="sphere_body" rotation={[-Math.PI / 2 + 1 / 100, 0, 0]} scale={90}>
             <mesh name="sphere_body_glossy_paint_white_0" geometry={nodes.sphere_body_glossy_paint_white_0.geometry} material={materials.glossy_paint_white} />
             <mesh name="sphere_body_black_matte_0" geometry={nodes.sphere_body_black_matte_0.geometry} material={materials.black_matte} />
             <mesh name="sphere_body_metal_0" geometry={nodes.sphere_body_metal_0.geometry} material={materials.metal} />

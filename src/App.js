@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 
 const Container = styled.div`
+  width: 100vw;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   display: flex;
