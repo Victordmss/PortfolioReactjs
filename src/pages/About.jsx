@@ -59,6 +59,10 @@ const FirstRow = styled.div`
   justify-content: space-evenly;
   align-items: center;
   padding-inline: 2vw;
+
+  @media (max-width: 768px) {
+    height: 20vh;
+  }
 `
 
 const SecondRow = styled.div`
@@ -68,6 +72,10 @@ const SecondRow = styled.div`
   overflow: hidden;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    height: 70vh;
+  }
 `
 const AboutContainer = styled.div`
   align-self: center;
@@ -85,6 +93,10 @@ const AboutContainer = styled.div`
   border-radius: 2rem;
   padding-block: 1rem;
   overflow: auto;
+
+  @media (max-width: 768px) {
+    height: fit-content;
+  }
 `;
 
 const SkillCell = styled.div`
@@ -94,6 +106,12 @@ const SkillCell = styled.div`
   align-items: center;
   width: 30%;
   height: 90%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+  }
 `
 
 const Skillsgrid = styled.div`
@@ -125,6 +143,10 @@ const SkillTitleContainer = styled.div`
     to {
       transform: scale(1.05);
     }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 5vw;
   }
 `;
 
@@ -159,6 +181,11 @@ const HorizontalBorder = styled.div`
 
   &:hover {
     scale: 1.2;
+  }
+
+  @media (max-width: 768px) {
+    width: min(6vh, 50px);
+    margin: 1vh;
   }
 
 `;
@@ -197,7 +224,6 @@ const HobbieDesc = styled.div`
 `;
 
 const SwiperContainer = styled.div`
-  background: red;
   height: 100%;
   width: 90%;
 `;
