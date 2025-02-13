@@ -62,6 +62,19 @@ const Right = styled.div`
   }
 `;
 
+const BackgroundRightSmartphone = styled.div`
+  @media (max-width: 768px) {
+    right: 0px;
+    top: 0px;
+    height: 30vh;
+    width: 30vw;
+    z-index: 1;
+    background: url(${backgroundImage}) no-repeat right top;
+    background-size: contain;
+    position: absolute;
+  }
+`;
+
 const CanvasContainer = styled.div`
   background: url(${robotBackgroundImage}) no-repeat center center;
   background-size: contain;
@@ -80,10 +93,11 @@ const CanvasContainer = styled.div`
 const Title = styled.h1`
   font-size: 4vw;
   color: ${theme.colors.tertiary};
-
+  z-index: 1000;
   @media (max-width: 768px) {
     font-size: 10vw;
     text-align: center;
+    color: ${theme.colors.tertiary_dark};
   }
 `;
 
@@ -275,6 +289,7 @@ function Home() {
                   </Desc>
                   <Button onClick={() => window.open("/CV_Victordemessance.pdf", '_blank')}>Click to learn more about me !</Button>
               </Left>
+              <BackgroundRightSmartphone/>
               <Right
                 style={{
                   transform: `translateX(${scrollPosition * 0.5}px)` 
