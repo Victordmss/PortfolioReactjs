@@ -27,20 +27,20 @@ const TextPercent = styled.div`
   transform: translate(-50%, -50%);
   text-align: center;
   width: 100%;
-  font-size: 30px;
+  font-size: 2.5vw;
   font-weight: bold;
 `;
 
 const PercentageCell = styled.div`
-  width: 250px;
-  height: 250px;
+  width: 15vw;
+  aspect-ratio: 1/1;
   margin-bottom: 30px;
   position: relative;
 `;
 
 const PercentageText = styled.div`
   padding-top: 5px;
-  font-size: 22px;
+  font-size: 2vw;
   text-align: center;
 `;
 

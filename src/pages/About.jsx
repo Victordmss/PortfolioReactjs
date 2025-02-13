@@ -52,13 +52,13 @@ const Section = styled.div`
 
 const FirstRow = styled.div`
   align-self: center;
-  gap: 4rem;
   height: 35vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  padding-inline: 2vw;
 `
 
 const SecondRow = styled.div`
@@ -72,7 +72,7 @@ const SecondRow = styled.div`
 const AboutContainer = styled.div`
   align-self: center;
   width: 80vw;
-  height: 45vh;
+  height: min(45vh, 600px);
   background: ${theme.colors.primary};
   border: 1px solid rgba(180, 180, 180, 0.12);
   box-shadow: #00479015 0px 0px 1rem 1rem;
@@ -84,6 +84,7 @@ const AboutContainer = styled.div`
   align-items: center;
   border-radius: 2rem;
   padding-block: 1rem;
+  overflow: auto;
 `;
 
 const SkillCell = styled.div`
@@ -103,7 +104,7 @@ const Skillsgrid = styled.div`
   flex-wrap: wrap;
   width: 100%;
   padding: 0.5rem;
-  height: 70%;
+  height: 100%;
 `
 
 const SkillTitleContainer = styled.div`
@@ -113,7 +114,7 @@ const SkillTitleContainer = styled.div`
   color: white;
   padding: 10px;
   margin-bottom: ${(props) => props.margin || "15px"};
-  font-size: 22px;
+  font-size: 1.5vw;
   text-align: center;
   font-weight: bold;
   height: max-content;
@@ -141,23 +142,25 @@ const HorizontalBorder = styled.div`
   width: 80%;
   height: 4px;
   border-radius: 20px;
+  margin-block: 1vh;
 `
 
  const StackBox = styled.div`
   border-radius: 10px;
-  height: 60px;
-  width: 60px;
+  width: clamp(min(4vw, 4vh), 4vw, min(6vw, 6vh));
+  aspect-ratio: 1 / 1; 
   background-image: url(${props => (props.url)});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  margin: 10px;
+  margin: 8px;
   transition: scale 0.1s ease-in-out;
 
   &:hover {
     scale: 1.2;
   }
+
 `;
 
 const HobbiesContainer = styled.div`
@@ -185,13 +188,18 @@ const HobbieTitle = styled.div`
 
 const HobbieDesc = styled.div`
   align-self: center;
-  padding-inline: 15px;
   font-size: 2vw;
 
   @media (max-width: 768px) {
     font-size: 3vw;
     margin-inline: 5vw;
   }
+`;
+
+const SwiperContainer = styled.div`
+  background: red;
+  height: 100%;
+  width: 90%;
 `;
 
 function About() {
@@ -260,27 +268,61 @@ function About() {
 
   const customSwiperStyles = `
     .swiper-button-next{
-      color: ${theme.colors.tertiary};
-      padding-left: 40px;
-      scale: 0.6;
-      transition: scale 0.1s ease-in-out;
-
-      &:hover {
-        scale: 0.8;
-      }
+      display: none;
     }
 
     .swiper-button-prev {
-      color: ${theme.colors.tertiary};
-      padding-right: 40px;
-      scale: 0.6;
-      transition: scale 0.1s ease-in-out;
-
-      &:hover {
-        scale: 0.8;
-      }
+      display: none;
     }
   `;
+
+  const DevSkillsPanel = ({ images }) => (
+    <SkillCell>
+      <SkillTitleContainer>Computer Science</SkillTitleContainer>
+      <Skillsgrid>
+        {images.map((item, index) => (
+          <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+            <StackBox url={item[1]} />
+          </a>
+        ))}
+      </Skillsgrid>
+    </SkillCell>
+  );
+  
+  const DevOpsSkillsPanel = ({ images, otherImages }) => (
+    <SkillCell>
+      <SkillTitleContainer>DevOps</SkillTitleContainer>
+      <Skillsgrid>
+        {images.map((item, index) => (
+          <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+            <StackBox url={item[1]} />
+          </a>
+        ))}
+      </Skillsgrid>
+      <HorizontalBorder/>
+      <SkillTitleContainer>Other</SkillTitleContainer>
+      <Skillsgrid>
+        {otherImages.map((item, index) => (
+          <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+            <StackBox url={item[1]} />
+          </a>
+        ))}
+      </Skillsgrid>
+    </SkillCell>
+  );
+  
+  const EmbeededSystemsSkillsPanel = ({ images }) => (
+    <SkillCell>
+      <SkillTitleContainer>Embedded Systems</SkillTitleContainer>
+      <Skillsgrid>
+        {images.map((item, index) => (
+          <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+            <StackBox url={item[1]} />
+          </a>
+        ))}
+      </Skillsgrid>
+    </SkillCell>
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -331,48 +373,30 @@ function About() {
             </FirstRow>
             <SecondRow>
               <AboutContainer>
-                <SkillCell>
-                    <SkillTitleContainer>
-                        Computer Science
-                    </SkillTitleContainer>
-                    <Skillsgrid>
-                    {devSkillsImages.map((item, index) => (
-                        <a key={index} href={item[2]} target="_blank" rel="noreferrer">
-                            <StackBox key={index} url={item[1]} />
-                        </a>))}
-                    </Skillsgrid>
-                </SkillCell>
-                <VerticalBorder/>
-                <SkillCell>
-                  <SkillTitleContainer margin={"5px"}>
-                      DevOps & Others
-                  </SkillTitleContainer>
-                  <Skillsgrid>
-                  {devOpsSkillsImages.map((item, index) => (
-                      <a key={index} href={item[2]} target="_blank" rel="noreferrer">
-                          <StackBox key={index} url={item[1]} />
-                      </a>))}
-                  </Skillsgrid>       
-                  <HorizontalBorder/>
-                  <Skillsgrid>
-                  {otherSkillsImages.map((item, index) => (
-                      <a key={index} href={item[2]} target="_blank" rel="noreferrer">
-                          <StackBox key={index} url={item[1]} />
-                      </a>))}
-                  </Skillsgrid>   
-                </SkillCell>
-                <VerticalBorder/>
-                <SkillCell>
-                    <SkillTitleContainer>
-                        Systems & Optimisation
-                    </SkillTitleContainer>
-                    <Skillsgrid>
-                    {embeededSystemsSkillsImages.map((item, index) => (
-                        <a key={index} href={item[2]} target="_blank" rel="noreferrer">
-                            <StackBox key={index} url={item[1]} />
-                        </a>))}
-                    </Skillsgrid>
-                </SkillCell>       
+                {isLargeScreen && <>
+                  <DevSkillsPanel images={devSkillsImages} />
+                  <VerticalBorder/>
+                  <DevOpsSkillsPanel images={devOpsSkillsImages} otherImages={otherSkillsImages} />
+                  <VerticalBorder/>
+                  <EmbeededSystemsSkillsPanel images={embeededSystemsSkillsImages} />       
+                </>}
+                {!isLargeScreen && <SwiperContainer>
+                  <Swiper
+                    modules={[Navigation, Autoplay]}
+                    navigation={true}
+                    slidesPerView={1}
+                    spaceBetween={0}
+                    loop={true}
+                    autoplay={{
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                        delay: 4000,
+                  }}>
+                    <SwiperSlide><DevSkillsPanel images={devSkillsImages} /></SwiperSlide>
+                    <SwiperSlide><DevOpsSkillsPanel images={devOpsSkillsImages} otherImages={otherSkillsImages} /></SwiperSlide>
+                    <SwiperSlide><EmbeededSystemsSkillsPanel images={embeededSystemsSkillsImages} /></SwiperSlide>
+                  </Swiper>
+                </SwiperContainer>}
               </AboutContainer>
             </SecondRow>
         </Section>
