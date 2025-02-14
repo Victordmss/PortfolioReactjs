@@ -146,11 +146,12 @@ const Button = styled.button`
   font-weight: bold;
   color: white;
   cursor: pointer;
-
+  
   display: flex;
   align-items: center;
   justify-content: center;
   
+  z-index: 10;
   transition: background-color 0.3s ease;
   transition: scale 0.1s ease-in-out, box-shadow 0.5s ease-in-out;
 
@@ -257,6 +258,7 @@ const HexaLeft = motion(styled.div`
 function Home() {
     const [robotClicked, setRobotClicked] = useState(true)
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
 
     // Setters 
     const handleRobotClicked = () => {
@@ -273,6 +275,20 @@ function Home() {
 
       return () => {
         window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+
+    // Screen size update
+    useEffect(() => {
+      const handleResize = () => {
+        setIsLargeScreen(window.innerWidth > 768);
+      };
+  
+      window.addEventListener("resize", handleResize);
+      handleResize(); 
+  
+      return () => {
+        window.removeEventListener("resize", handleResize);
       };
     }, []);
 
@@ -311,12 +327,13 @@ function Home() {
               <LogoUTC/>
               <LogoSNU/>
             </SecondRow>
-            <HexaLeft
+            {isLargeScreen && <HexaLeft
               initial={{x: -200}} 
               whileInView={{ x: 0}}
               transition={{ duration: 1, ease: "easeOut"}}
               viewport={{ once: false, amount: 0.01 }}
-            />
+            />}
+            {!isLargeScreen && <HexaLeft/>}
         </Section>
     )
 }

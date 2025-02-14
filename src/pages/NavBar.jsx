@@ -9,7 +9,7 @@ const Section = styled.div`
   height: 8vh;
   width: 100vw;
   position: fixed;
-  z-index: 1000;
+  z-index: 100000;
   background: ${(props) => (props.scrolled ? "white" : "transparent")};
   box-shadow: ${(props) =>
     props.scrolled ? theme.colors.tertiary_transparent + " 0px 0px 1rem 1rem" : "none"};

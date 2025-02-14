@@ -8,12 +8,16 @@ export const TitleRow = styled.div`
   padding-block : 1rem;
   color : ${theme.colors.tertiary};
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 4vw;
   height: 10vh;
   text-align: start;
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 10vw;
+  }
 `;
 
 // 3D robot model 

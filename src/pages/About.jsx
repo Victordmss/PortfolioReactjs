@@ -378,7 +378,7 @@ function About() {
                             autoplay={{
                                 disableOnInteraction: false,
                                 pauseOnMouseEnter: true,
-                                delay: 4000,
+                                delay: 2000,
                             }}
                         >
                             {hobbies.map((item, index) => (
