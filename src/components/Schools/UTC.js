@@ -45,7 +45,7 @@ import {
     DateTitleRow,
     DescriptionContainer, FirstRow, KeyWords, Presentation,
     RightArrow,
-    SchoolDescription, SchoolTitle, SecondRow, SemiLine, StackBox, StackList, StackListContainer,
+    SchoolDescription, SchoolTitle, SecondRow, SemiLine, StackBox, StackListContainer,
     TextDescription, VolunteeringTitle, Word
 } from "./SchoolLayout";
 
@@ -242,37 +242,35 @@ export function UtcComponent({animation}) {
             </FirstCol>
             <Presentation>
                 <StackListContainer>
-                    <StackList>
-                        <Swiper
-                            className={"UTCSwiper"}
-                            modules={[Autoplay, Pagination]}
-                            slidesPerView={3}
-                            spaceBetween={20}
-                            loop={true}
-                            autoplay={{
-                                delay: 2000,
-                                pauseOnMouseEnter: true,
-                                disableOnInteraction: false
-                            }}
-                            pagination={{
-                                clickable: true,
-                                dynamicBullets: true,
-                            }}
-                        >
-                            {degreeDisplayed==="Engineer" && stackBoxImagesEngineer.map((item, index) => (
-                                <SwiperSlide key={index}>
-                                    <a key={index} href={item[2]} target="_blank" rel="noreferrer">
-                                        <StackBox key={index} url={item[1]}/></a>
-                                </SwiperSlide>
-                            ))}
-                            {degreeDisplayed==="Master" && stackBoxImagesMaster.map((item, index) => (
-                                <SwiperSlide key={index}>
-                                    <a key={index} href={item[2]} target="_blank" rel="noreferrer">
-                                        <StackBox key={index} url={item[1]}/></a>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </StackList>
+                    <Swiper
+                        className={"UTCSwiper"}
+                        modules={[Autoplay, Pagination]}
+                        slidesPerView={3}
+                        spaceBetween={20}
+                        loop={true}
+                        autoplay={{
+                            delay: 2000,
+                            pauseOnMouseEnter: true,
+                            disableOnInteraction: false
+                        }}
+                        pagination={{
+                            clickable: true,
+                            dynamicBullets: true,
+                        }}
+                    >
+                        {degreeDisplayed==="Engineer" && stackBoxImagesEngineer.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+                                    <StackBox key={index} url={item[1]}/></a>
+                            </SwiperSlide>
+                        ))}
+                        {degreeDisplayed==="Master" && stackBoxImagesMaster.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <a key={index} href={item[2]} target="_blank" rel="noreferrer">
+                                    <StackBox key={index} url={item[1]}/></a>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </StackListContainer>
                 <Line color={theme.schools.utc}/>
                 <KeyWords>
@@ -302,15 +300,15 @@ export function UtcComponent({animation}) {
                 <SemiLine color={theme.schools.utc} size={degreeDisplayed === "Engineer" ? "20%" : "30%"}/>
                 {   
                     degreeDisplayed === "Engineer" &&
-                    <>
+                    <span style={{ fontSize: "1vw" }}>
                         Computer Science Engineering degree
-                    </>
+                    </span>
                 }
                 {   
                     degreeDisplayed === "Master" &&
-                    <>
+                    <span style={{ fontSize: "1vw" }}>
                         Robotics Master's degree
-                    </>
+                    </span>
                 }
                 <SemiLine color={theme.schools.utc} size={degreeDisplayed === "Engineer" ? "20%" : "30%"}/>
                 </DegreeTitle>

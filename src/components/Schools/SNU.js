@@ -25,7 +25,7 @@ import {
     DateTitleRow,
     DescriptionContainer, FirstRow, KeyWords, Presentation,
     RightArrow,
-    SchoolDescription, SchoolTitle, SecondRow, StackBox, StackList, StackListContainer,
+    SchoolDescription, SchoolTitle, SecondRow, StackBox, StackListContainer,
     TextDescription, Word
 } from "./SchoolLayout";
 
@@ -101,32 +101,30 @@ export function SnuComponent({animation}) {
             <Logo/>
             <Presentation>
                 <StackListContainer>
-                        <StackList>
-                            <Swiper
-                                className="RTUSwiper"
-                                modules={[Autoplay, Pagination]}
-                                slidesPerView={3}
-                                spaceBetween={25}
-                                loop={true}
-                                autoplay={{
-                                    delay: 2000,
-                                    pauseOnMouseEnter: true,
-                                    disableOnInteraction: false
-                                }}
-                                pagination={{
-                                    clickable: true,
-                                    dynamicBullets: true,
-                                }}
-                            >
-                                {stackBoxImages.map((item, index) => (
-                                    <SwiperSlide key={index}>
-                                        <a key={index} href={item[3]} target="_blank" rel="noreferrer">
-                                            <StackBox key={index} url={item[1]} color={item[2]}/></a>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </StackList>
-                    </StackListContainer>
+                    <Swiper
+                        className="RTUSwiper"
+                        modules={[Autoplay, Pagination]}
+                        slidesPerView={3}
+                        spaceBetween={25}
+                        loop={true}
+                        autoplay={{
+                            delay: 2000,
+                            pauseOnMouseEnter: true,
+                            disableOnInteraction: false
+                        }}
+                        pagination={{
+                            clickable: true,
+                            dynamicBullets: true,
+                        }}
+                    >
+                        {stackBoxImages.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <a key={index} href={item[3]} target="_blank" rel="noreferrer">
+                                    <StackBox key={index} url={item[1]} color={item[2]}/></a>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </StackListContainer>
                 <Line color={theme.schools.snu}/>
                 <KeyWords>
                     <Word> <a href={"https://fr.wikipedia.org/wiki/Intelligence_artificielle"} target="_blank" rel="noreferrer">Artificial intelligence</a> </Word>

@@ -4,16 +4,17 @@ import {theme} from "../../theme"
 
 export const DescriptionContainer = styled.div`
   z-index: 1;
-  padding: 20px;
+  padding-block: 2vh;
+  padding-inline: 1vw;
   width: 40vw;
-  height: fit-content;
-  max-height: 100%;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 10px;
+  overflow: auto;
 
-  border-radius: 50px;
+  border-radius: 3vw;
   background: ${theme.colors.primary};
   border: 1px solid rgba(180, 180, 180, 0.12);
   box-shadow: #00479015 0px 0px 1rem 1rem;
@@ -37,6 +38,13 @@ export const DescriptionContainer = styled.div`
       opacity: 0;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 80vw;
+    align-self: center;
+    animation: none;
+    margin-top: 5vh;
+  }
 `;
 
 export const SchoolTitle = styled.div`
@@ -45,15 +53,14 @@ export const SchoolTitle = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   gap: 5px;
   font-weight: bold;
 `;
 
 export const FirstRow = styled.div`
-  flex: 0.35;
+  flex: 0.45;
   width: 100%;
-  height: 30vh;
   align-self: center;
   display: flex;
   flex-direction: row;
@@ -70,26 +77,20 @@ export const Presentation = styled.div`
   flex-direction: column;
   justify-content: space-around;
   gap : 2px;
-  padding: 10px;
+  padding-block: 1vh;
   overflow: hidden;
 `;
 
 export const StackListContainer = styled.div`
-  flex: 0.4;
-  margin-top: 5px;
+  flex: 0.5;
+  margin-top: 0.5vh;
   width: 100%;
+  padding-left: clamp(min(0.75vw, 0.75vh), 1vw, 25px)
 `;
 
-export const StackList = styled.div`
-  margin-inline: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
-
-export const StackBox = styled.div`
-  height: 60px;
-  width: 60px;
+export const StackBox = styled.div` 
+  width: clamp(min(3vw, 3vh), 4vw, 100px);
+  aspect-ratio: 1 / 1;   
   background-image: url(${props => (props.url)});
   background-size: contain;
   background-repeat: no-repeat;
@@ -117,6 +118,7 @@ export const Word = styled.div`
   text-align: center;
   width: max-content;
   transition: letter-spacing 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1vw;
 
   &:hover {
       letter-spacing: 2px;
@@ -179,11 +181,11 @@ export const RightArrow = styled.div`
 
 export const TextDescription = styled.div`
   font-weight: bold;
-  font-size: 13px;
+  font-size: 1vw;
 `;
 
 export const VolunteeringTitle = styled.div`
-  font-size: 15px;
+  font-size: 1vw;
   width: 100%;
   padding: 7px;
   display: flex;
@@ -202,11 +204,7 @@ export const SemiLine = styled.div`
 export const AssociationListContainer = styled.div`
   width: 100%;
   height: fit-content;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-top: 10px;
   border-radius: 20px;
-  background: ${theme.colors.secondary_transparent};
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -218,13 +216,13 @@ export const AssociationList = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: 40px;
-  height: 60px;
+  height: fit-content;
 `;
 
 export const AssociationBox = styled.div`
   border-radius: 10px;
-  height: 60px;
-  width: 60px;
+  width: clamp(min(4vw, 4vh), 4vw, min(6vw, 6vh));
+  aspect-ratio: 1 / 1; 
   background: ${(props) => props.color};
   background-image: url(${props => (props.url)});
   background-size: contain;

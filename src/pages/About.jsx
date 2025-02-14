@@ -197,7 +197,8 @@ const HobbiesContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  z-index: 10;
+  
   @media (max-width: 768px) {
       width: 80%;
   }

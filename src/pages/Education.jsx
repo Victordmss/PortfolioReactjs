@@ -4,6 +4,11 @@ import {UtcComponent, RtuComponent, SnuComponent, Map, TitleRow} from "../compon
 import {theme} from "../theme"
 import hexa_flower from "../assets/hexa_flower.png"
 import {motion} from "framer-motion";
+import {Swiper, SwiperSlide } from "swiper/react";
+import {Autoplay, Navigation} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
 const Section = styled.div`
   height: 92vh;
@@ -21,6 +26,12 @@ const SecondRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+  }
 `;
 
 const Left = styled.div`
@@ -110,6 +121,26 @@ function Education() {
                 {description === "RTU" && <RtuComponent animation={isDescriptionOpen} />}
                 {description === "SNU" && <SnuComponent animation={isDescriptionOpen} />}
               </Right>
+            </>}
+            {!isLargeScreen && <>
+              <Swiper
+                modules={[Navigation, Autoplay]}
+                navigation
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
+                loop
+                slidesPerView={1}
+                spaceBetween={0}
+              >
+                <SwiperSlide>
+                  <UtcComponent/>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <RtuComponent/>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <SnuComponent/>
+                </SwiperSlide>
+              </Swiper>
             </>}
           </SecondRow>
         </Section>
