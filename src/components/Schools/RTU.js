@@ -32,13 +32,17 @@ import {Line} from "../index"
 
 const Logo = styled.div`
     flex: 0.5;
-  background-image: url(${logoRTU});
-  align-self: center;
-  width: 240px;
-  height: 190px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+    background-image: url(${logoRTU});
+    align-self: center;
+    width: 240px;
+    height: 190px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 function RTUDescription() {

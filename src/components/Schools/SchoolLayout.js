@@ -43,7 +43,9 @@ export const DescriptionContainer = styled.div`
     width: 80vw;
     align-self: center;
     animation: none;
-    margin-top: 5vh;
+    max-height: 30vh;
+    border-radius: 5vw;
+    justify-content: flex-start;
   }
 `;
 
@@ -56,6 +58,12 @@ export const SchoolTitle = styled.div`
   font-size: 1.5vw;
   gap: 5px;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    flex: 0.2;
+    font-size: 4vw;
+    height: 5vh;
+  }
 `;
 
 export const FirstRow = styled.div`
@@ -65,6 +73,10 @@ export const FirstRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Presentation = styled.div`
@@ -85,7 +97,7 @@ export const StackListContainer = styled.div`
   flex: 0.5;
   margin-top: 0.5vh;
   width: 100%;
-  padding-left: clamp(min(0.75vw, 0.75vh), 1vw, 25px)
+  padding-left: clamp(min(0.75vw, 0.75vh), 1vw, 25px);
 `;
 
 export const StackBox = styled.div` 
@@ -135,6 +147,11 @@ export const SecondRow = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    flex: 0.8;
+    justify-content: flex-start;
+  }
 `;
 
 export const SchoolDescription = styled.div`
@@ -146,6 +163,10 @@ export const SchoolDescription = styled.div`
   padding: 20px;
   padding-block: 10px;
   background: ${theme.colors.secondary_transparent};
+
+  @media (max-width: 768px) {
+    height: 15  vh;
+  }
 `;
 
 export const DateTitleRow = styled.div`
@@ -156,11 +177,16 @@ export const DateTitleRow = styled.div`
 `;
 
 export const DateTitle = styled.div`
-  font-size: 15px;
+  font-size: 1vw;
   border-radius: 15px;
   width: fit-content;
-  padding: 7px;
+  padding: 0.5vw;
   background: ${(props)=>props.gradient};
+
+  @media (max-width: 768px) {
+    font-size: 1vh;
+    padding: 0.5vh;
+  }
 `;
 
 export const DateLink = styled.div`
@@ -174,14 +200,18 @@ export const RightArrow = styled.div`
   align-self: center;
   width: 0;
   height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid ${(props)=>props.color};
+  border-top: 1vh solid transparent;
+  border-bottom: 1vh solid transparent;
+  border-left: 1vw solid ${(props)=>props.color};
 `;
 
 export const TextDescription = styled.div`
   font-weight: bold;
   font-size: 1vw;
+
+  @media (max-width: 768px) {
+    font-size: 1vh;
+  }
 `;
 
 export const VolunteeringTitle = styled.div`
@@ -193,12 +223,20 @@ export const VolunteeringTitle = styled.div`
   align-items: center;
   gap: 5px;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const SemiLine = styled.div`
   height: 2px;
   width: ${(props)=>props.size || "30%"};
   background: ${(props)=>props.color};
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const AssociationListContainer = styled.div`
@@ -208,6 +246,10 @@ export const AssociationListContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
   
 `;
 

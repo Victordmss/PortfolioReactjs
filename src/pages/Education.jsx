@@ -28,9 +28,12 @@ const SecondRow = styled.div`
   justify-content: space-evenly;
 
   @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2vh;
     justify-content: center;
     align-items: center;
-    margin-top: 2vh;
+    padding-block: 1rem;
+    overflow: visible;
   }
 `;
 
@@ -123,24 +126,9 @@ function Education() {
               </Right>
             </>}
             {!isLargeScreen && <>
-              <Swiper
-                modules={[Navigation, Autoplay]}
-                navigation
-                autoplay={{ delay: 4000, disableOnInteraction: false }}
-                loop
-                slidesPerView={1}
-                spaceBetween={0}
-              >
-                <SwiperSlide>
-                  <UtcComponent/>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <RtuComponent/>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <SnuComponent/>
-                </SwiperSlide>
-              </Swiper>
+              <UtcComponent/>
+              <RtuComponent/>
+              <SnuComponent/>
             </>}
           </SecondRow>
         </Section>

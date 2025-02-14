@@ -73,6 +73,10 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 // Degree selection raw
@@ -105,15 +109,19 @@ const DegreeButton = styled.div`
 
 // Degree selected title 
 const DegreeTitle = styled.div`
-  flex: 0.05;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 1rem;
-  gap: 5px;
-  font-weight: bold;
+    flex: 0.05;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1vw;
+    gap: 5px;
+    font-weight: bold;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 
@@ -300,15 +308,15 @@ export function UtcComponent({animation}) {
                 <SemiLine color={theme.schools.utc} size={degreeDisplayed === "Engineer" ? "20%" : "30%"}/>
                 {   
                     degreeDisplayed === "Engineer" &&
-                    <span style={{ fontSize: "1vw" }}>
+                    <>
                         Computer Science Engineering degree
-                    </span>
+                    </>
                 }
                 {   
                     degreeDisplayed === "Master" &&
-                    <span style={{ fontSize: "1vw" }}>
+                    <>
                         Robotics Master's degree
-                    </span>
+                    </>
                 }
                 <SemiLine color={theme.schools.utc} size={degreeDisplayed === "Engineer" ? "20%" : "30%"}/>
                 </DegreeTitle>

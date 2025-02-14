@@ -40,6 +40,10 @@ const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 function SNUDescription() {
