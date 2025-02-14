@@ -6,11 +6,15 @@ import { theme } from "../theme";
 import emailjs from "emailjs-com"; // Assurez-vous que emailjs est bien installé
 
 const Section = styled.div`
-  height: 70vh;
+  height: 92vh;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    height: 70vh;
+  }
 `;
 
 const FirstRow = styled.div`
