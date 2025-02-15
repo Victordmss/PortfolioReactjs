@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Pagination} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css/bundle';
-import {OthelloProject, DaDProject, PortfolioProject, CookeatProject, TitleRow, ARS4Project, ARS5Project, PicassoProject} from "../components"
+import {OthelloProject, DaDProject, PortfolioProject, CookeatProject, TitleRow, ARS4Project, ARS5Project, PicassoProject, SY32Project} from "../components"
 import {theme} from "../theme"
 
 const Section = styled.div`
@@ -48,6 +48,7 @@ const ProjectBox = styled.div`
 function Projects() {
 
     const data = [
+        { component: <SY32Project/>, color: "rgb(255, 221, 68)", gradient: "linear-gradient(to right,rgb(255, 221, 68) 0, rgba(255, 221, 68, 0.55) 15%, rgb(255, 221, 68) 25%)"},
         { component: <PicassoProject/>, color: "rgb(170, 113, 66)", gradient: "linear-gradient(to right,rgb(170, 113, 66) 0, rgba(203, 156, 117, 0.82) 15%, rgb(170, 113, 66) 25%)"},
         { component: <ARS4Project/>, color: "rgb(172, 14, 0)", gradient: "linear-gradient(to right,rgb(172, 14, 0) 0, rgba(166, 54, 44, 0.66) 15%, rgb(172, 14, 0) 25%)"},
         { component: <ARS5Project/>, color: "rgb(0, 20, 172)", gradient: "linear-gradient(to right,rgb(0, 20, 172) 0, rgba(62, 74, 170, 0.44) 15%, rgb(0, 20, 172) 25%)"},

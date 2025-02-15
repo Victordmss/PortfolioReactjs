@@ -33,7 +33,7 @@ export function DaDProject({color, gradient}) {
             <FirstColumn>
                 <TitleRow>
                   <ProjectTitle fontsize={"3vw"} gradient={gradient}>Drag&Drop Maker</ProjectTitle>
-                  <LinkBox url={logoGithub}/>
+                  <LinkBox url={logoGithub} href="https://github.com/Victordmss/DaD" target="_blank"/>
                 </TitleRow>
                 <br/>
                 <BriefDescription>

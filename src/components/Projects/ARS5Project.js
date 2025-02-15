@@ -2,7 +2,6 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay} from "swiper/modules";
 import React from "react";
 import logoSIMULINK from "../../assets/Logos/logoSimulink.png";
-import logoGithub from "../../assets/Logos/logoGITHUB.png";
 import logoTelechargement from "../../assets/Logos/logoTELECHARGEMENTPDF.png"
 import logoOVERLEAF from "../../assets/Logos/logoOVERLEAF.jpg";
 import logoMATLAB from "../../assets/Logos/logoMatlab.png";
@@ -45,9 +44,8 @@ export function ARS5Project({color, gradient}) {
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <LinkBox url={logoTelechargement}/>
+                <LinkBox url={logoTelechargement} onClick={() => window.open(`${process.env.PUBLIC_URL}/ARS5_Project.pdf`, '_blank')}/>
                 <ProjectTitle fontsize={"3vw"} gradient={gradient}>Quadcopter Control</ProjectTitle>
-                <LinkBox url={logoGithub}/>
               </TitleRow>                
               <BriefDescription>
                 Euler-Lagrange modelling of a quadcopter, stabilisation using neested saturation functions and trajectory convergence.

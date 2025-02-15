@@ -44,7 +44,7 @@ export function OthelloProject({color, gradient}) {
             <FirstColumn>
                 <TitleRow>
                   <ProjectTitle gradient={gradient}>Othello</ProjectTitle>
-                  <LinkBox url={logoGithub}/>
+                  <LinkBox url={logoGithub} href="https://github.com/Victordmss/Othello_minimaxAI" target="_blank"/>
                 </TitleRow>
                 <BriefDescription>
                   Development of Othello game on python with implementation of an intelligent bot based on a heuristic minimax algorithm

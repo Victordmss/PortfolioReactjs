@@ -51,7 +51,7 @@ export function CookeatProject({color, gradient}) {
             <FirstColumn>
                 <TitleRow>
                     <ProjectTitle gradient={gradient}>Cookeat</ProjectTitle>
-                    <LinkBox url={logoGithub}/>
+                    <LinkBox url={logoGithub} href="https://github.com/Victordmss/Cookeat" target="_blank"/>
                 </TitleRow>        
                 <BriefDescription>
                   Recipe management application with the possibility to customize an own account

@@ -45,9 +45,9 @@ export function ARS4Project({color, gradient}) {
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <LinkBox url={logoTelechargement}/>
+                <LinkBox url={logoTelechargement} onClick={() => window.open(`${process.env.PUBLIC_URL}/ARS4_Project.pdf`, '_blank')}/>
                 <ProjectTitle fontsize={"4vw"} gradient={gradient}>UrbanNav</ProjectTitle>
-                <LinkBox url={logoGithub}/>
+                <LinkBox url={logoGithub} href="https://github.com/Victordmss/ARS4_urbanNav" target="_blank"/>
               </TitleRow>                
               <BriefDescription>
                 Localization using poles and signs detected by a lidar in urban environment of the city of Compiegne.

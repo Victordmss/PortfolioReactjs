@@ -57,7 +57,7 @@ export const ProjectTitle = styled.div`
   }
 `;
 
-export const LinkBox = styled.div`
+export const LinkBox = styled.a`
     width: min(7vw, 7vh);
     aspect-ratio: 1 / 1; 
     background: url(${props => props.url}) no-repeat center;

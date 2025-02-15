@@ -43,7 +43,7 @@ export function PortfolioProject({color, gradient}) {
             <FirstColumn>
               <TitleRow>
                 <ProjectTitle fontsize={"4vw"} gradient={gradient}>Web Portfolio</ProjectTitle>
-                <LinkBox url={logoGithub}/>
+                <LinkBox url={logoGithub} href="https://github.com/Victordmss/PortfolioReactjs" target="_blank"/>
               </TitleRow>                
               <BriefDescription>
                 Creating a portfolio website in React.js from scratch

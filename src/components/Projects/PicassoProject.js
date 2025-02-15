@@ -93,7 +93,7 @@ export function PicassoProject({color, gradient}) {
             <FirstColumn>
               <TitleRow>
                 <ProjectTitle fontsize={"4vw"} gradient={gradient}>Picasso</ProjectTitle>
-                <LinkBox url={logoGithub}/>
+                <LinkBox url={logoGithub} href="https://github.com/picasso-utc" target="_blank"/>
               </TitleRow>                
               <BriefDescription>
                 Co-Maintenance and development of the IT infrastructure at Picasso, the UTC student home association.
