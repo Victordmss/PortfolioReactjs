@@ -32,7 +32,7 @@ export function DaDProject({color, gradient}) {
         <BoxContent>
             <FirstColumn>
                 <TitleRow>
-                  <ProjectTitle fontsize={"3rem"} gradient={gradient}>Drag&Drop Maker</ProjectTitle>
+                  <ProjectTitle fontsize={"3vw"} gradient={gradient}>Drag&Drop Maker</ProjectTitle>
                   <LinkBox url={logoGithub}/>
                 </TitleRow>
                 <br/>
@@ -40,8 +40,8 @@ export function DaDProject({color, gradient}) {
                   Creation of a mario maker style game, based on drag&drop functionality
                 </BriefDescription>
                 <MediaContainer color={color}>
-                    <video width="100%" height="100%" autoPlay loop muted>
-                        <source src={DaDPreview} type="video/mp4"/>
+                    <video width="100%" height="100%" autoPlay loop muted style={{ objectFit: "cover" }}>
+                        <source src={DaDPreview} type="video/mp4" />
                     </video>
                 </MediaContainer>
             </FirstColumn>

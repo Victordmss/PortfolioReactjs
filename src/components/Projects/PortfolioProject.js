@@ -42,7 +42,7 @@ export function PortfolioProject({color, gradient}) {
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <ProjectTitle fontsize={"4rem"} gradient={gradient}>Web Portfolio</ProjectTitle>
+                <ProjectTitle fontsize={"4vw"} gradient={gradient}>Web Portfolio</ProjectTitle>
                 <LinkBox url={logoGithub}/>
               </TitleRow>                
               <BriefDescription>

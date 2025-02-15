@@ -210,7 +210,7 @@ export const TextDescription = styled.div`
   font-size: 1vw;
 
   @media (max-width: 768px) {
-    font-size: 1vh;
+    font-size: min(1.5vh, 2.5vw);
   }
 `;
 

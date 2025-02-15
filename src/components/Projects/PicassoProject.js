@@ -34,6 +34,7 @@ import {Line} from "../index"
 
 
 const StackRowSwiper = styled.div`
+  margin-top: 2vh;
   align-self: center;
   display: flex;
   justify-content: center;
@@ -42,21 +43,29 @@ const StackRowSwiper = styled.div`
   width: 40vh;
   height: 100%;
   padding-left: 5%;
+
+  @media (max-width: 768px) {
+    width: 80%;
+    margin-top: 1vh;
+  }
 `;
 
 const StackBox = styled.div`
-  background-image: url(${props => (props.url)});
+  width: min(7vw, 7vh);
+  aspect-ratio: 1 / 1; 
+  background: url(${props => (props.url)}) no-repeat center;
   background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   cursor: pointer;;
-  border-radius: 10px;
-  height: 70%;
-  width: 65%;
+  border-radius: 1vw;
   transition : scale 0.1s ease-in-out;
 
   &:hover{
     scale: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    width: max(5vw, 5vh);
+    aspect-ratio: 1 / 1; 
   }
 `;
 
@@ -83,7 +92,7 @@ export function PicassoProject({color, gradient}) {
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <ProjectTitle fontsize={"4rem"} gradient={gradient}>Picasso</ProjectTitle>
+                <ProjectTitle fontsize={"4vw"} gradient={gradient}>Picasso</ProjectTitle>
                 <LinkBox url={logoGithub}/>
               </TitleRow>                
               <BriefDescription>
@@ -111,19 +120,19 @@ export function PicassoProject({color, gradient}) {
             <SecondColumn>
                 <Description>
                     <KeyWords>
-                        <Word fontsize="1rem">
+                        <Word fontsize="1.2vw">
                             Laravel & Filament Backoffice development
                         </Word>
-                        <Word fontsize="1rem">
+                        <Word fontsize="1.2vw">
                             Student card paiement with web IHM
                         </Word>
-                        <Word fontsize="1rem">
+                        <Word fontsize="1.2vw">
                             Web event pages
                         </Word>
-                        <Word fontsize="1rem">
+                        <Word fontsize="1.2vw">
                             PMA Database 
                         </Word>
-                        <Word fontsize="1rem">
+                        <Word fontsize="1.2vw">
                             Project Management
                         </Word>
                     </KeyWords>

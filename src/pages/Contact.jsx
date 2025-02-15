@@ -11,6 +11,7 @@ const Section = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: ${theme.gradient.background};
 
   @media (max-width: 768px) {
     height: 70vh;

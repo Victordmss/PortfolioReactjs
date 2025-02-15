@@ -14,6 +14,11 @@ const Section = styled.div`
   box-shadow: ${(props) =>
     props.scrolled ? theme.colors.tertiary_transparent + " 0px 0px 1rem 1rem" : "none"};
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    background: ${(props) => (props.scrolled ? "transparent" : "transparent")};
+    box-shadow: none;
+  }
 `;
 
 const Container = styled.div`
@@ -39,6 +44,14 @@ const Avatar = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 768px) {
+    background: ${theme.colors.secondary_transparent};
+    background-image: url(${(props) => props.url});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 `;
 
 const Nav = styled.nav`
@@ -160,7 +173,7 @@ function NavBar() {
     if (targetElement) {
       targetElement.scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: isLargeScreen ? "end": "center",
       });
     }
     setMenuOpen(false); 

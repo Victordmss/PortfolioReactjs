@@ -11,10 +11,14 @@ const Section = styled.div`
   width : 100vw;
   display: flex;
   flex-direction: column;
-  background: ${theme.colors.secondary_transparent};
+  background: ${theme.gradient.background_inverted};
   justify-content: flex-start;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2vh;
+
+  @media (max-width: 768px) {
+    height: 75vh;
+  }
 `;
 
 const ProjectBox = styled.div`
@@ -22,15 +26,21 @@ const ProjectBox = styled.div`
   width: 90vw;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding-inline: 2vw;
+  padding-block: 2vh;
   flex-direction: row;
   background: ${theme.colors.primary};
   border: 1px solid rgba(180, 180, 180, 0.12);
   box-shadow: #00479015 0px 0px 1rem 1rem;
-  border-radius: 40px;
+  border-radius: 30px;
   overflow: hidden; 
-  padding-inline: 2rem;
 
+  @media (max-width: 768px) {
+    width: 75vw;
+    padding-block: 1vh;
+    height: fit-content;
+    max-height: 60vh;
+  }
 `;
 
 function Projects() {

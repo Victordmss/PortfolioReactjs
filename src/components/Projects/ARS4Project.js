@@ -46,7 +46,7 @@ export function ARS4Project({color, gradient}) {
             <FirstColumn>
               <TitleRow>
                 <LinkBox url={logoTelechargement}/>
-                <ProjectTitle fontsize={"4rem"} gradient={gradient}>UrbanNav</ProjectTitle>
+                <ProjectTitle fontsize={"4vw"} gradient={gradient}>UrbanNav</ProjectTitle>
                 <LinkBox url={logoGithub}/>
               </TitleRow>                
               <BriefDescription>
