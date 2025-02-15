@@ -94,6 +94,7 @@ const Title = styled.h1`
   font-size: 4vw;
   color: ${theme.colors.tertiary};
   z-index: 1000;
+  
   @media (max-width: 768px) {
     font-size: 10vw;
     text-align: center;
@@ -113,7 +114,6 @@ const Subtitle = styled.h2`
 const Desc = styled.div`
   overflow: hidden;
   font-size: 1vw;
-  font-weight: bold;
   height: fit-content;
   padding-right: 5rem;
   margin-block: 1rem;
@@ -299,12 +299,16 @@ function Home() {
                   <Title>VICTOR DEMESSANCE</Title>
                   <Subtitle>Computer science & robotics engineer</Subtitle>
                   <Desc>
-                      I'm a future French engineer interested in computer science, but also in any kind of knowledge. My favorite pastime is learning and understanding how things work. From the smallest insect 🪲 to the largest galaxy 🔭, everything can be understood and absorbed. <br/><br/>
-                      On this website, I want to present one of my passions, computer science.
-                      As a way to present myself and to discover a new knowledge, I decided to create this portfolio in React.js from scratch. <br></br>
-                  </Desc>
-                  <Button onClick={() => window.open("/CV_Victordemessance.pdf", '_blank')}>Click to learn more about me !</Button>
-              </Left>
+                    A computer engineer trained at the UTC, I'm passionate about discovering and understanding the world, 
+                    whether it's the mechanisms of the smallest insect 🪲 or the mysteries of the universe 🔭. 
+                    My favourite field is embedded computing and autonomous transport systems. <br/> <br/>
+                    On this website, I want to share my passion for computing and showcase my projects. 
+                    To combine learning and practice, I designed this portfolio in React.js from scratch.
+                    </Desc>
+                  <Button onClick={() => window.open(`${process.env.PUBLIC_URL}/CV_Victordemessance.pdf`, '_blank')}>
+                    Click to learn more about me !
+                  </Button>              
+                </Left>
               <BackgroundRightSmartphone/>
               <Right
                 style={{

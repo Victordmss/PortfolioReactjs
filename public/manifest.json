@@ -3,12 +3,12 @@
   "name": "Victor Demessance",
   "icons": [
     {
-      "src": "favico.ico",
+      "src": "favicon.ico",
       "type": "image/png",
       "sizes": "256x256"
     }
   ],
-  "start_url": ".",
+  "start_url": "/PortfolioReactjs/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

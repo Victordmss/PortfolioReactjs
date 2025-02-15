@@ -131,7 +131,7 @@ export function SnuComponent({animation}) {
                 </StackListContainer>
                 <Line color={theme.schools.snu}/>
                 <KeyWords>
-                    <Word> <a href={"https://fr.wikipedia.org/wiki/Intelligence_artificielle"} target="_blank" rel="noreferrer">Artificial intelligence</a> </Word>
+                    <Word> <a href={"https://en.wikipedia.org/wiki/Artificial_intelligence"} target="_blank" rel="noreferrer">Artificial intelligence</a> </Word>
                     <Word> <a href={"https://en.wikipedia.org/wiki/Signal_processing#:~:text=Signal%20processing%20is%20an%20electrical,altimetry%20processing%2C%20and%20scientific%20measurements."} target="_blank" rel="noreferrer">Signal Processing</a> </Word>
                     <Word> <a href={"https://en.wikipedia.org/wiki/Web_development"} target="_blank" rel="noreferrer">Web Programming</a> </Word>
                 </KeyWords>

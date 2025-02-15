@@ -35,7 +35,7 @@ export function OthelloProject({color, gradient}) {
     ]
 
     const Stack = [
-        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["Python", logoPYTHON, "https://www.python.org/"],
         ["Pygame", logoPYGAME, "https://www.pygame.org/news"],
     ]
 

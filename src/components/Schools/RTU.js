@@ -69,7 +69,7 @@ function RTUDescription() {
 export function RtuComponent({animation}) {
 
     const stackBoxImages = [
-        ["Python", logoPYTHON, "transparent", "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+        ["Python", logoPYTHON, "transparent", "https://www.python.org/"],
         ["UML", logoUML, "transparent", "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
         ["C++", logoCplusplus, "transparent", "https://en.wikipedia.org/wiki/C%2B%2B"],
         ["WORDPRESS", logoWORDPRESS, "transparent", "https://en.wikipedia.org/wiki/WordPress.com"],
@@ -131,7 +131,7 @@ export function RtuComponent({animation}) {
                 <Line color="#225451"/>
                 <KeyWords>
                     <Word> <a href={"https://en.wikipedia.org/wiki/Software_development"} target="_blank" rel="noreferrer">Software engineering</a> </Word>
-                    <Word> <a href={"https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet"} target="_blank" rel="noreferrer">OOP</a> </Word>
+                    <Word> <a href={"https://en.wikipedia.org/wiki/Object-oriented_programming"} target="_blank" rel="noreferrer">OOP</a> </Word>
                     <Word> <a href={"https://en.wikipedia.org/wiki/Artificial_intelligence"} target="_blank" rel="noreferrer">AI & Machine's learning</a> </Word>
                     <Word> <a href={"https://www.geeksforgeeks.org/fundamentals-of-algorithms/"} target="_blank" rel="noreferrer">Algorithms</a> </Word>
                 </KeyWords>

@@ -69,7 +69,7 @@ const NavItem = styled.a`
   margin: 0 1rem;
   color: var(--textColor);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   transition: transform 0.1s ease-in-out;
 
   &:hover {

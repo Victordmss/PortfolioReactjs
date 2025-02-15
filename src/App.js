@@ -7,6 +7,7 @@ import Education from "./pages/Education";
 import Projects from "./pages/Projects";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import { staticContactComponent } from "./components";
 
 const Container = styled.div`
   width: 100vw;
@@ -25,14 +26,16 @@ const Container = styled.div`
 function App() {
   return (
     <>
-    <NavBar/>
-    <Container>
-      <Home/>
-      <About/>
-      <Education/>
-      <Projects/>
-      <Contact/>
-    </Container>
+      {staticContactComponent()}
+
+      <NavBar />
+      <Container>
+        <Home />
+        <About />
+        <Education />
+        <Projects />
+        <Contact />
+      </Container>
     </>
   );
 }

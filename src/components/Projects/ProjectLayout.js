@@ -122,6 +122,7 @@ export const SecondColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   margin-block: 1vh;
   gap: 1vh;
 
@@ -132,7 +133,7 @@ export const SecondColumn = styled.div`
 
 export const Description = styled.div`
   height: 70%;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

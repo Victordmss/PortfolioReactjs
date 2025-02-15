@@ -53,3 +53,5 @@ export const Line = styled.div`
   background: ${(props) => props.color} ;
   margin-block: 2px;
 `;
+
+export {staticContactComponent} from "./staticContact"

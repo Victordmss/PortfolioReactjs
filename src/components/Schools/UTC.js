@@ -192,11 +192,11 @@ export function UtcComponent({animation}) {
 
     const stackBoxImagesEngineer = [
         ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
-        ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
-        ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
+        ["Python", logoPYTHON, "https://www.python.org/"],
+        ["SQL", logoSQL, "https://www.mysql.com/"],
         ["VHDL", logoVHDL, "https://en.wikipedia.org/wiki/VHDL"],
         ["PostreSQL", logoPOSTGRESQL, "https://en.wikipedia.org/wiki/PostgreSQL"],
-        ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
+        ["Linux", logoLINUX, "https://www.linux.org/"],
         ["R", logoR, "https://en.wikipedia.org/wiki/R_(programming_language)"],
         ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
     ];

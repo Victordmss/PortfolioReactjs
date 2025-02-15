@@ -234,14 +234,14 @@ function About() {
 
   const devSkillsImages = [
     // Dev languages
-    ["Python", logoPYTHON, "https://en.wikipedia.org/wiki/Python_(programming_language)"],
+    ["Python", logoPYTHON, "https://www.python.org/"],
     ["C", logoC, "https://en.wikipedia.org/wiki/C_(programming_language)"],
     ["JS", logoJS, "transparent", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
     ["PHP", logoPHP, "transparent", "https://www.php.net/"],
     ["C++", logoCplusplus, "https://en.wikipedia.org/wiki/C%2B%2B"],
 
     // Logo SGBD
-    ["SQL", logoSQL, "https://en.wikipedia.org/wiki/SQL"],
+    ["SQL", logoSQL, "https://www.mysql.com/"],
     ["PostreSQL", logoPOSTGRESQL, "https://www.postgresql.org/"],
     ["PhpMyAdmin", logoPHPMYADMIN, "https://www.phpmyadmin.net/"],
 
@@ -253,7 +253,6 @@ function About() {
   ];
 
   const devOpsSkillsImages = [
-    // Project management
     ["CMake", logoCMAKE, "https://cmake.org/"], 
     ["Jupyter", logoJUPYTER, "https://jupyter.org/"],
     ["Overleaf", logoOVERLEAF, "https://fr.overleaf.com"],
@@ -261,7 +260,6 @@ function About() {
   ];
 
   const otherSkillsImages = [
-    // Project management
     ["DrawIO", logoDRAWIO, "https://app.diagrams.net/"],
     ["Figma", logoFIGMA, "https://www.figma.com/"],
     ["Microsoft", logoMICROSOFT, "https://www.office.com/"],
@@ -269,7 +267,7 @@ function About() {
 
   const embeededSystemsSkillsImages = [
     // Embeeded systems
-    ["Linux", logoLINUX, "https://en.wikipedia.org/wiki/Linux"],
+    ["Linux", logoLINUX, "https://www.linux.org/"],
     ["Matlab", logoMATLAB, "https://www.mathworks.com/products/matlab.html"],
     ["Simulink", logoSIMULINK, "https://en.wikipedia.org/wiki/Simulink"],
     ["Octave", logoOCTAVE, "https://octave.org/"],
@@ -285,14 +283,19 @@ function About() {
     ["UML", logoUML, "https://en.wikipedia.org/wiki/Unified_Modeling_Language"],
   ];
 
+  // Hobbies
   const hobbies = [
-    ["Rugby", 'A healthy mind in a healthy body'],
+    ["Rugby", "10 years of national competition"],
     ["Poetry", "Science describes nature, poetry paints and embellishes it"],
-    ["Driver Licence", '"B" permit. Personal car'],
-    ["Biology", "Even the smallest of gardens offers mankind the most beautiful of spectacles"],
-    ["Video Games", "Every vocation is born of a hobby"]
-  ]
-
+    ["Photography", "Capturing moments, playing with light and perspectives"],
+    ["Music", "A passion that sets the rhythm of my days"],
+    ["Biology", "Even the smallest garden offers mankind the most beautiful spectacle"],
+    ["Cognition", "Understanding the mechanics of thought and perception"],
+    ["Video Games", "Every vocation is born of a hobby"],
+    ["Travel", "Exploring the world and discovering new cultures"],
+    ["Driver Licence", '"B" permit. Personal car']
+  ];
+  
   const customSwiperStyles = `
     .swiper-button-next{
       display: none;

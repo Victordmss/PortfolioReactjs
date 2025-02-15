@@ -26,6 +26,7 @@ const ProjectBox = styled.div`
   width: 90vw;
   display: flex;
   justify-content: space-between;
+  margin-block: 2vh;
   padding-inline: 2vw;
   padding-block: 2vh;
   flex-direction: row;
@@ -37,6 +38,7 @@ const ProjectBox = styled.div`
 
   @media (max-width: 768px) {
     width: 75vw;
+    margin-block: 0vh;
     padding-block: 1vh;
     height: fit-content;
     max-height: 60vh;
