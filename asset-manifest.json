@@ -1,12 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.a6b8ada9.css",
-    "main.js": "/static/js/main.e53f9224.js",
+    "main.js": "/static/js/main.03de8b9c.js",
+    "static/media/SY32_Project.pdf": "/static/media/SY32_Project.b9c604397e5789d8cccd.pdf",
     "static/media/PreviewDad.mp4": "/static/media/PreviewDad.21488858b8af736a6819.mp4",
     "static/media/SY32_1.png": "/static/media/SY32_1.478f11b5492d52022ef4.png",
     "static/media/Picasso_3.png": "/static/media/Picasso_3.ae73345d8f7213e03116.png",
     "static/media/othello1.png": "/static/media/othello1.fc6dbd41dbbd719f445b.png",
     "static/media/othello3.png": "/static/media/othello3.68cb06842dca561f3e61.png",
+    "static/media/ARS5_Project.pdf": "/static/media/ARS5_Project.89e223f9c7c628ef795a.pdf",
     "static/media/logoINTEGFEV.png": "/static/media/logoINTEGFEV.419e3787c53d423cc1f3.png",
     "static/media/Portfolio1.png": "/static/media/Portfolio1.7e79b8ed48e6425a9fc6.png",
     "static/media/othello2.png": "/static/media/othello2.91234a8b247f210c1f0f.png",
@@ -15,6 +17,7 @@
     "static/media/HomeTR_background.png": "/static/media/HomeTR_background.8b608a542e5c790c58b1.png",
     "static/media/HomeRobot_background.png": "/static/media/HomeRobot_background.85facc96aa8fa04a04fe.png",
     "static/media/Portfolio3.png": "/static/media/Portfolio3.836d73b6428b8facd36d.png",
+    "static/media/ARS4_Project.pdf": "/static/media/ARS4_Project.52005df73f5fb47b967e.pdf",
     "static/media/SY32_2.png": "/static/media/SY32_2.07c80b2a81fc49e0084b.png",
     "static/media/logoR.png": "/static/media/logoR.a05f0d1389387a91a676.png",
     "static/media/ARS5_2.png": "/static/media/ARS5_2.031820f506b450ca75a8.png",
@@ -26,6 +29,7 @@
     "static/media/logoPHP.png": "/static/media/logoPHP.1f32f22bff6c373c52fc.png",
     "static/media/logoOctave.png": "/static/media/logoOctave.97db2c67028c867f74dd.png",
     "static/media/SY32_3.png": "/static/media/SY32_3.046a06edceffd2bb97f3.png",
+    "static/media/CV_Victordemessance.pdf": "/static/media/CV_Victordemessance.172227e035731237f20a.pdf",
     "static/media/logoPHPMA.png": "/static/media/logoPHPMA.fcfb5c3a3dd9ab60c409.png",
     "static/media/ARS4_2.png": "/static/media/ARS4_2.fed76d0f5dd8df1c4ecc.png",
     "static/media/logoRASPBERRY.png": "/static/media/logoRASPBERRY.d8ea35197beac0126c12.png",
@@ -87,6 +91,6 @@
   },
   "entrypoints": [
     "static/css/main.a6b8ada9.css",
-    "static/js/main.e53f9224.js"
+    "static/js/main.03de8b9c.js"
   ]
 }
