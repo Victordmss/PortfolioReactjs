@@ -9,6 +9,7 @@ import logoMATLAB from "../../assets/Logos/logoMatlab.png";
 import ARS4_1 from "../../assets/ProjectsCanvas/ARS4_1.png";
 import ARS4_2 from "../../assets/ProjectsCanvas/ARS4_2.png";
 import ARS4_3 from "../../assets/ProjectsCanvas/ARS4_3.png";
+import PDF from "../../assets/ARS4_Project.pdf";
 
 import {BoxContent, 
   FirstColumn, 
@@ -45,7 +46,7 @@ export function ARS4Project({color, gradient}) {
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <LinkBox url={logoTelechargement} onClick={() => window.open(`${process.env.PUBLIC_URL}/ARS4_Project.pdf`, '_blank')}/>
+                <LinkBox url={logoTelechargement} onClick={() => window.open(PDF, '_blank')}/>
                 <ProjectTitle fontsize={"4vw"} gradient={gradient}>UrbanNav</ProjectTitle>
                 <LinkBox url={logoGithub} href="https://github.com/Victordmss/ARS4_urbanNav" target="_blank"/>
               </TitleRow>                

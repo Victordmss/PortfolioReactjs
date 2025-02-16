@@ -10,6 +10,7 @@ import logoPYTHON from "../../assets/Logos/logoPYTHON.png";
 import SY32_1 from "../../assets/ProjectsCanvas/SY32_1.png";
 import SY32_2 from "../../assets/ProjectsCanvas/SY32_2.png";
 import SY32_3 from "../../assets/ProjectsCanvas/SY32_3.png";
+import PDF from "../../assets/SY32_Project.pdf";
 
 import {BoxContent, 
   FirstColumn, 
@@ -47,7 +48,7 @@ export function SY32Project({color, gradient}) {
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <LinkBox url={logoTelechargement} onClick={() => window.open(`${process.env.PUBLIC_URL}/SY32_Project.pdf`, '_blank')}/>
+                <LinkBox url={logoTelechargement} onClick={() => window.open(PDF, '_blank')}/>
                 <ProjectTitle fontsize={"3.5vw"} gradient={gradient}>Sign detection</ProjectTitle>
                 <LinkBox url={logoGithub} href="https://github.com/Victordmss/SY32_sign_detection_learning/" target="_blank"/>
               </TitleRow>                

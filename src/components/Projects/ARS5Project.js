@@ -8,6 +8,7 @@ import logoMATLAB from "../../assets/Logos/logoMatlab.png";
 import ARS5_1 from "../../assets/ProjectsCanvas/ARS5_1.png";
 import ARS5_2 from "../../assets/ProjectsCanvas/ARS5_2.png";
 import ARS5_3 from "../../assets/ProjectsCanvas/ARS5_3.png";
+import PDF from "../../assets/ARS5_Project.pdf";
 
 import {BoxContent, 
   FirstColumn, 
@@ -44,7 +45,7 @@ export function ARS5Project({color, gradient}) {
         <BoxContent>
             <FirstColumn>
               <TitleRow>
-                <LinkBox url={logoTelechargement} onClick={() => window.open(`${process.env.PUBLIC_URL}/ARS5_Project.pdf`, '_blank')}/>
+                <LinkBox url={logoTelechargement} onClick={() => window.open(PDF, '_blank')}/>
                 <ProjectTitle fontsize={"3vw"} gradient={gradient}>Quadcopter Control</ProjectTitle>
               </TitleRow>                
               <BriefDescription>

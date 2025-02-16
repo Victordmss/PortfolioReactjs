@@ -10,7 +10,7 @@ import logoSNU from "../assets/Schools/SNU/logoSNU.png"
 import {theme} from "../theme"
 import backgroundImage from "../assets/HomeTR_background.png";
 import robotBackgroundImage from "../assets/HomeRobot_background.png";
-
+import CV from "../assets/CV_Victordemessance.pdf";
 import HexaLeftImg from "../assets/hexa_left.png"
 
 const Section = styled.div`
@@ -305,7 +305,7 @@ function Home() {
                     On this website, I want to share my passion for computing and showcase my projects. 
                     To combine learning and practice, I designed this portfolio in React.js from scratch.
                     </Desc>
-                  <Button onClick={() => window.open(`${process.env.PUBLIC_URL}/CV_Victordemessance.pdf`, '_blank')}>
+                  <Button onClick={() => window.open(CV, '_blank')}>
                     Click to learn more about me !
                   </Button>              
                 </Left>
