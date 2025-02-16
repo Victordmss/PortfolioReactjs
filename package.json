@@ -2,7 +2,7 @@
   "name": "portfolio_vd",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Victordmss.github.io/PortfolioReactjs",
+  "homepage": "https://victordemessance.com/",
   "dependencies": {
     "@react-three/drei": "^9.121.4",
     "@react-three/fiber": "^8.17.14",
